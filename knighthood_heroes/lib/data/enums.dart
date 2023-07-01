@@ -22,21 +22,26 @@ enum ERarity {
 enum ESkillClass {
   heal,
   damage,
+  healAndDamage,
 }
 
-enum EHealType {
-  health,
-  armor,
-  leech,
+enum ESkillEffect {
+  restoreHealth,
+  restoreArmor,
+  leechHealth,
+  leechHealthAll,
+  damagePlayerTarget,
+  damageBackRow,
+  damageFrontRow,
+  damageEnemiesInFront,
+  damageRandom,
+  damageAll,
+  damageSpread,
+  ignoresArmor,
 }
 
-enum EDamageType {
-  playerTarget,
-  backRow,
-  random,
-}
-
-enum EAttackEffect {
+enum ESkillDebuff {
+  none,
   poison,
   acid,
   unfocus,
@@ -50,6 +55,14 @@ enum EAttackEffect {
   reeze,
   delay,
   armor,
+}
+
+enum EHeroClass {
+  warrior,
+  mage,
+  rogue,
+  alchemist,
+  hunter,
 }
 
 enum EHeroType {
