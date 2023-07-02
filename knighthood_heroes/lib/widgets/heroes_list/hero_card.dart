@@ -49,7 +49,7 @@ class HeroCard extends StatelessWidget {
                 Row(
                   children: [
                     SkillDescription(hero.baseSkills, true),
-                    const SizedBox(width: 5),
+                    const SizedBox(width: 10),
                     SkillDescription(hero.rageSkill, false),
                   ],
                 )

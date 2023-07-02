@@ -13,7 +13,6 @@ class SkillDescription extends StatelessWidget {
     return Row(
       children: [
         Text(title),
-        const SizedBox(width: 5),
         Image(
           image: AssetImage(skill.getSkillImagePath),
           width: 20,
