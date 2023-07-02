@@ -1,10 +1,10 @@
 import 'package:knighthood_heroes/data/enums.dart';
-import 'package:knighthood_heroes/data/hero.dart';
-import 'package:knighthood_heroes/data/skill.dart';
+import 'package:knighthood_heroes/models/hero.dart';
+import 'package:knighthood_heroes/models/skill.dart';
 
-List<Hero> get getHeroes {
+List<KnighthoodHero> get getHeroes {
   return [
-    Hero(
+    KnighthoodHero(
       'Aeron',
       'assets/images/Aeron.jpg',
       ERarity.rare,
@@ -31,7 +31,7 @@ List<Hero> get getHeroes {
         ESkillDebuff.acid,
       ),
     ),
-    Hero(
+    KnighthoodHero(
       'Alder',
       'assets/images/Alder.jpg',
       ERarity.unique,
@@ -59,7 +59,7 @@ List<Hero> get getHeroes {
         ESkillDebuff.acid,
       ),
     ),
-    Hero(
+    KnighthoodHero(
       'Anaara',
       'assets/images/Anaara.jpg',
       ERarity.rare,

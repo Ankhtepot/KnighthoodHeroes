@@ -1,8 +1,8 @@
 import 'package:knighthood_heroes/data/enums.dart';
-import 'package:knighthood_heroes/data/skill.dart';
+import 'package:knighthood_heroes/models/skill.dart';
 
-class Hero {
-  Hero(
+class KnighthoodHero {
+  KnighthoodHero(
     this.name,
     this.avatarPath,
     this.rarity,
