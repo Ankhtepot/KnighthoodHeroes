@@ -8,4 +8,10 @@ class Skill {
   final ESkillDebuff strongVsDebuff;
   final List<ESkillEffect> skillEffects;
   final ESkillDebuff skillEffect;
+
+  String get getSkillImagePath => switch (skillClass) {
+        ESkillClass.damage => 'assets/images/damage.png',
+        ESkillClass.heal => 'assets/images/heal.png',
+        ESkillClass.healAndDamage => 'assets/images/damageHeal.png',
+      };
 }

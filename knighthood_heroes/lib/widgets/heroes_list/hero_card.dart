@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/colors.dart';
+import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/models/hero.dart';
-import 'package:knighthood_heroes/widgets/heroes_list/hero_name.dart';
+import 'package:knighthood_heroes/widgets/heroes_list/skill_description.dart';
+import 'package:knighthood_heroes/widgets/text_rounded_with_background.dart';
+
+String attackImage = 'assets/images/attack.png';
+String healImage = 'assets/images/heal.png';
 
 class HeroCard extends StatelessWidget {
   const HeroCard(this.hero, {super.key});
@@ -9,8 +15,6 @@ class HeroCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color rarityColor = getRarityColor(hero.rarity);
-
     return Card(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(5.0, 0, 0, 0),
@@ -28,11 +32,26 @@ class HeroCard extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    HeroName(hero),
+                    TextRoundedWithBackground(
+                      hero.name,
+                      textColor: Colors.black,
+                      backgroundColor: getRarityColor(hero.rarity),
+                      fontWeight: FontWeight.bold,
+                      horizontalPadding: 10,
+                    ),
+                    const SizedBox(width: 5),
+                    TextRoundedWithBackground(hero.heroClass.name.capitalize()),
+                    const SizedBox(width: 5),
+                    TextRoundedWithBackground(hero.heroType.name.capitalize()),
                   ],
                 ),
+                const SizedBox(height: 5),
                 Row(
-                  children: [Text('second line')],
+                  children: [
+                    SkillDescription(hero.baseSkills, true),
+                    const SizedBox(width: 5),
+                    SkillDescription(hero.rageSkill, false),
+                  ],
                 )
               ],
             ),

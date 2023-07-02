@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class TextRoundedWithBackground extends StatelessWidget {
-  TextRoundedWithBackground(this.text,
+  const TextRoundedWithBackground(this.text,
       {super.key,
       this.textColor = Colors.white,
       this.backgroundColor = Colors.black,
       this.fontSize = 16,
       this.fontWeight = FontWeight.normal,
-      this.padding = 0,
+      this.horizontalPadding = 5,
       this.borderRadius = 10});
 
   final String text;
@@ -15,7 +15,7 @@ class TextRoundedWithBackground extends StatelessWidget {
   final Color backgroundColor;
   final double fontSize;
   final FontWeight fontWeight;
-  final double padding;
+  final double horizontalPadding;
   final double borderRadius;
 
   @override
@@ -26,7 +26,7 @@ class TextRoundedWithBackground extends StatelessWidget {
         borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: Padding(
-        padding: EdgeInsets.all(padding),
+        padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
         child: Text(
           text,
           style: TextStyle(
