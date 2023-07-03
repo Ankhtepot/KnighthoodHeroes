@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/colors.dart';
-import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/models/hero.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/skill_description.dart';
@@ -46,13 +45,9 @@ class HeroCard extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 5),
-                Row(
-                  children: [
-                    SkillDescription(hero.baseSkills, true),
-                    const SizedBox(width: 10),
-                    SkillDescription(hero.rageSkill, false),
-                  ],
-                )
+                Row(children: [SkillDescription(hero.baseSkills, true)]),
+                const SizedBox(height: 5),
+                Row(children: [SkillDescription(hero.rageSkill, false)]),
               ],
             ),
           ],
