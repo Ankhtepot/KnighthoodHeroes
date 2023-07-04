@@ -15,7 +15,7 @@ class _HeroesState extends State<Heroes> {
       appBar: AppBar(
         title: const Text('Knighthood Heroes'),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [

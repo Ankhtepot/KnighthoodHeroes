@@ -14,21 +14,21 @@ List<KnighthoodHero> get getHeroes {
       Skill(
         'Poison Arrow',
         ESkillClass.damage,
-        ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.none,
+        skillDebuff: ESkillDebuff.poison,
         [
           ESkillEffect.damageEnemiesInFront,
           ESkillEffect.ignoresArmor,
         ],
-        ESkillDebuff.poison,
       ),
       Skill(
         'Acid Barrage',
         ESkillClass.damage,
-        ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.none,
+        skillDebuff: ESkillDebuff.acid,
         [
           ESkillEffect.damageAll,
         ],
-        ESkillDebuff.acid,
       ),
     ),
     KnighthoodHero(
@@ -41,22 +41,22 @@ List<KnighthoodHero> get getHeroes {
       Skill(
         'ThunderClap',
         ESkillClass.damage,
-        ESkillDebuff.none,
+        skillDebuff: ESkillDebuff.unfocus,
+        strongVsDebuff: ESkillDebuff.none,
         [
           ESkillEffect.damageFrontRow,
           ESkillEffect.ignoresArmor,
         ],
-        ESkillDebuff.unfocus,
       ),
       Skill(
         'Hail of Thorns',
         ESkillClass.damage,
-        ESkillDebuff.acid,
+        strongVsDebuff: ESkillDebuff.acid,
+        skillDebuff: ESkillDebuff.none,
         [
           ESkillEffect.damageSpread,
           ESkillEffect.ignoresArmor,
         ],
-        ESkillDebuff.acid,
       ),
     ),
     KnighthoodHero(
@@ -69,18 +69,21 @@ List<KnighthoodHero> get getHeroes {
       Skill(
         'Healing Bubble',
         ESkillClass.heal,
-        ESkillDebuff.none,
-        [ESkillEffect.restoreHealth, ESkillEffect.restoreArmor],
-        ESkillDebuff.protect,
+        strongVsDebuff: ESkillDebuff.none,
+        skillDebuff: ESkillDebuff.protect,
+        [
+          ESkillEffect.restoreHealth,
+          ESkillEffect.restoreArmor,
+        ],
       ),
       Skill(
         'Sulphurous Solution',
         ESkillClass.damage,
-        ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.none,
+        skillDebuff: ESkillDebuff.burn,
         [
           ESkillEffect.damageAll,
         ],
-        ESkillDebuff.burn,
       ),
     ),
   ];

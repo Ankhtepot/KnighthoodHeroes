@@ -3,7 +3,13 @@ import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/models/text_colors.dart';
 
 class Skill {
-  Skill(this.name, this.skillClass, this.strongVsDebuff, this.skillEffects, this.skillDebuff);
+  Skill(
+    this.name,
+    this.skillClass,
+    this.skillEffects, {
+    this.strongVsDebuff = ESkillDebuff.none,
+    this.skillDebuff = ESkillDebuff.none,
+  });
 
   final String name;
   final ESkillClass skillClass;
@@ -17,7 +23,7 @@ class Skill {
         ESkillClass.healAndDamage => 'assets/images/skills/damageHeal.png',
       };
 
-  TextColors get getDebuffColors => switch (skillDebuff) {
+  TextColors getDebuffColors(ESkillDebuff debuff) => switch (debuff) {
         ESkillDebuff.none => TextColors(Colors.white, Colors.black),
         ESkillDebuff.poison =>
           TextColors(const Color.fromARGB(255, 123, 255, 128), const Color.fromARGB(255, 0, 50, 17)),

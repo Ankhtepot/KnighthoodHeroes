@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/colors.dart';
-import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/models/hero.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/skill_description.dart';

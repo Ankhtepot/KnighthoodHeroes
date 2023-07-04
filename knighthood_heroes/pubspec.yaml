@@ -66,7 +66,8 @@ flutter:
     - assets/images/skills/damageHeal.png
     - assets/images/skills/debuff.png
     - assets/images/skills/heal.png
-    - assets/images/skills/strongAgainst.png
+    - assets/images/skills/strongVs.png
+    - assets/images/skills/shieldPositive.png
 
   # heros avatars
     - assets/images/heroes/Aeron.jpg

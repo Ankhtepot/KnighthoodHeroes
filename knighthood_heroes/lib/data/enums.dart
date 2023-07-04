@@ -26,16 +26,16 @@ enum ESkillClass {
 }
 
 enum ESkillEffect {
-  restoreHealth,
-  restoreArmor,
-  leechHealth,
-  leechHealthAll,
-  damagePlayerTarget,
-  damageBackRow,
-  damageFrontRow,
-  damageEnemiesInFront,
+  restoreHealth, // done
+  restoreArmor, // done
+  leechHealth, // done
+  leechHealthAll, // done
+  damagePlayerTarget, // done
+  damageBackRow, // done
+  damageFrontRow, // done
+  damageEnemiesInFront, // done
   damageRandom,
-  damageAll,
+  damageAll, // done
   damageSpread,
   ignoresArmor,
 }
