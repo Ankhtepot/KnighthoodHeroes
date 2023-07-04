@@ -46,13 +46,9 @@ class HeroCard extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 5),
-                Row(
-                  children: [
-                    SkillDescription(hero.baseSkills, true),
-                    const SizedBox(width: 10),
-                    SkillDescription(hero.rageSkill, false),
-                  ],
-                )
+                Row(children: [SkillDescription(hero.baseSkill, true)]),
+                const SizedBox(height: 5),
+                Row(children: [SkillDescription(hero.rageSkill, false)]),
               ],
             ),
           ],

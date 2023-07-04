@@ -52,7 +52,7 @@ enum ESkillDebuff {
   dispel,
   regenerate,
   expose,
-  reeze,
+  freeze,
   delay,
   armor,
 }

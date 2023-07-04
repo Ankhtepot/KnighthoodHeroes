@@ -6,7 +6,7 @@ List<KnighthoodHero> get getHeroes {
   return [
     KnighthoodHero(
       'Aeron',
-      'assets/images/Aeron.jpg',
+      'assets/images/heroes/Aeron.jpg',
       ERarity.rare,
       EHeroClass.hunter,
       EHeroType.dark,
@@ -33,7 +33,7 @@ List<KnighthoodHero> get getHeroes {
     ),
     KnighthoodHero(
       'Alder',
-      'assets/images/Alder.jpg',
+      'assets/images/heroes/Alder.jpg',
       ERarity.unique,
       EHeroClass.mage,
       EHeroType.logical,
@@ -61,7 +61,7 @@ List<KnighthoodHero> get getHeroes {
     ),
     KnighthoodHero(
       'Anaara',
-      'assets/images/Anaara.jpg',
+      'assets/images/heroes/Anaara.jpg',
       ERarity.rare,
       EHeroClass.alchemist,
       EHeroType.chaotic,
