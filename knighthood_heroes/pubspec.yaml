@@ -81,6 +81,7 @@ flutter:
     - assets/images/skills/dispelBuffs.png
     - assets/images/skills/dispelDebuffs.png
     - assets/images/skills/focus.png
+    - assets/images/skills/none.png
 
   # heros avatars
     - assets/images/heroes/Aeron.jpg

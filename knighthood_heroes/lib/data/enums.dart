@@ -22,12 +22,14 @@ enum ERarity {
 }
 
 enum ESkillClass {
+  none,
   heal,
   damage,
   healAndDamage,
 }
 
 enum ESkillEffect {
+  none,
   restoreHealth, // done
   restoreArmor, // done
   leechHealth, // done

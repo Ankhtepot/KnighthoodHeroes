@@ -19,7 +19,10 @@ class Skill {
   final List<ESkillEffect> skillEffects;
   final ESkillDebuff chanceTo;
 
-  String get getSkillImagePath => switch (skillClass) {
+  String get getSkillImagePath => getSkillClassImagePath(skillClass);
+
+  static String getSkillClassImagePath(ESkillClass skillClass) => switch (skillClass) {
+        ESkillClass.none => 'assets/images/skills/none.png',
         ESkillClass.damage => 'assets/images/skills/damage.png',
         ESkillClass.heal => 'assets/images/skills/restoreHealth.png',
         ESkillClass.healAndDamage => 'assets/images/skills/damageHeal.png',
@@ -38,7 +41,8 @@ class Skill {
         ESkillDebuff.weaken => TextColors(const Color.fromARGB(255, 133, 133, 133), Colors.black),
         ESkillDebuff.stun => TextColors(Colors.orange, Colors.white),
         ESkillDebuff.dispel => TextColors(const Color.fromARGB(255, 128, 128, 128), Colors.black),
-        ESkillDebuff.regenerate => TextColors(const Color.fromARGB(255, 125, 214, 255), const Color.fromARGB(255, 2, 134, 6)),
+        ESkillDebuff.regenerate =>
+          TextColors(const Color.fromARGB(255, 125, 214, 255), const Color.fromARGB(255, 2, 134, 6)),
         ESkillDebuff.expose => TextColors(Colors.grey, Colors.black),
         ESkillDebuff.freeze => TextColors(Colors.lightBlue, const Color.fromARGB(255, 0, 17, 255)),
         ESkillDebuff.delay => TextColors(const Color.fromARGB(255, 138, 138, 138), Colors.black),
