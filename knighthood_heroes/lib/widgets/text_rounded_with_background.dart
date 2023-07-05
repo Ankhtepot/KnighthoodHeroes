@@ -29,6 +29,7 @@ class TextRoundedWithBackground extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
         child: Text(
           text,
+          textAlign: TextAlign.center,
           style: TextStyle(
             color: textColor,
             fontSize: fontSize,

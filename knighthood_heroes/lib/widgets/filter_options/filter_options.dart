@@ -17,12 +17,14 @@ class _FilterOptionsState extends State<FilterOptions> {
   EHeroClass _selectedHeroClass = EHeroClass.none;
   EHeroType _selectedHeroType = EHeroType.none;
   ERarity _selectedRarity = ERarity.none;
+  EEnemyType _selectedEnemyType = EEnemyType.none;
 
   void _onApply() {
     widget.setFilterOptions(HeroesFilterOptions(
       heroClass: _selectedHeroClass,
       heroType: _selectedHeroType,
       rarity: _selectedRarity,
+      enemyType: _selectedEnemyType,
     ));
     Navigator.pop(context);
   }
@@ -43,6 +45,18 @@ class _FilterOptionsState extends State<FilterOptions> {
                 onPressed: _onApply,
                 child: const Text('Apply Filters'),
               ),
+              EnumDropdown(
+                'Strong against:',
+                selectedValue: _selectedEnemyType,
+                onChanged: (value) => setState(() => _selectedEnemyType = value!),
+                enumVaules: EEnemyType.values,
+              ),
+              EnumDropdown<ERarity>(
+                'Rarity:',
+                selectedValue: _selectedRarity,
+                onChanged: (value) => setState(() => _selectedRarity = value!),
+                enumVaules: ERarity.values,
+              ),
               EnumDropdown<EHeroClass>(
                 'Hero Class:',
                 selectedValue: _selectedHeroClass,
@@ -54,12 +68,6 @@ class _FilterOptionsState extends State<FilterOptions> {
                 selectedValue: _selectedHeroType,
                 onChanged: (value) => setState(() => _selectedHeroType = value!),
                 enumVaules: EHeroType.values,
-              ),
-              EnumDropdown<ERarity>(
-                'Rarity:',
-                selectedValue: _selectedRarity,
-                onChanged: (value) => setState(() => _selectedRarity = value!),
-                enumVaules: ERarity.values,
               ),
             ],
           ),

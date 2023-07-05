@@ -1,4 +1,5 @@
 enum EEnemyType {
+  none,
   beast,
   cult,
   demon,

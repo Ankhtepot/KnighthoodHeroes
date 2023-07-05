@@ -8,21 +8,26 @@ import 'package:knighthood_heroes/widgets/heroes_list/heroes_list.dart';
 class Heroes extends StatefulWidget {
   const Heroes({super.key});
 
-  final HeroesFilterOptions filterOptions = const HeroesFilterOptions();
-
   @override
   State<Heroes> createState() => _HeroesState();
 }
 
 class _HeroesState extends State<Heroes> {
-  List<KnighthoodHero> filteredHeroes = List.of(getHeroes);
+  List<KnighthoodHero> heroes = List.of(getHeroes);
+  HeroesFilterOptions options = const HeroesFilterOptions();
 
-  void _setFilterOptions(HeroesFilterOptions filterOptions) {
-    setState(() {});
+  @override
+  void initState() {
+    options = const HeroesFilterOptions();
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    void setFilterOptions(HeroesFilterOptions filterOptions) {
+      setState(() => options = filterOptions);
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Knighthood Heroes'),
@@ -33,10 +38,14 @@ class _HeroesState extends State<Heroes> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => FilterOptions(_setFilterOptions),
+                  builder: (context) => FilterOptions(setFilterOptions),
                 ),
               );
             },
+          ),
+          IconButton(
+            onPressed: () => setFilterOptions(const HeroesFilterOptions()),
+            icon: const Icon(Icons.cleaning_services),
           ),
         ],
       ),
@@ -45,7 +54,7 @@ class _HeroesState extends State<Heroes> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const Text('Options'),
-            Expanded(child: HeroesList(widget.filterOptions, filteredHeroes)),
+            Expanded(child: HeroesList(options, heroes)),
           ],
         ),
       ),
