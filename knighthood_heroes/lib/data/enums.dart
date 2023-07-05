@@ -11,6 +11,7 @@ enum EEnemyType {
 }
 
 enum ERarity {
+  none,
   common,
   rare,
   epic,
@@ -61,6 +62,7 @@ enum ESkillDebuff {
 }
 
 enum EHeroClass {
+  none,
   warrior,
   mage,
   rogue,
@@ -69,6 +71,7 @@ enum EHeroClass {
 }
 
 enum EHeroType {
+  none,
   dark,
   logical,
   chaotic,
