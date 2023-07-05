@@ -1,0 +1,25 @@
+KnighthoodHero(
+      '',
+      ERarity.,
+      EHeroClass.,
+      EHeroType.,
+      EEnemyType.,
+      Skill(
+        '',
+        ESkillClass.,
+        skillDebuff: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.,
+        ],
+      ),
+      Skill(
+        '',
+        ESkillClass.,
+        strongVsDebuff: ESkillDebuff.none,
+        skillDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.,
+        ],
+      ),
+    ),

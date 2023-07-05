@@ -4,7 +4,6 @@ import 'package:knighthood_heroes/models/skill.dart';
 class KnighthoodHero {
   KnighthoodHero(
     this.name,
-    this.avatarPath,
     this.rarity,
     this.heroClass,
     this.heroType,
@@ -14,11 +13,12 @@ class KnighthoodHero {
   );
 
   final String name;
-  final String avatarPath;
   final ERarity rarity;
   final EHeroClass heroClass;
   final EHeroType heroType;
   final EEnemyType strongVs;
   final Skill baseSkill;
   final Skill rageSkill;
+
+  String get avatarPath => 'assets/images/heroes/$name.jpg';
 }

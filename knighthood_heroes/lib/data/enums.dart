@@ -34,10 +34,12 @@ enum ESkillEffect {
   damageBackRow, // done
   damageFrontRow, // done
   damageEnemiesInFront, // done
-  damageRandom,
+  damageRandom, // done
   damageAll, // done
-  damageSpread,
-  ignoresArmor,
+  damageSpread, // done
+  dispelBuffs, 
+  dispelDebuffs,
+  ignoresArmor, // done
 }
 
 enum ESkillDebuff {
@@ -55,6 +57,7 @@ enum ESkillDebuff {
   freeze,
   delay,
   armor,
+  focus,
 }
 
 enum EHeroClass {

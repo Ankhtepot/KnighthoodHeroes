@@ -13,11 +13,37 @@ class SkillDescription extends StatelessWidget {
   final Skill skill;
   final bool isBase;
 
+  List<Widget> get getEffectsIcons {
+    List<Widget> effectsIcons = [];
+
+    if (skill.skillEffects.isNotEmpty) {
+      effectsIcons.add(
+        const Icon(Icons.arrow_forward, size: 20),
+      );
+    }
+
+    for (var effect in skill.skillEffects) {
+      effectsIcons.add(
+        Image(
+          image: AssetImage(skill.getSkillEffectImagePath(effect)),
+          width: 20,
+          height: 20,
+        ),
+      );
+    }
+
+    effectsIcons.add(
+      const Text(' |', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+    );
+
+    return effectsIcons;
+  }
+
   List<Widget> get getDebuffDescription {
-    if (skill.skillDebuff == ESkillDebuff.none) {
+    if (skill.chanceTo == ESkillDebuff.none) {
       return [];
     } else {
-      TextColors colors = skill.getDebuffColors(skill.skillDebuff);
+      TextColors colors = skill.getDebuffColors(skill.chanceTo);
       return [
         Image(
           image: AssetImage(chanceIconPath),
@@ -26,7 +52,7 @@ class SkillDescription extends StatelessWidget {
         ),
         const Icon(Icons.arrow_forward, size: 20),
         TextRoundedWithBackground(
-          skill.skillDebuff.name.capitalize(),
+          skill.chanceTo.name.capitalize(),
           backgroundColor: colors.backgroundColor,
           textColor: colors.textColor,
         ),
@@ -68,6 +94,8 @@ class SkillDescription extends StatelessWidget {
           width: 20,
           height: 20,
         ),
+        const SizedBox(width: 5),
+        ...getEffectsIcons,
         const SizedBox(width: 5),
         ...getDebuffDescription,
         ...getStrongVsDescription,

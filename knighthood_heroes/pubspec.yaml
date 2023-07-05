@@ -65,14 +65,33 @@ flutter:
     - assets/images/skills/damage.png
     - assets/images/skills/damageHeal.png
     - assets/images/skills/debuff.png
-    - assets/images/skills/heal.png
     - assets/images/skills/strongVs.png
-    - assets/images/skills/shieldPositive.png
+    - assets/images/skills/restoreHealth.png
+    - assets/images/skills/restoreArmor.png
+    - assets/images/skills/leechHealth.png
+    - assets/images/skills/leechHealthAll.png
+    - assets/images/skills/damagePlayerTarget.png
+    - assets/images/skills/damageBackRow.png
+    - assets/images/skills/damageFrontRow.png
+    - assets/images/skills/damageEnemiesInFront.png
+    - assets/images/skills/damageRandom.png
+    - assets/images/skills/damageAll.png
+    - assets/images/skills/damageSpread.png
+    - assets/images/skills/ignoresArmor.png
+    - assets/images/skills/dispelBuffs.png
+    - assets/images/skills/dispelDebuffs.png
+    - assets/images/skills/focus.png
 
   # heros avatars
     - assets/images/heroes/Aeron.jpg
     - assets/images/heroes/Alder.jpg
     - assets/images/heroes/Anaara.jpg
+    - assets/images/heroes/Ash.jpg
+    - assets/images/heroes/Ayako.jpg
+    - assets/images/heroes/Azhar.jpg
+    - assets/images/heroes/Balberith.jpg
+    - assets/images/heroes/Balendu.jpg
+    - assets/images/heroes/Bayani.jpg
   
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

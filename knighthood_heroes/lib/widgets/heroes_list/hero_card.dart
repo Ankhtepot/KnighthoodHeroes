@@ -16,13 +16,13 @@ class HeroCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(5.0, 0, 0, 0),
+        padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
         child: Row(
           children: [
             Image.asset(
               hero.avatarPath,
-              width: 60,
-              height: 60,
+              width: 100,
+              height: 100,
             ),
             const SizedBox(width: 5),
             Column(
