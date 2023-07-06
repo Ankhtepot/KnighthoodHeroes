@@ -153,6 +153,7 @@ flutter:
     - assets/images/heroes/Zoe.jpeg
 
   # Enemy types
+    - assets/images/enemy_types/None.png
     - assets/images/enemy_types/Beast.png
     - assets/images/enemy_types/Cult.png
     - assets/images/enemy_types/Demon.png

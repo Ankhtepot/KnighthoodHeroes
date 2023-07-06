@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knighthood_heroes/Models/knighthood_hero.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
@@ -73,6 +74,15 @@ class _FilterOptionsState extends State<FilterOptions> {
               selectedValue: _selectedEnemyType,
               onChanged: (value) => setState(() => _selectedEnemyType = value!),
               enumVaules: EEnemyType.values,
+              elementBuilder: (value) {
+                return Row(
+                  children: [
+                    Image(image: AssetImage(KnighthoodHero.getEnemyTypeImagePath(value!)), width: 20, height: 20),
+                    const SizedBox(width: 5),
+                    Text(value.toString().split('.').last.capitalize().insertSpaceForCamelCaseString()),
+                  ],
+                );
+              },
             ),
             EnumDropdown<ERarity>(
               'Rarity:',

@@ -22,13 +22,14 @@ class HeroCard extends StatelessWidget {
             Stack(
               children: [
                 Image.asset(
+                  fit: BoxFit.fill,
                   hero.avatarPath,
-                  width: 100,
-                  height: 100,
+                  width: 81,
+                  height: 81,
                 ),
                 Positioned(
-                  bottom: 13,
-                  right: 10,
+                  bottom: 2,
+                  right: 2,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                       color: Colors.black,
