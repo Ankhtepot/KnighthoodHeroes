@@ -7,6 +7,9 @@ class EnumDropdown<T extends Enum> extends StatefulWidget {
     required this.selectedValue,
     required this.onChanged,
     required this.enumVaules,
+    this.elementBuilder,
+    this.titleFontSize = 20,
+    this.titleGap = 20,
     super.key,
   });
 
@@ -14,12 +17,21 @@ class EnumDropdown<T extends Enum> extends StatefulWidget {
   final T selectedValue;
   final List<T> enumVaules;
   final void Function(T?) onChanged;
+  final Function(T?)? elementBuilder;
+  final double titleFontSize;
+  final double titleGap;
 
   @override
   State<EnumDropdown<T>> createState() => _EnumDropdown<T>();
 }
 
 class _EnumDropdown<T extends Enum> extends State<EnumDropdown<T>> {
+  Widget _buildDropdownItem(T value) {
+    return widget.elementBuilder == null
+        ? Text(value.toString().split('.').last.capitalize())
+        : widget.elementBuilder!(value);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -27,15 +39,15 @@ class _EnumDropdown<T extends Enum> extends State<EnumDropdown<T>> {
       children: [
         Text(
           widget.title,
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: widget.titleFontSize, fontWeight: FontWeight.bold),
         ),
-        const SizedBox(width: 20),
+        SizedBox(width: widget.titleGap),
         DropdownButton<T>(
           value: widget.selectedValue,
           items: widget.enumVaules.map((value) {
             return DropdownMenuItem<T>(
               value: value,
-              child: Text(value.toString().split('.').last.capitalize()),
+              child: _buildDropdownItem(value),
             );
           }).toList(),
           onChanged: widget.onChanged,

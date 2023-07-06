@@ -21,6 +21,50 @@ class Skill {
 
   String get getSkillImagePath => getSkillClassImagePath(skillClass);
 
+  static String getSkillEffectImagePath(ESkillEffect effect) => '$skillImagesBasePath${effect.name}.png';
+
+  static List<ESkillEffect> get getSkillTargets => [
+        ESkillEffect.none,
+        ESkillEffect.leechHealth,
+        ESkillEffect.leechHealthAll,
+        ESkillEffect.damagePlayerTarget,
+        ESkillEffect.damageBackRow,
+        ESkillEffect.damageFrontRow,
+        ESkillEffect.damageEnemiesInFront,
+        ESkillEffect.damageRandom,
+        ESkillEffect.damageAll,
+        ESkillEffect.damageSpread,
+      ];
+
+  static List<ESkillEffect> get getSkillDebuffs => [
+        ESkillEffect.none,
+        ESkillEffect.restoreHealth,
+        ESkillEffect.restoreArmor,
+        ESkillEffect.dispelBuffs,
+        ESkillEffect.dispelDebuffs,
+        ESkillEffect.ignoresArmor,
+        ESkillEffect.leechHealth,
+        ESkillEffect.leechHealthAll,
+      ];
+
+  static String getSkillEffectDisplayText(ESkillEffect effect) => switch (effect) {
+        ESkillEffect.none => 'No effect selected',
+        ESkillEffect.restoreHealth => 'Restore Health',
+        ESkillEffect.restoreArmor => 'Restore Armor',
+        ESkillEffect.dispelBuffs => 'Dispel Buffs on the Enemy',
+        ESkillEffect.dispelDebuffs => 'Dispel Debuffs on the Player',
+        ESkillEffect.ignoresArmor => 'Ignores Armor',
+        ESkillEffect.leechHealth => 'Leech Health',
+        ESkillEffect.leechHealthAll => 'Leech Health from all Enemies',
+        ESkillEffect.damagePlayerTarget => 'Damages Player Target',
+        ESkillEffect.damageBackRow => 'Damages Back Row',
+        ESkillEffect.damageFrontRow => 'Damages Front Row',
+        ESkillEffect.damageEnemiesInFront => 'Enemies In Front of the Player',
+        ESkillEffect.damageRandom => 'Damages Random Enemy',
+        ESkillEffect.damageAll => 'Damages All Enemies',
+        ESkillEffect.damageSpread => 'Damage is Spread to All Enemies',
+      };
+
   static String getSkillClassImagePath(ESkillClass skillClass) => switch (skillClass) {
         ESkillClass.none => 'assets/images/skills/none.png',
         ESkillClass.damage => 'assets/images/skills/damage.png',
@@ -28,7 +72,7 @@ class Skill {
         ESkillClass.healAndDamage => 'assets/images/skills/damageHeal.png',
       };
 
-  TextColors getDebuffColors(ESkillDebuff debuff) => switch (debuff) {
+  static TextColors getDebuffColors(ESkillDebuff debuff) => switch (debuff) {
         ESkillDebuff.none => TextColors(Colors.white, Colors.black),
         ESkillDebuff.poison =>
           TextColors(const Color.fromARGB(255, 123, 255, 128), const Color.fromARGB(255, 0, 50, 17)),
@@ -49,6 +93,4 @@ class Skill {
         ESkillDebuff.armor => TextColors(Colors.blue, Colors.black),
         ESkillDebuff.focus => TextColors(const Color.fromARGB(255, 255, 234, 44), Colors.lightBlue),
       };
-
-  String getSkillEffectImagePath(ESkillEffect effect) => '$skillImagesBasePath${effect.name}.png';
 }

@@ -25,7 +25,7 @@ class SkillDescription extends StatelessWidget {
     for (var effect in skill.skillEffects) {
       effectsIcons.add(
         Image(
-          image: AssetImage(skill.getSkillEffectImagePath(effect)),
+          image: AssetImage(Skill.getSkillEffectImagePath(effect)),
           width: 20,
           height: 20,
         ),
@@ -43,7 +43,7 @@ class SkillDescription extends StatelessWidget {
     if (skill.chanceTo == ESkillDebuff.none) {
       return [];
     } else {
-      TextColors colors = skill.getDebuffColors(skill.chanceTo);
+      TextColors colors = Skill.getDebuffColors(skill.chanceTo);
       return [
         Image(
           image: AssetImage(chanceIconPath),
@@ -64,7 +64,7 @@ class SkillDescription extends StatelessWidget {
     if (skill.strongVsDebuff == ESkillDebuff.none) {
       return [];
     } else {
-      TextColors colors = skill.getDebuffColors(skill.strongVsDebuff);
+      TextColors colors = Skill.getDebuffColors(skill.strongVsDebuff);
       return [
         const SizedBox(width: 5),
         Image(

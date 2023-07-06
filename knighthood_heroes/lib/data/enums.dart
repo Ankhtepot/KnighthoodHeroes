@@ -32,6 +32,9 @@ enum ESkillEffect {
   none,
   restoreHealth, // done
   restoreArmor, // done
+  dispelBuffs, 
+  dispelDebuffs,
+  ignoresArmor, // done
   leechHealth, // done
   leechHealthAll, // done
   damagePlayerTarget, // done
@@ -41,9 +44,6 @@ enum ESkillEffect {
   damageRandom, // done
   damageAll, // done
   damageSpread, // done
-  dispelBuffs, 
-  dispelDebuffs,
-  ignoresArmor, // done
 }
 
 enum ESkillDebuff {

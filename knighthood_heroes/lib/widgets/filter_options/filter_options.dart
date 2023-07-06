@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
-import 'package:knighthood_heroes/models/skill.dart';
 import 'package:knighthood_heroes/widgets/filter_options/enum_dropdown.dart';
 import 'package:knighthood_heroes/widgets/filter_options/skill_options.dart';
 import 'package:knighthood_heroes/widgets/text_rounded_with_background.dart';
@@ -23,11 +23,13 @@ class _FilterOptionsState extends State<FilterOptions> {
   EEnemyType _selectedEnemyType = EEnemyType.none;
 
   ESkillClass _selectedBaseSkillClass = ESkillClass.none;
+  ESkillEffect _selectedBaseSkillTarget = ESkillEffect.none;
   ESkillEffect _selectedBaseSkillEffect = ESkillEffect.none;
   ESkillDebuff _selectedBaseSkillStrongVsDebuff = ESkillDebuff.none;
   ESkillDebuff _selectedBaseSkillChanceToDebuff = ESkillDebuff.none;
 
   ESkillClass _selectedRageSkillClass = ESkillClass.none;
+  ESkillEffect _selectedRageSkillTarget = ESkillEffect.none;
   ESkillEffect _selectedRageSkillEffect = ESkillEffect.none;
   ESkillDebuff _selectedRageSkillStrongVsDebuff = ESkillDebuff.none;
   ESkillDebuff _selectedRageSkillChanceToDebuff = ESkillDebuff.none;
@@ -67,6 +69,12 @@ class _FilterOptionsState extends State<FilterOptions> {
               selectedValue: _selectedRarity,
               onChanged: (value) => setState(() => _selectedRarity = value!),
               enumVaules: ERarity.values,
+              elementBuilder: (value) => TextRoundedWithBackground(
+                value.toString().split('.').last.capitalize(),
+                textColor: Colors.black,
+                backgroundColor: getRarityColor(value!),
+                fontWeight: FontWeight.bold,
+              ),
             ),
             EnumDropdown<EHeroClass>(
               'Hero Class:',
@@ -85,10 +93,12 @@ class _FilterOptionsState extends State<FilterOptions> {
             SkillOptions(
                 selectedSkillClass: _selectedBaseSkillClass,
                 selectedSkillEffect: _selectedBaseSkillEffect,
+                selectedSkillTarget: _selectedBaseSkillTarget,
                 selectedSkillChanceToDebuff: _selectedBaseSkillChanceToDebuff,
                 selectedSkillStrongVsDebuff: _selectedBaseSkillStrongVsDebuff,
                 onSkillClassChanged: (value) => setState(() => _selectedBaseSkillClass = value!),
                 onSkillEffectChanged: (value) => setState(() => _selectedBaseSkillEffect = value!),
+                onSkillTargetChanged: (value) => setState(() => _selectedBaseSkillTarget = value!),
                 onSkillChanceToDebuffChanged: (value) => setState(() => _selectedBaseSkillChanceToDebuff = value!),
                 onSkillStrongVsDebuffChanged: (value) => setState(() => _selectedBaseSkillStrongVsDebuff = value!)),
             const SizedBox(height: 5),
@@ -96,10 +106,12 @@ class _FilterOptionsState extends State<FilterOptions> {
             SkillOptions(
                 selectedSkillClass: _selectedRageSkillClass,
                 selectedSkillEffect: _selectedRageSkillEffect,
+                selectedSkillTarget: _selectedRageSkillTarget,
                 selectedSkillChanceToDebuff: _selectedRageSkillChanceToDebuff,
                 selectedSkillStrongVsDebuff: _selectedRageSkillStrongVsDebuff,
                 onSkillClassChanged: (value) => setState(() => _selectedRageSkillClass = value!),
                 onSkillEffectChanged: (value) => setState(() => _selectedRageSkillEffect = value!),
+                onSkillTargetChanged: (value) => setState(() => _selectedRageSkillTarget = value!),
                 onSkillChanceToDebuffChanged: (value) => setState(() => _selectedRageSkillChanceToDebuff = value!),
                 onSkillStrongVsDebuffChanged: (value) => setState(() => _selectedRageSkillStrongVsDebuff = value!)),
           ]),
