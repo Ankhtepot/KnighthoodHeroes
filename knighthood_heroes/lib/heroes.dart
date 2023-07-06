@@ -17,12 +17,7 @@ class Heroes extends StatefulWidget {
 class _HeroesState extends State<Heroes> {
   List<KnighthoodHero> heroes = List.of(getHeroes);
   HeroesFilterOptions options = const HeroesFilterOptions();
-
-  @override
-  void initState() {
-    options = const HeroesFilterOptions();
-    super.initState();
-  }
+  ESortType currentSortType = ESortType.nameAZ;
 
   @override
   Widget build(BuildContext context) {
@@ -30,19 +25,23 @@ class _HeroesState extends State<Heroes> {
       setState(() => options = filterOptions);
     }
 
-    void sortHeroes(ESortType sortType) {
-      setState(() => switch (sortType) {
-            ESortType.none => {},
-            ESortType.nameAZ => heroes.sort((a, b) => a.name.compareTo(b.name)),
-            ESortType.nameZA => heroes.sort((a, b) => b.name.compareTo(a.name)),
-            ESortType.rarityAsc => heroes.sort((a, b) => a.rarity.index.compareTo(b.rarity.index)),
-            ESortType.rarityDesc => heroes.sort((a, b) => b.rarity.index.compareTo(a.rarity.index)),
-            ESortType.heroClassAZ => heroes.sort((a, b) => a.heroClass.index.compareTo(b.heroClass.index)),
-            ESortType.heroClassZA => heroes.sort((a, b) => b.heroClass.index.compareTo(a.heroClass.index)),
-            ESortType.heroTypeAZ => heroes.sort((a, b) => a.heroType.index.compareTo(b.heroType.index)),
-            ESortType.heroTypeZA => heroes.sort((a, b) => b.heroType.index.compareTo(a.heroType.index)),
-            ESortType.enemyType => heroes.sort((a, b) => a.strongVs.index.compareTo(b.strongVs.index))
-          });
+    void sortHeroes(ESortType? newSortType) {
+      setState(() {
+        currentSortType = newSortType!;
+
+        return switch (newSortType) {
+          ESortType.none => {},
+          ESortType.nameAZ => heroes.sort((a, b) => a.name.compareTo(b.name)),
+          ESortType.nameZA => heroes.sort((a, b) => b.name.compareTo(a.name)),
+          ESortType.rarityAsc => heroes.sort((a, b) => a.rarity.index.compareTo(b.rarity.index)),
+          ESortType.rarityDesc => heroes.sort((a, b) => b.rarity.index.compareTo(a.rarity.index)),
+          ESortType.heroClassAZ => heroes.sort((a, b) => a.heroClass.index.compareTo(b.heroClass.index)),
+          ESortType.heroClassZA => heroes.sort((a, b) => b.heroClass.index.compareTo(a.heroClass.index)),
+          ESortType.heroTypeAZ => heroes.sort((a, b) => a.heroType.index.compareTo(b.heroType.index)),
+          ESortType.heroTypeZA => heroes.sort((a, b) => b.heroType.index.compareTo(a.heroType.index)),
+          ESortType.enemyType => heroes.sort((a, b) => a.strongVs.index.compareTo(b.strongVs.index))
+        };
+      });
     }
 
     return Scaffold(
@@ -61,7 +60,10 @@ class _HeroesState extends State<Heroes> {
             },
           ),
           IconButton(
-            onPressed: () => setFilterOptions(const HeroesFilterOptions()),
+            onPressed: () {
+              setFilterOptions(const HeroesFilterOptions());
+              sortHeroes(ESortType.nameAZ);
+            },
             icon: const Icon(Icons.cleaning_services),
           ),
         ],
@@ -70,7 +72,7 @@ class _HeroesState extends State<Heroes> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SortOptions((p0) => setState(() {})),
+            SortOptions(sortHeroes, sortType: currentSortType),
             Expanded(child: HeroesList(options, heroes)),
           ],
         ),

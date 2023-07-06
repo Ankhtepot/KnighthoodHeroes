@@ -3,16 +3,23 @@ import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/widgets/filter_options/enum_dropdown.dart';
 
 class SortOptions extends StatefulWidget {
-  const SortOptions(this.onChanged, {super.key});
+  const SortOptions(this.onChanged, {super.key, required this.sortType});
 
   final void Function(ESortType?) onChanged;
+  final ESortType sortType;
 
   @override
   State<SortOptions> createState() => _SortOptionsState();
 }
 
 class _SortOptionsState extends State<SortOptions> {
-  ESortType _selectedSortType = ESortType.none;
+  ESortType? _selectedSortType;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedSortType = widget.sortType;
+  }
 
   void onChanged(ESortType? value) {
     setState(() {
@@ -36,13 +43,15 @@ class _SortOptionsState extends State<SortOptions> {
 
   @override
   Widget build(BuildContext context) {
+    _selectedSortType = widget.sortType;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           EnumDropdown<ESortType>('Sort by:',
-              selectedValue: _selectedSortType,
+              selectedValue: _selectedSortType!,
               onChanged: onChanged,
               enumVaules: ESortType.values,
               elementBuilder: (value) => Text(

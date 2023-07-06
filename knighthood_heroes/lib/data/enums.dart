@@ -66,36 +66,36 @@ enum ESkillDebuff {
 
 enum EHeroClass {
   none,
-  warrior,
-  mage,
-  rogue,
   alchemist,
   hunter,
+  mage,
+  rogue,
+  warrior,
 }
 
 enum EHeroType {
   none,
   dark,
-  logical,
+  champion,
   chaotic,
-  valiant,
   holy,
   lawful,
+  logical,
   maniacal,
-  champion,
-  rebel,
   maverick,
+  rebel,
+  valiant,
 }
 
 enum ESortType {
   none,
   nameAZ,
   nameZA,
+  enemyType,
   rarityAsc,
   rarityDesc,
   heroClassAZ,
   heroClassZA,
   heroTypeAZ,
   heroTypeZA,
-  enemyType,
 }
