@@ -236,5 +236,78 @@ List<KnighthoodHero> get getHeroes {
         [ESkillEffect.damageAll, ESkillEffect.dispelBuffs],
       ),
     ),
+    KnighthoodHero(
+      'Blaine',
+      ERarity.rare,
+      EHeroClass.warrior,
+      EHeroType.maniacal,
+      EEnemyType.goblin,
+      Skill(
+        'Thud!',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.expose,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damagePlayerTarget,
+        ],
+      ),
+      Skill(
+        'Smash!',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.expose,
+        [
+          ESkillEffect.damageAll,
+        ],
+      ),
+    ),
+    KnighthoodHero(
+      'Brutus',
+      ERarity.legendary,
+      EHeroClass.alchemist,
+      EHeroType.champion,
+      EEnemyType.goblin,
+      Skill(
+        'Rage Serum',
+        ESkillClass.heal,
+        chanceTo: ESkillDebuff.regenerate,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.restoreHealth,
+          ESkillEffect.fillsRage,
+        ],
+      ),
+      Skill(
+        'Bombard',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.expose,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageAll,
+          ESkillEffect.harmsPlayer,
+        ],
+      ),
+    ),
+    KnighthoodHero(
+      'Byrne',
+      ERarity.epic,
+      EHeroClass.rogue,
+      EHeroType.logical,
+      EEnemyType.goblin,
+      Skill(
+        'Venom Blade',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.poison,
+        strongVsDebuff: ESkillDebuff.none,
+        [ESkillEffect.damagePlayerTarget, ESkillEffect.ignoresArmor],
+      ),
+      Skill(
+        'Plague Harvest',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.poison,
+        [ESkillEffect.damageAll, ESkillEffect.ignoresArmor],
+      ),
+    ),
   ];
 }

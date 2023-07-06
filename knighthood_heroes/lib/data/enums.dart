@@ -35,6 +35,8 @@ enum ESkillEffect {
   dispelBuffs,
   dispelDebuffs,
   ignoresArmor,
+  fillsRage,
+  harmsPlayer,
   leechHealth,
   leechHealthAll,
   damagePlayerTarget,

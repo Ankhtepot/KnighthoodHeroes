@@ -54,6 +54,8 @@ class Skill {
         ESkillEffect.dispelBuffs => 'Dispel Buffs on the Enemy',
         ESkillEffect.dispelDebuffs => 'Dispel Debuffs on the Player',
         ESkillEffect.ignoresArmor => 'Ignores Armor',
+        ESkillEffect.fillsRage => 'Fills Rage',
+        ESkillEffect.harmsPlayer => 'Harms Player',
         ESkillEffect.leechHealth => 'Leech Health',
         ESkillEffect.leechHealthAll => 'Leech Health from all Enemies',
         ESkillEffect.damagePlayerTarget => 'Damages Player Target',
