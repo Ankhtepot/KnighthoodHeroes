@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
-import 'package:knighthood_heroes/models/hero.dart';
+import 'package:knighthood_heroes/models/knighthood_hero.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/skill_description.dart';
 import 'package:knighthood_heroes/widgets/text_rounded_with_background.dart';
 
@@ -19,10 +19,32 @@ class HeroCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
         child: Row(
           children: [
-            Image.asset(
-              hero.avatarPath,
-              width: 100,
-              height: 100,
+            Stack(
+              children: [
+                Image.asset(
+                  hero.avatarPath,
+                  width: 100,
+                  height: 100,
+                ),
+                Positioned(
+                  bottom: 13,
+                  right: 10,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Image.asset(
+                        KnighthoodHero.getEnemyTypeImagePath(hero.strongVs),
+                        width: 20,
+                        height: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(width: 5),
             Column(

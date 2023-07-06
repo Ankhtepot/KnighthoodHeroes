@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/data/heroes_data.dart';
-import 'package:knighthood_heroes/models/hero.dart';
+import 'package:knighthood_heroes/models/knighthood_hero.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
 import 'package:knighthood_heroes/widgets/filter_options/filter_options.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/heroes_list.dart';

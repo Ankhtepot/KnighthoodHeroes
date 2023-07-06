@@ -1,4 +1,5 @@
 import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/models/skill.dart';
 
 class KnighthoodHero {
@@ -21,4 +22,7 @@ class KnighthoodHero {
   final Skill rageSkill;
 
   String get avatarPath => 'assets/images/heroes/$name.jpg';
+
+  static String getEnemyTypeImagePath(EEnemyType enemyType) =>
+      'assets/images/enemy_types/${enemyType.name.capitalize()}.png';
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/enums.dart';
-import 'package:knighthood_heroes/models/hero.dart';
+import 'package:knighthood_heroes/models/knighthood_hero.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/hero_card.dart';
 import 'package:knighthood_heroes/widgets/text_rounded_with_background.dart';
