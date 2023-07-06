@@ -40,6 +40,16 @@ class _FilterOptionsState extends State<FilterOptions> {
       heroType: _selectedHeroType,
       rarity: _selectedRarity,
       enemyType: _selectedEnemyType,
+      baseSkillClass: _selectedBaseSkillClass,
+      baseSkillTarget: _selectedBaseSkillTarget,
+      baseSkillEffect: _selectedBaseSkillEffect,
+      baseSkillStrongVsDebuff: _selectedBaseSkillStrongVsDebuff,
+      baseSkillChanceToDebuff: _selectedBaseSkillChanceToDebuff,
+      rageSkillClass: _selectedRageSkillClass,
+      rageSkillTarget: _selectedRageSkillTarget,
+      rageSkillEffect: _selectedRageSkillEffect,
+      rageSkillStrongVsDebuff: _selectedRageSkillStrongVsDebuff,
+      rageSkillChanceToDebuff: _selectedRageSkillChanceToDebuff,
     ));
     Navigator.pop(context);
   }

@@ -30,20 +30,20 @@ enum ESkillClass {
 
 enum ESkillEffect {
   none,
-  restoreHealth, // done
-  restoreArmor, // done
-  dispelBuffs, 
+  restoreHealth,
+  restoreArmor,
+  dispelBuffs,
   dispelDebuffs,
-  ignoresArmor, // done
-  leechHealth, // done
-  leechHealthAll, // done
-  damagePlayerTarget, // done
-  damageBackRow, // done
-  damageFrontRow, // done
-  damageEnemiesInFront, // done
-  damageRandom, // done
-  damageAll, // done
-  damageSpread, // done
+  ignoresArmor,
+  leechHealth,
+  leechHealthAll,
+  damagePlayerTarget,
+  damageBackRow,
+  damageFrontRow,
+  damageEnemiesInFront,
+  damageRandom,
+  damageAll,
+  damageSpread,
 }
 
 enum ESkillDebuff {
@@ -85,4 +85,17 @@ enum EHeroType {
   champion,
   rebel,
   maverick,
+}
+
+enum ESortType {
+  none,
+  nameAZ,
+  nameZA,
+  rarityAsc,
+  rarityDesc,
+  heroClassAZ,
+  heroClassZA,
+  heroTypeAZ,
+  heroTypeZA,
+  enemyType,
 }
