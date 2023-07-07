@@ -98,7 +98,7 @@ class Skill {
         ESkillDebuff.regenerate =>
           TextColors(const Color.fromARGB(255, 125, 214, 255), const Color.fromARGB(255, 2, 134, 6)),
         ESkillDebuff.expose => TextColors(Colors.grey, Colors.black),
-        ESkillDebuff.fury => TextColors(Color.fromARGB(255, 113, 31, 31), const Color.fromARGB(255, 255, 0, 0)),
+        ESkillDebuff.fury => TextColors(const Color.fromARGB(255, 113, 31, 31), const Color.fromARGB(255, 255, 0, 0)),
         ESkillDebuff.freeze => TextColors(Colors.lightBlue, const Color.fromARGB(255, 0, 17, 255)),
         ESkillDebuff.delay => TextColors(const Color.fromARGB(255, 138, 138, 138), Colors.black),
         ESkillDebuff.armor => TextColors(Colors.blue, Colors.black),

@@ -154,6 +154,7 @@ List<KnighthoodHero> get getHeroes {
           strongVsDebuff: ESkillDebuff.none,
           [
             ESkillEffect.restoreHealth,
+            ESkillEffect.restoreArmor,
             ESkillEffect.dispelDebuffs,
           ],
           description: 'Restores health or armor and cures all negative status effects.'),
@@ -163,6 +164,7 @@ List<KnighthoodHero> get getHeroes {
           strongVsDebuff: ESkillDebuff.none,
           chanceTo: ESkillDebuff.focus,
           [
+            ESkillEffect.damageSpread,
             ESkillEffect.leechHealthAll,
           ],
           description: 'Distributes damage across all enemies and restores health or armor by the same amount.'),

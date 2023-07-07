@@ -113,7 +113,7 @@ class HeroCardDetailed extends StatelessWidget {
                       Text(
                         hero.fullStarsEffect,
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontStyle: FontStyle.italic, fontSize: 20),
+                        style: const TextStyle(fontStyle: FontStyle.italic, fontSize: 16),
                       )
                     ],
                   ),
@@ -121,6 +121,8 @@ class HeroCardDetailed extends StatelessWidget {
               ), // Stars bonus
               const SizedBox(height: 5),
               SkillDetailed(hero.baseSkill, true), // Base skill
+              const SizedBox(height: 5),
+              SkillDetailed(hero.rageSkill, false), // Ultimate skill
             ],
           ),
         ),
