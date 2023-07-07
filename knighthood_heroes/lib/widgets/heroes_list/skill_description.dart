@@ -43,7 +43,6 @@ class SkillDescription extends StatelessWidget {
     if (skill.chanceTo == ESkillDebuff.none) {
       return [];
     } else {
-      TextColors colors = Skill.getDebuffColors(skill.chanceTo);
       return [
         Image(
           image: AssetImage(chanceIconPath),
@@ -51,11 +50,7 @@ class SkillDescription extends StatelessWidget {
           height: 20,
         ),
         const Icon(Icons.arrow_forward, size: 20),
-        TextRoundedWithBackground(
-          skill.chanceTo.name.capitalize(),
-          backgroundColor: colors.backgroundColor,
-          textColor: colors.textColor,
-        ),
+        Skill.getDebuffBadge(skill.chanceTo),
       ];
     }
   }
@@ -64,7 +59,6 @@ class SkillDescription extends StatelessWidget {
     if (skill.strongVsDebuff == ESkillDebuff.none) {
       return [];
     } else {
-      TextColors colors = Skill.getDebuffColors(skill.strongVsDebuff);
       return [
         const SizedBox(width: 5),
         Image(
@@ -73,11 +67,7 @@ class SkillDescription extends StatelessWidget {
           height: 20,
         ),
         const Icon(Icons.arrow_forward, size: 20),
-        TextRoundedWithBackground(
-          skill.strongVsDebuff.name.capitalize(),
-          backgroundColor: colors.backgroundColor,
-          textColor: colors.textColor,
-        ),
+        Skill.getDebuffBadge(skill.strongVsDebuff),
       ];
     }
   }

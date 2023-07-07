@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/models/text_colors.dart';
+import 'package:knighthood_heroes/widgets/text_rounded_with_background.dart';
 
 String skillImagesBasePath = 'assets/images/skills/';
+String debuffImagesBasePath = 'assets/images/effects/';
 
 class Skill {
   Skill(
@@ -24,6 +27,32 @@ class Skill {
   String get getSkillImagePath => getSkillClassImagePath(skillClass);
 
   static String getSkillEffectImagePath(ESkillEffect effect) => '$skillImagesBasePath${effect.name}.png';
+
+  static Widget getDebuffBadge(ESkillDebuff debuff, {bool bothIfAvailable = false}) {
+    TextColors colors = getDebuffColors(debuff);
+
+    Widget textBadge = TextRoundedWithBackground(
+      debuff.name.capitalize(),
+      backgroundColor: colors.backgroundColor,
+      textColor: colors.textColor,
+    );
+
+    if (debuffsWithImage.contains(debuff)) {
+      return Row(
+        children: [
+          Image(
+            image: AssetImage('$debuffImagesBasePath${debuff.name}.png'),
+            width: 20,
+            height: 20,
+          ),
+          if (bothIfAvailable) const SizedBox(width: 5),
+          if (bothIfAvailable) textBadge,
+        ],
+      );
+    }
+
+    return textBadge;
+  }
 
   static List<ESkillEffect> get getSkillTargets => [
         ESkillEffect.none,
@@ -52,6 +81,21 @@ class Skill {
         ESkillEffect.leechHealth,
         ESkillEffect.leechHealthAll,
       ];
+
+  static List<ESkillDebuff> debuffsWithImage = [
+    ESkillDebuff.weaken,
+    ESkillDebuff.unfocus,
+    ESkillDebuff.stun,
+    ESkillDebuff.regenerate,
+    ESkillDebuff.protect,
+    ESkillDebuff.poison,
+    ESkillDebuff.fury,
+    ESkillDebuff.freeze,
+    ESkillDebuff.focus,
+    ESkillDebuff.expose,
+    ESkillDebuff.burn,
+    ESkillDebuff.acid,
+  ];
 
   static String getSkillEffectDisplayText(ESkillEffect effect) => switch (effect) {
         ESkillEffect.none => 'No effect selected',

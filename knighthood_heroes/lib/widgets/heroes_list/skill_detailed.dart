@@ -72,24 +72,14 @@ class SkillDetailed extends StatelessWidget {
               children: [
                 const Text('Chance to apply:'),
                 const SizedBox(width: 5),
-                TextRoundedWithBackground(
-                  skill.chanceTo.name.textFromEnumName(),
-                  fontSize: 16,
-                  backgroundColor: chanceColors.backgroundColor,
-                  textColor: chanceColors.textColor,
-                ),
+                Skill.getDebuffBadge(skill.chanceTo, bothIfAvailable: true),
               ],
             ),
             Row(
               children: [
                 const Text('Strong against:'),
                 const SizedBox(width: 5),
-                TextRoundedWithBackground(
-                  skill.strongVsDebuff.name.textFromEnumName(),
-                  fontSize: 16,
-                  backgroundColor: strongVsColors.backgroundColor,
-                  textColor: strongVsColors.textColor,
-                ),
+                Skill.getDebuffBadge(skill.strongVsDebuff, bothIfAvailable: true),
               ],
             )
           ],

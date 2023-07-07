@@ -170,6 +170,20 @@ flutter:
     - assets/images/enemy_types/Troll.png
     - assets/images/enemy_types/Undead.png
 
+  # Effects
+    - assets/images/effects/weaken.png
+    - assets/images/effects/unfocus.png
+    - assets/images/effects/stun.png
+    - assets/images/effects/regenerate.png
+    - assets/images/effects/protect.png
+    - assets/images/effects/poison.png
+    - assets/images/effects/fury.png
+    - assets/images/effects/freeze.png
+    - assets/images/effects/focus.png
+    - assets/images/effects/expose.png
+    - assets/images/effects/burn.png
+    - assets/images/effects/acid.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

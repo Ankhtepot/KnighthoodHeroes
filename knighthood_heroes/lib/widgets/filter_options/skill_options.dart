@@ -37,14 +37,7 @@ class SkillOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget onSkillDebuffChangedBuilder(ESkillDebuff? value) {
-      TextColors textColor = Skill.getDebuffColors(value!);
-      return TextRoundedWithBackground(
-        value.toString().split('.').last.capitalize(),
-        backgroundColor: textColor.backgroundColor,
-        textColor: textColor.textColor,
-      );
-    }
+    Widget onSkillDebuffChangedBuilder(ESkillDebuff? value) => Skill.getDebuffBadge(value!, bothIfAvailable: true);
 
     Widget onSkillEffectChangedBuilder(ESkillEffect? value) {
       return Row(
