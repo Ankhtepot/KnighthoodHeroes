@@ -516,5 +516,86 @@ List<KnighthoodHero> get getHeroes {
         description: 'Deals damage to all enemies. Restores your health or armor by the same amount. ',
       ),
     ),
+    KnighthoodHero(
+      'Eileen',
+      ERarity.legendary,
+      EHeroClass.rogue,
+      EHeroType.maverick,
+      EEnemyType.troll,
+      Skill(
+        'Sledgehammer',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.expose,
+        [
+          ESkillEffect.damagePlayerTarget,
+        ],
+        description: 'Deals damage to your current target.',
+      ),
+      Skill(
+        'Drill Bit',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.expose,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageAll,
+        ],
+        description: 'Deals damage to all enemies.',
+      ),
+    ),
+    KnighthoodHero(
+      'Ericson',
+      ERarity.legendary,
+      EHeroClass.warrior,
+      EHeroType.valiant,
+      EEnemyType.goblin,
+      Skill(
+        'Heavy Swipe',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.armor,
+        [
+          ESkillEffect.damageFrontRow,
+        ],
+        description: 'Deals damage to enemies in the front row.',
+      ),
+      Skill(
+        'Frost Blade',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.freeze,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageAll,
+        ],
+        description: 'Deals damage to all enemies.',
+      ),
+    ),
+    KnighthoodHero(
+      'Erinn',
+      ERarity.unique,
+      EHeroClass.warrior,
+      EHeroType.maverick,
+      EEnemyType.outlaw,
+      Skill(
+        'Smite',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.weaken,
+        [
+          ESkillEffect.damagePlayerTarget,
+        ],
+        description: 'Deals damage to your current target.',
+      ),
+      Skill(
+        'Shockwave',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.expose,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageSpread,
+        ],
+        description: 'Distributes damage across all enemies.',
+      ),
+    ),
   ];
 }
