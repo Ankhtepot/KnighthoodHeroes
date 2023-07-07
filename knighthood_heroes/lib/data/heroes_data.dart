@@ -10,6 +10,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.hunter,
       EHeroType.dark,
       EEnemyType.cult,
+      'Rage Power deals 50% more damage vs Poison',
       Skill(
           'Poison Arrow',
           ESkillClass.damage,
@@ -36,6 +37,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.mage,
       EHeroType.logical,
       EEnemyType.militia,
+      'Chance to Stun with Base Power',
       Skill(
           'ThunderClap',
           ESkillClass.damage,
@@ -62,6 +64,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.alchemist,
       EHeroType.chaotic,
       EEnemyType.undead,
+      'Rage Power deals 50% more damage vs Expose',
       Skill(
           'Healing Bubble',
           ESkillClass.heal,
@@ -88,6 +91,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.hunter,
       EHeroType.valiant,
       EEnemyType.beast,
+      'Chance to Unfocus with Base Power',
       Skill(
           'Explosive Shot',
           ESkillClass.damage,
@@ -113,6 +117,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.alchemist,
       EHeroType.holy,
       EEnemyType.demon,
+      'Chance to Weaken with Rage Power',
       Skill(
           'Absorb Strength',
           ESkillClass.healAndDamage,
@@ -141,6 +146,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.mage,
       EHeroType.holy,
       EEnemyType.outlaw,
+      'Chance to give Protect with Base Power',
       Skill(
           'Wish',
           ESkillClass.healAndDamage,
@@ -167,6 +173,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.alchemist,
       EHeroType.chaotic,
       EEnemyType.beast,
+      '+50% critical chance vs Beast',
       Skill(
           'Lock \'n\' Load',
           ESkillClass.damage,
@@ -193,6 +200,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.mage,
       EHeroType.lawful,
       EEnemyType.golem,
+      'Increase damage of Demon Minions by 20%',
       Skill(
           'Starlight',
           ESkillClass.heal,
@@ -219,6 +227,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.rogue,
       EHeroType.valiant,
       EEnemyType.golem,
+      'Chance to Freeze with Base Power',
       Skill(
         'Six Punch Bonanza',
         ESkillClass.damage,
@@ -244,6 +253,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.warrior,
       EHeroType.maniacal,
       EEnemyType.goblin,
+      'Increase damage of Troll Minions by 20%',
       Skill(
         'Thud!',
         ESkillClass.damage,
@@ -271,6 +281,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.alchemist,
       EHeroType.champion,
       EEnemyType.goblin,
+      'Chance to Protect with Base Power',
       Skill(
         'Rage Serum',
         ESkillClass.heal,
@@ -300,6 +311,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.rogue,
       EHeroType.logical,
       EEnemyType.goblin,
+      'Base Power deals 50% more damage vs Weaken',
       Skill(
           'Venom Blade',
           ESkillClass.damage,
@@ -324,6 +336,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.hunter,
       EHeroType.dark,
       EEnemyType.militia,
+      'Rage Power deals +50% damage vs Acid',
       Skill(
         'Scythe Sweep',
         ESkillClass.damage,
@@ -351,6 +364,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.alchemist,
       EHeroType.logical,
       EEnemyType.beast,
+      '+50% critical chance vs Beast',
       Skill(
         'Enervating Haze',
         ESkillClass.healAndDamage,
@@ -382,6 +396,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.mage,
       EHeroType.dark,
       EEnemyType.outlaw,
+      '+50% critical chance vs Outlaw',
       Skill(
         'Dark Bolts',
         ESkillClass.damage,
@@ -410,6 +425,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.hunter,
       EHeroType.valiant,
       EEnemyType.undead,
+      '+50% critical chance vs Undead',
       Skill(
         'Stake Shot',
         ESkillClass.damage,
@@ -438,6 +454,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.alchemist,
       EHeroType.maniacal,
       EEnemyType.golem,
+      'Chance to Acid with Rage Power',
       Skill(
         'Burn, Burn, Burn!',
         ESkillClass.damage,
@@ -466,6 +483,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.rogue,
       EHeroType.rebel,
       EEnemyType.outlaw,
+      '+50% critical chance vs Outlaw',
       Skill(
         'Hack \'n\' Slash',
         ESkillClass.damage,
@@ -494,6 +512,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.warrior,
       EHeroType.logical,
       EEnemyType.demon,
+      '+50% critical chance vs Demon',
       Skill(
         'Piercer',
         ESkillClass.damage,
@@ -522,6 +541,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.rogue,
       EHeroType.maverick,
       EEnemyType.troll,
+      'Chance to Acid with Base Power',
       Skill(
         'Sledgehammer',
         ESkillClass.damage,
@@ -549,6 +569,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.warrior,
       EHeroType.valiant,
       EEnemyType.goblin,
+      'Chance to Weaken with Base Power',
       Skill(
         'Heavy Swipe',
         ESkillClass.damage,
@@ -576,6 +597,7 @@ List<KnighthoodHero> get getHeroes {
       EHeroClass.warrior,
       EHeroType.maverick,
       EEnemyType.outlaw,
+      '+30% critical damage on Chain Start attacks',
       Skill(
         'Smite',
         ESkillClass.damage,

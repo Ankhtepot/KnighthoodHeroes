@@ -9,6 +9,7 @@ class KnighthoodHero {
     this.heroClass,
     this.heroType,
     this.strongVs,
+    this.fullStarsEffect,
     this.baseSkill,
     this.rageSkill,
   );
@@ -18,6 +19,7 @@ class KnighthoodHero {
   final EHeroClass heroClass;
   final EHeroType heroType;
   final EEnemyType strongVs;
+  final String fullStarsEffect;
   final Skill baseSkill;
   final Skill rageSkill;
 

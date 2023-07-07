@@ -4,6 +4,7 @@ KnighthoodHero(
       EHeroClass.,
       EHeroType.,
       EEnemyType.,
+	  '',
       Skill(
         '',
         ESkillClass.,
