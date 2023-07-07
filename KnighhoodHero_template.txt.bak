@@ -7,7 +7,7 @@ KnighthoodHero(
       Skill(
         '',
         ESkillClass.,
-        skillDebuff: ESkillDebuff.none,
+        chanceTo: ESkillDebuff.none,
         strongVsDebuff: ESkillDebuff.none,
         [
           ESkillEffect.,
@@ -16,8 +16,8 @@ KnighthoodHero(
       Skill(
         '',
         ESkillClass.,
-        strongVsDebuff: ESkillDebuff.none,
-        skillDebuff: ESkillDebuff.none,
+		chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.none,        
         [
           ESkillEffect.,
         ],

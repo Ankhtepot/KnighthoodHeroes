@@ -21,7 +21,10 @@ class KnighthoodHero {
   final Skill baseSkill;
   final Skill rageSkill;
 
-  String get avatarPath => 'assets/images/heroes/$name.jpeg';
+  String get avatarPath {
+    String sanitizedName = name.replaceAll(' ', '');
+    return 'assets/images/heroes/$sanitizedName.jpeg';
+  }
 
   static String getEnemyTypeImagePath(EEnemyType enemyType) =>
       'assets/images/enemy_types/${enemyType.name.capitalize()}.png';

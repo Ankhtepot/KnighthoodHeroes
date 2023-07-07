@@ -11,6 +11,7 @@ class Skill {
     this.skillEffects, {
     this.strongVsDebuff = ESkillDebuff.none,
     this.chanceTo = ESkillDebuff.none,
+    this.description = '',
   });
 
   final String name;
@@ -18,6 +19,7 @@ class Skill {
   final ESkillDebuff strongVsDebuff;
   final List<ESkillEffect> skillEffects;
   final ESkillDebuff chanceTo;
+  final String description;
 
   String get getSkillImagePath => getSkillClassImagePath(skillClass);
 
@@ -28,6 +30,7 @@ class Skill {
         ESkillEffect.leechHealth,
         ESkillEffect.leechHealthAll,
         ESkillEffect.damagePlayerTarget,
+        ESkillEffect.damageOneBack,
         ESkillEffect.damageBackRow,
         ESkillEffect.damageFrontRow,
         ESkillEffect.damageEnemiesInFront,
@@ -43,6 +46,9 @@ class Skill {
         ESkillEffect.dispelBuffs,
         ESkillEffect.dispelDebuffs,
         ESkillEffect.ignoresArmor,
+        ESkillEffect.fillsRage,
+        ESkillEffect.harmsPlayer,
+        ESkillEffect.delayPowers,
         ESkillEffect.leechHealth,
         ESkillEffect.leechHealthAll,
       ];
@@ -56,9 +62,11 @@ class Skill {
         ESkillEffect.ignoresArmor => 'Ignores Armor',
         ESkillEffect.fillsRage => 'Fills Rage',
         ESkillEffect.harmsPlayer => 'Harms Player',
+        ESkillEffect.delayPowers => 'Delays Powers',
         ESkillEffect.leechHealth => 'Leech Health',
         ESkillEffect.leechHealthAll => 'Leech Health from all Enemies',
         ESkillEffect.damagePlayerTarget => 'Damages Player Target',
+        ESkillEffect.damageOneBack => 'Damages Enemy in Back Row',
         ESkillEffect.damageBackRow => 'Damages Back Row',
         ESkillEffect.damageFrontRow => 'Damages Front Row',
         ESkillEffect.damageEnemiesInFront => 'Enemies In Front of the Player',

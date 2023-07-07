@@ -64,7 +64,7 @@ class _HeroesState extends State<Heroes> {
               setFilterOptions(const HeroesFilterOptions());
               sortHeroes(ESortType.nameAZ);
             },
-            icon: const Icon(Icons.cleaning_services),
+            icon: const Icon(Icons.restore),
           ),
         ],
       ),

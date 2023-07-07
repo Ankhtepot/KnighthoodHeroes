@@ -70,9 +70,11 @@ flutter:
     - assets/images/skills/restoreArmor.png
     - assets/images/skills/fillsRage.png
     - assets/images/skills/harmsPlayer.png
+    - assets/images/skills/delayPowers.png
     - assets/images/skills/leechHealth.png
     - assets/images/skills/leechHealthAll.png
     - assets/images/skills/damagePlayerTarget.png
+    - assets/images/skills/damageOneBack.png
     - assets/images/skills/damageBackRow.png
     - assets/images/skills/damageFrontRow.png
     - assets/images/skills/damageEnemiesInFront.png
@@ -103,7 +105,7 @@ flutter:
     - assets/images/heroes/Cladis.jpeg
     - assets/images/heroes/Delphinia.jpeg
     - assets/images/heroes/DonDiego.jpeg
-    - assets/images/heroes/DottorFlox.jpeg
+    - assets/images/heroes/DoctorFlox.jpeg
     - assets/images/heroes/Dvalin.jpeg
     - assets/images/heroes/Eileen.jpeg
     - assets/images/heroes/Fahari.jpeg
