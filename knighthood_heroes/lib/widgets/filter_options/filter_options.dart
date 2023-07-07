@@ -6,9 +6,11 @@ import 'package:knighthood_heroes/general/gradient_container.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
 import 'package:knighthood_heroes/widgets/app_bar_background.dart';
 import 'package:knighthood_heroes/widgets/enemy_type_badge.dart';
-import 'package:knighthood_heroes/widgets/filter_options/enum_dropdown.dart';
+import 'package:knighthood_heroes/widgets/enum_dropdown.dart';
 import 'package:knighthood_heroes/widgets/filter_options/skill_options.dart';
 import 'package:knighthood_heroes/widgets/text_rounded_with_background.dart';
+
+Color appBarColor = const Color.fromARGB(255, 0, 140, 255);
 
 class FilterOptions extends StatefulWidget {
   const FilterOptions(this.setFilterOptions, {super.key});
@@ -59,24 +61,41 @@ class _FilterOptionsState extends State<FilterOptions> {
 
   Widget get applyButton => ElevatedButton(
         onPressed: _onApply,
-        child: const Text('Apply Filters'),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(const Color.fromARGB(255, 116, 207, 252)),
+          foregroundColor: MaterialStateProperty.all<Color>(appBarColor),
+        ),
+        child: const Text(
+          'Apply Filters',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
       );
 
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('Filter Options',
-              style: TextStyle(color: Color.fromARGB(255, 0, 140, 255), fontWeight: FontWeight.bold)),
-          flexibleSpace: AppBarBackground(
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: Icon(Icons.arrow_back, color: appBarColor),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              );
+            },
+          ),
+          title: Text('Filter Options', style: TextStyle(color: appBarColor, fontWeight: FontWeight.bold)),
+          flexibleSpace: const AppBarBackground(
             colors: [
-              const Color.fromARGB(255, 83, 83, 83),
-              Colors.grey.shade400,
+              Color.fromARGB(255, 132, 196, 248),
+              Color.fromARGB(255, 116, 207, 252),
             ],
           ),
         ),
         body: GradientContainer.linear(
           gradientColors: [
-            Colors.grey.shade400,
+            Colors.blue,
             Colors.grey.shade200,
           ],
           child: SingleChildScrollView(

@@ -11,6 +11,7 @@ class EnumDropdown<T extends Enum> extends StatefulWidget {
     this.titleFontSize = 20,
     this.titleGap = 20,
     this.textColor = Colors.black,
+    this.dropdownColor = const Color.fromARGB(255, 180, 180, 180),
     super.key,
   });
 
@@ -22,6 +23,7 @@ class EnumDropdown<T extends Enum> extends StatefulWidget {
   final double titleFontSize;
   final double titleGap;
   final Color textColor;
+  final Color dropdownColor;
 
   @override
   State<EnumDropdown<T>> createState() => _EnumDropdown<T>();
@@ -47,6 +49,7 @@ class _EnumDropdown<T extends Enum> extends State<EnumDropdown<T>> {
         ),
         SizedBox(width: widget.titleGap),
         DropdownButton<T>(
+          dropdownColor: widget.dropdownColor,
           value: widget.selectedValue,
           items: widget.enumVaules.map((value) {
             return DropdownMenuItem<T>(
