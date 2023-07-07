@@ -701,5 +701,87 @@ List<KnighthoodHero> get getHeroes {
         description: 'Deals damage to all enemies. ',
       ),
     ),
+    KnighthoodHero(
+      'Grax',
+      ERarity.epic,
+      EHeroClass.hunter,
+      EHeroType.maniacal,
+      EEnemyType.outlaw,
+      'Increases damage of Goblin Minions by 20%',
+      Skill(
+        'Piercing Bolt',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.expose,
+        [
+          ESkillEffect.damageOneBack,
+        ],
+        description: 'Deals damage to one enemy in the back row. ',
+      ),
+      Skill(
+        'Bonestorm',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.stun,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageSpread,
+        ],
+        description: 'Distributes damage across all enemies. ',
+      ),
+    ),
+    KnighthoodHero(
+      'Grimm',
+      ERarity.epic,
+      EHeroClass.alchemist,
+      EHeroType.dark,
+      EEnemyType.goblin,
+      'Chance to Weaken with Rage Power',
+      Skill(
+        'Ice Needles',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.freeze,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damagePlayerTarget,
+        ],
+        description: 'Deals damage to the current target. ',
+      ),
+      Skill(
+        'Sap Life',
+        ESkillClass.healAndDamage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.leechHealthAll,
+        ],
+        description: 'Deals damage to all enemies. Restores your health or armor by the same amount.',
+      ),
+    ),
+    KnighthoodHero(
+      'Griz',
+      ERarity.legendary,
+      EHeroClass.hunter,
+      EHeroType.lawful,
+      EEnemyType.undead,
+      'Increases damage of Beast minions by 20%',
+      Skill(
+        'Deadeye',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.burn,
+        [
+          ESkillEffect.damageOneBack,
+        ],
+        description: 'Deals damage to one enemy on the back row.',
+      ),
+      Skill(
+        'Crossfire',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.expose,
+        [ESkillEffect.damageAll, ESkillEffect.ignoresArmor],
+        description: 'Deals damage to all enemies and ignores armor.',
+      ),
+    ),
   ];
 }

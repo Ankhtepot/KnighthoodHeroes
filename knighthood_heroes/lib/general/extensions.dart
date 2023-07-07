@@ -18,4 +18,6 @@ extension StringExtension on String {
 
     return buffer.toString();
   }
+
+  String textFromEnumName() => split('.').last.insertSpaceForCamelCaseString().capitalize();
 }
