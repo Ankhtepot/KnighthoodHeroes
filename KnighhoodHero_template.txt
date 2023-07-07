@@ -19,7 +19,7 @@ KnighthoodHero(
         '',
         ESkillClass.,
 		chanceTo: ESkillDebuff.none,
-        strongVsDebuff: ESkillDebuff.none,        
+        strongVsDebuff: ESkillDebuff.none,
         [
           ESkillEffect.,
         ],

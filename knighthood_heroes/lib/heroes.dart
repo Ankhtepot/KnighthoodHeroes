@@ -18,6 +18,7 @@ class _HeroesState extends State<Heroes> {
   List<KnighthoodHero> heroes = List.of(getHeroes);
   HeroesFilterOptions options = const HeroesFilterOptions();
   ESortType currentSortType = ESortType.nameAZ;
+  int shownHeroesCount = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +47,13 @@ class _HeroesState extends State<Heroes> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Knighthood Heroes'),
+        title: Row(
+          children: [
+            const Text('Knighthood Heroes'),
+            const SizedBox(width: 10),
+            Text('(${heroes.length})'),
+          ],
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.filter_alt),

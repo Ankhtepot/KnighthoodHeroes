@@ -357,7 +357,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.leechHealthAll,
         ],
-        description: 'Deals damage to all enemies.Restores your HP or armor by the same amount. ',
+        description: 'Deals damage to all enemies.Restores your HP or armor by the same amount.',
       ),
     ),
     KnighthoodHero(
@@ -534,7 +534,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.leechHealthAll,
         ],
-        description: 'Deals damage to all enemies. Restores your health or armor by the same amount. ',
+        description: 'Deals damage to all enemies. Restores your health or armor by the same amount.',
       ),
     ),
     KnighthoodHero(
@@ -636,7 +636,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damagePlayerTarget,
         ],
-        description: 'Deals damage to your current target. ',
+        description: 'Deals damage to your current target.',
       ),
       Skill(
         'Soul Thief',
@@ -646,7 +646,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.leechHealthAll,
         ],
-        description: 'Deals damage to all enemies, and restores your health or armor by the same amount. ',
+        description: 'Deals damage to all enemies, and restores your health or armor by the same amount.',
       ),
     ),
     KnighthoodHero(
@@ -662,7 +662,7 @@ List<KnighthoodHero> get getHeroes {
         chanceTo: ESkillDebuff.delay,
         strongVsDebuff: ESkillDebuff.none,
         [ESkillEffect.damagePlayerTarget, ESkillEffect.delayPowers],
-        description: 'Deals damage and delays power of your current target. ',
+        description: 'Deals damage and delays power of your current target.',
       ),
       Skill(
         'Searing Font',
@@ -672,7 +672,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damageSpread,
         ],
-        description: 'Distributes damage across all enemies. ',
+        description: 'Distributes damage across all enemies.',
       ),
     ),
     KnighthoodHero(
@@ -690,7 +690,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damageOneBack,
         ],
-        description: 'Deals damage to one enemy on the back row. ',
+        description: 'Deals damage to one enemy on the back row.',
       ),
       Skill(
         'Volatile Mix',
@@ -700,7 +700,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damageAll,
         ],
-        description: 'Deals damage to all enemies. ',
+        description: 'Deals damage to all enemies.',
       ),
     ),
     KnighthoodHero(
@@ -718,7 +718,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damageOneBack,
         ],
-        description: 'Deals damage to one enemy in the back row. ',
+        description: 'Deals damage to one enemy in the back row.',
       ),
       Skill(
         'Bonestorm',
@@ -728,7 +728,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damageSpread,
         ],
-        description: 'Distributes damage across all enemies. ',
+        description: 'Distributes damage across all enemies.',
       ),
     ),
     KnighthoodHero(
@@ -746,7 +746,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damagePlayerTarget,
         ],
-        description: 'Deals damage to the current target. ',
+        description: 'Deals damage to the current target.',
       ),
       Skill(
         'Sap Life',
@@ -800,7 +800,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damagePlayerTarget,
         ],
-        description: 'Deals damage to the current target. ',
+        description: 'Deals damage to the current target.',
       ),
       Skill(
         'Whirwind',
@@ -808,7 +808,7 @@ List<KnighthoodHero> get getHeroes {
         chanceTo: ESkillDebuff.none,
         strongVsDebuff: ESkillDebuff.weaken,
         [ESkillEffect.damageAll, ESkillEffect.harmsPlayer],
-        description: 'Deals damage to all enemies. You take 33% of the total damage. ',
+        description: 'Deals damage to all enemies. You take 33% of the total damage.',
       ),
     ),
     KnighthoodHero(
@@ -826,7 +826,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damagePlayerTarget,
         ],
-        description: 'Deals damage to your current target. ',
+        description: 'Deals damage to your current target.',
       ),
       Skill(
         'Phalanx',
@@ -836,7 +836,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damageSpread,
         ],
-        description: 'Distributes damage across all enemies. ',
+        description: 'Distributes damage across all enemies.',
       ),
     ),
     KnighthoodHero(
@@ -854,7 +854,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damagePlayerTarget,
         ],
-        description: 'Deals damage to the current target. ',
+        description: 'Deals damage to the current target.',
       ),
       Skill(
         'Hammer Shock',
@@ -864,7 +864,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damageAll,
         ],
-        description: 'Deals damage to all enemies. ',
+        description: 'Deals damage to all enemies.',
       ),
     ),
     KnighthoodHero(
@@ -882,7 +882,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damageOneBack,
         ],
-        description: 'Deals damage to one enemy on the back row. ',
+        description: 'Deals damage to one enemy on the back row.',
       ),
       Skill(
         'Dark Portal',
@@ -890,7 +890,7 @@ List<KnighthoodHero> get getHeroes {
         chanceTo: ESkillDebuff.poison,
         strongVsDebuff: ESkillDebuff.none,
         [ESkillEffect.damageAll, ESkillEffect.ignoresArmor],
-        description: 'Deals damage to all enemies, and ignores armor. ',
+        description: 'Deals damage to all enemies, and ignores armor.',
       ),
     ),
     KnighthoodHero(
@@ -908,7 +908,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damagePlayerTarget,
         ],
-        description: 'Deals damage to the current target. ',
+        description: 'Deals damage to the current target.',
       ),
       Skill(
         'Rain of Ice',
@@ -918,7 +918,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damageAll,
         ],
-        description: 'Deals damage to all enemies. ',
+        description: 'Deals damage to all enemies.',
       ),
     ),
     KnighthoodHero(
@@ -934,7 +934,7 @@ List<KnighthoodHero> get getHeroes {
         chanceTo: ESkillDebuff.none,
         strongVsDebuff: ESkillDebuff.none,
         [ESkillEffect.damagePlayerTarget, ESkillEffect.dispelBuffs],
-        description: 'Deals damage to the current target and dispels all buffs from the target. ',
+        description: 'Deals damage to the current target and dispels all buffs from the target.',
       ),
       Skill(
         'Fusillade',
@@ -944,7 +944,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damageAll,
         ],
-        description: 'Deals damage to all enemies. ',
+        description: 'Deals damage to all enemies.',
       ),
     ),
     KnighthoodHero(
@@ -962,7 +962,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damagePlayerTarget,
         ],
-        description: 'Deals damage to the current target. ',
+        description: 'Deals damage to the current target.',
       ),
       Skill(
         'Raven Curse',
@@ -972,7 +972,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damageRandom,
         ],
-        description: 'Attack 6 times, dealing damage. Hits random enemies. ',
+        description: 'Attack 6 times, dealing damage. Hits random enemies.',
       ),
     ),
     KnighthoodHero(
@@ -990,7 +990,7 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damageOneBack,
         ],
-        description: 'Deals damage to one enemy on the back row. ',
+        description: 'Deals damage to one enemy on the back row.',
       ),
       Skill(
         'Detonator Bolt',
@@ -1000,7 +1000,318 @@ List<KnighthoodHero> get getHeroes {
         [
           ESkillEffect.damageAll,
         ],
-        description: 'Deals damage to all enemies. ',
+        description: 'Deals damage to all enemies.',
+      ),
+    ),
+    KnighthoodHero(
+      'Lanasa',
+      ERarity.legendary,
+      EHeroClass.hunter,
+      EHeroType.logical,
+      EEnemyType.troll,
+      'Chance to Weaken with Rage Power',
+      Skill(
+        'Scatter Shot',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.expose,
+        [
+          ESkillEffect.damageBackRow,
+        ],
+        description: 'Deals damage to enemies on the back row.',
+      ),
+      Skill(
+        'Porcupine Quills',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.acid,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageAll,
+        ],
+        description: 'Deals damage to all enemies.',
+      ),
+    ),
+    KnighthoodHero(
+      'Lance',
+      ERarity.unique,
+      EHeroClass.warrior,
+      EHeroType.holy,
+      EEnemyType.demon,
+      'Chance to Regenerate with Rage Power',
+      Skill(
+        'Sunlit Spear',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.poison,
+        [ESkillEffect.damagePlayerTarget, ESkillEffect.ignoresArmor],
+        description: 'Deals damage to your current target and ignores armor.',
+      ),
+      Skill(
+        'Holy Aegis',
+        ESkillClass.heal,
+        chanceTo: ESkillDebuff.protect,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.restoreHealth,
+          ESkillEffect.restoreArmor,
+        ],
+        description: 'Restores health or armor.',
+      ),
+    ),
+    KnighthoodHero(
+      'Lars',
+      ERarity.epic,
+      EHeroClass.warrior,
+      EHeroType.chaotic,
+      EEnemyType.golem,
+      'Chance to Expose with Base Power',
+      Skill(
+        'Wide Swing',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.acid,
+        [
+          ESkillEffect.damageFrontRow,
+        ],
+        description: 'Deals damage to enemies in the front row.',
+      ),
+      Skill(
+        'Battle Charge',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.freeze,
+        [
+          ESkillEffect.damageAll,
+        ],
+        description: 'Deals damage to all enemies.',
+      ),
+    ),
+    KnighthoodHero(
+      'Logan',
+      ERarity.legendary,
+      EHeroClass.warrior,
+      EHeroType.dark,
+      EEnemyType.beast,
+      'Base Power deals 50% more damage vs Expose',
+      Skill(
+        'Night Claw',
+        ESkillClass.healAndDamage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.leechHealth,
+        ],
+        description: 'Deals damage to your current target. Restores your health or armor by the same amount.',
+      ),
+      Skill(
+        'Full Moon',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.weaken,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageAll,
+        ],
+        description: 'Deals damage to all enemies.',
+      ),
+    ),
+    KnighthoodHero(
+      'Lukin',
+      ERarity.legendary,
+      EHeroClass.hunter,
+      EHeroType.rebel,
+      EEnemyType.goblin,
+      'Increases critical chance of Lukin\'s Powers by 30%',
+      Skill(
+        'Boom Shot',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.stun,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damagePlayerTarget,
+        ],
+        description: 'Deals damage to the current target.',
+      ),
+      Skill(
+        'Toxic Horns',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.poison,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageAll,
+        ],
+        description: 'Deals damage to all enemies.',
+      ),
+    ),
+    KnighthoodHero(
+      'Macleod',
+      ERarity.unique,
+      EHeroClass.hunter,
+      EHeroType.chaotic,
+      EEnemyType.goblin,
+      '+50% critical chance vs Goblin',
+      Skill(
+        'Axe Hurl',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.poison,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageOneBack,
+        ],
+        description: 'Deals damage to one enemy on the back row.',
+      ),
+      Skill(
+        'Foe Cleaver',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.delay,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageAll,
+        ],
+        description: 'Deals damage to all enemies.',
+      ),
+    ),
+    KnighthoodHero(
+      'Mikazuki',
+      ERarity.unique,
+      EHeroClass.hunter,
+      EHeroType.logical,
+      EEnemyType.demon,
+      'Chance to Expose with Base Power',
+      Skill(
+        'Poisoned Claw',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.poison,
+        strongVsDebuff: ESkillDebuff.none,
+        [ESkillEffect.damagePlayerTarget, ESkillEffect.ignoresArmor],
+        description: 'Deals damage to the current target and ignores armor.',
+      ),
+      Skill(
+        'Nine Tails',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.stun,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageAll,
+          ESkillEffect.ignoresArmor,
+          ESkillEffect.dispelBuffs,
+        ],
+        description: 'Damages all enemies and ignores armor. Dispels all buffs.',
+      ),
+    ),
+    KnighthoodHero(
+      'Millicent',
+      ERarity.legendary,
+      EHeroClass.alchemist,
+      EHeroType.maverick,
+      EEnemyType.outlaw,
+      'Increases Poison damage by 100%',
+      Skill(
+        'Knockout Gas',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.stun,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damagePlayerTarget,
+        ],
+        description: 'Deals armor-penetrating damage to the current target.',
+      ),
+      Skill(
+        'Toxic Spray',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.poison,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageAll,
+        ],
+        description: 'Deals armor-penetrating damage to all enemies.',
+      ),
+    ),
+    KnighthoodHero(
+      'Neko',
+      ERarity.rare,
+      EHeroClass.hunter,
+      EHeroType.maniacal,
+      EEnemyType.goblin,
+      '+50% critical chance vs Goblin',
+      Skill(
+        'Claws Out',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.burn,
+        [
+          ESkillEffect.damageOneBack,
+        ],
+        description: 'Deals damage to one enemy on the back row.',
+      ),
+      Skill(
+        'Cat\'s Cradle',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.expose,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageSpread,
+          ESkillEffect.harmsPlayer,
+        ],
+        description: 'Distributes damage across all enemies. You take 20% of the total damage.',
+      ),
+    ),
+    KnighthoodHero(
+      'Nijuro',
+      ERarity.epic,
+      EHeroClass.warrior,
+      EHeroType.logical,
+      EEnemyType.cult,
+      '+30% critical chance for Warrior Powers',
+      Skill(
+        'Awaken Blade',
+        ESkillClass.heal,
+        chanceTo: ESkillDebuff.focus,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.restoreHealth,
+          ESkillEffect.restoreArmor,
+        ],
+        description: 'Restores health or armor.',
+      ),
+      Skill(
+        'Swallow Tail',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageAll,
+          ESkillEffect.dispelBuffs,
+        ],
+        description: 'Deals damage to all enemies. Dispels all buffs from the targets.',
+      ),
+    ),
+    KnighthoodHero(
+      'Olaf',
+      ERarity.epic,
+      EHeroClass.alchemist,
+      EHeroType.maverick,
+      EEnemyType.golem,
+      '+50% critical chance vs Golem',
+      Skill(
+        'Lightning Flask',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.acid,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageOneBack,
+        ],
+        description: 'Deals damage to one enemy in the back row.',
+      ),
+      Skill(
+        'Bottled Blizzard',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.freeze,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageSpread,
+          ESkillEffect.ignoresArmor,
+        ],
+        description: 'Distributes damage across all enemies and ignores armor.',
       ),
     ),
   ];

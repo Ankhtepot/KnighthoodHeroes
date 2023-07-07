@@ -62,6 +62,7 @@ class _HeroesListState extends State<HeroesList> {
               (widget.filterOptions.rageSkillTarget == ESkillEffect.none ||
                   hero.rageSkill.skillEffects.contains(widget.filterOptions.rageSkillTarget)))
           .toList();
+
       return filteredHeroes;
     }
 
