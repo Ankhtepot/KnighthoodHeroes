@@ -10,6 +10,7 @@ class EnumDropdown<T extends Enum> extends StatefulWidget {
     this.elementBuilder,
     this.titleFontSize = 20,
     this.titleGap = 20,
+    this.textColor = Colors.black,
     super.key,
   });
 
@@ -20,6 +21,7 @@ class EnumDropdown<T extends Enum> extends StatefulWidget {
   final Function(T?)? elementBuilder;
   final double titleFontSize;
   final double titleGap;
+  final Color textColor;
 
   @override
   State<EnumDropdown<T>> createState() => _EnumDropdown<T>();
@@ -27,9 +29,7 @@ class EnumDropdown<T extends Enum> extends StatefulWidget {
 
 class _EnumDropdown<T extends Enum> extends State<EnumDropdown<T>> {
   Widget _buildDropdownItem(T value) {
-    return widget.elementBuilder == null
-        ? Text(value.toString().split('.').last.capitalize())
-        : widget.elementBuilder!(value);
+    return widget.elementBuilder == null ? Text(value.name.textFromEnumName()) : widget.elementBuilder!(value);
   }
 
   @override
@@ -39,7 +39,11 @@ class _EnumDropdown<T extends Enum> extends State<EnumDropdown<T>> {
       children: [
         Text(
           widget.title,
-          style: TextStyle(fontSize: widget.titleFontSize, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: widget.titleFontSize,
+            fontWeight: FontWeight.bold,
+            color: widget.textColor,
+          ),
         ),
         SizedBox(width: widget.titleGap),
         DropdownButton<T>(

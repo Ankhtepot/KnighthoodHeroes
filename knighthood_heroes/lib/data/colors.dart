@@ -19,3 +19,13 @@ Color getRarityColor(ERarity rarity) {
       return Colors.white;
   }
 }
+
+List<Color> get appBarGradientColors => [
+      const Color.fromARGB(255, 125, 214, 255),
+      Colors.blue,
+    ];
+
+List<Color> get backgroundGradientColors => [
+      Colors.blue,
+      const Color.fromARGB(255, 125, 214, 255),
+    ];

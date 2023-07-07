@@ -54,9 +54,10 @@ class _SortOptionsState extends State<SortOptions> {
               selectedValue: _selectedSortType!,
               onChanged: onChanged,
               enumVaules: ESortType.values,
+              textColor: Colors.white,
               elementBuilder: (value) => Text(
                     getDisplayText(value!),
-                    style: const TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16, color: Colors.white),
                   ))
         ],
       ),

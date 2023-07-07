@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/data/heroes_data.dart';
+import 'package:knighthood_heroes/general/gradient_container.dart';
 import 'package:knighthood_heroes/models/knighthood_hero.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
+import 'package:knighthood_heroes/widgets/app_bar_background.dart';
 import 'package:knighthood_heroes/widgets/filter_options/filter_options.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/heroes_list.dart';
 import 'package:knighthood_heroes/widgets/sort_options.dart';
@@ -83,10 +86,19 @@ class _HeroesState extends State<Heroes> {
       appBar: AppBar(
         title: Row(
           children: [
-            const Text('Knighthood Heroes'),
+            const Text(
+              'Knighthood Heroes',
+              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+            ),
             const SizedBox(width: 10),
-            Text('(${heroes.length})'),
+            Text(
+              '(${heroes.length})',
+              style: const TextStyle(color: Colors.white),
+            ),
           ],
+        ),
+        flexibleSpace: AppBarBackground(
+          colors: appBarGradientColors,
         ),
         actions: [
           IconButton(
@@ -110,12 +122,15 @@ class _HeroesState extends State<Heroes> {
         ],
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SortOptions(sortHeroes, sortType: currentSortType),
-            Expanded(child: HeroesList(heroes)),
-          ],
+        child: GradientContainer.linear(
+          gradientColors: backgroundGradientColors,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SortOptions(sortHeroes, sortType: currentSortType),
+              Expanded(child: HeroesList(heroes)),
+            ],
+          ),
         ),
       ),
     );

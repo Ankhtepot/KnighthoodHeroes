@@ -16,24 +16,28 @@ class HeroCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: const Color.fromARGB(255, 207, 253, 255),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
         child: Row(
           children: [
-            Stack(
-              children: [
-                Image.asset(
-                  fit: BoxFit.fill,
-                  hero.avatarPath,
-                  width: 81,
-                  height: 81,
-                ),
-                Positioned(
-                  bottom: 2,
-                  right: 2,
-                  child: EnemyTypeBadge(hero.strongVs),
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(3.0),
+              child: Stack(
+                children: [
+                  Image.asset(
+                    fit: BoxFit.fill,
+                    hero.avatarPath,
+                    width: 81,
+                    height: 81,
+                  ),
+                  Positioned(
+                    bottom: 2,
+                    right: 2,
+                    child: EnemyTypeBadge(hero.strongVs),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(width: 5),
             Column(

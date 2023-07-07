@@ -4,10 +4,11 @@ import 'package:knighthood_heroes/models/skill.dart';
 import 'package:knighthood_heroes/widgets/text_rounded_with_background.dart';
 
 class SkillDetailed extends StatelessWidget {
-  const SkillDetailed(this.skill, this.isBaseSkill, {super.key});
+  const SkillDetailed(this.skill, this.isBaseSkill, {super.key, this.backgroundColor = Colors.white});
 
   final Skill skill;
   final bool isBaseSkill;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +42,9 @@ class SkillDetailed extends StatelessWidget {
     }
 
     return Card(
+      color: backgroundColor,
       child: Padding(
-        padding: const EdgeInsets.all(3.0),
+        padding: const EdgeInsets.all(5.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

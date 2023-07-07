@@ -13,6 +13,7 @@ class HeroCardDetailed extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Card(
+        color: Colors.lightBlue[100],
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -96,9 +97,10 @@ class HeroCardDetailed extends StatelessWidget {
                 ],
               ), // Hero image and name
               const SizedBox(height: 5),
-              Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: Card(
+              Card(
+                color: Colors.yellow[100],
+                child: Padding(
+                  padding: const EdgeInsets.all(3.0),
                   child: Column(
                     children: [
                       Row(
@@ -118,11 +120,15 @@ class HeroCardDetailed extends StatelessWidget {
                     ],
                   ),
                 ),
-              ), // Stars bonus
+              ),
               const SizedBox(height: 5),
-              SkillDetailed(hero.baseSkill, true), // Base skill
+              SkillDetailed(hero.baseSkill, true, backgroundColor: Colors.grey.shade100), // Base skill
               const SizedBox(height: 5),
-              SkillDetailed(hero.rageSkill, false), // Ultimate skill
+              SkillDetailed(
+                hero.rageSkill,
+                false,
+                backgroundColor: Colors.orange.shade50,
+              ), // Ultimate skill
             ],
           ),
         ),
