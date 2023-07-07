@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/models/skill.dart';
-import 'package:knighthood_heroes/models/text_colors.dart';
 import 'package:knighthood_heroes/widgets/text_rounded_with_background.dart';
 
 class SkillDetailed extends StatelessWidget {
@@ -40,9 +39,6 @@ class SkillDetailed extends StatelessWidget {
 
       return effectsIcons;
     }
-
-    TextColors chanceColors = Skill.getDebuffColors(skill.chanceTo);
-    TextColors strongVsColors = Skill.getDebuffColors(skill.strongVsDebuff);
 
     return Card(
       child: Padding(

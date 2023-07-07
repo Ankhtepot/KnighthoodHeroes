@@ -61,7 +61,7 @@ class _FilterOptionsState extends State<FilterOptions> {
       appBar: AppBar(
         title: const Text('Filter Options'),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [

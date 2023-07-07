@@ -7,6 +7,39 @@ import 'package:knighthood_heroes/widgets/filter_options/filter_options.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/heroes_list.dart';
 import 'package:knighthood_heroes/widgets/sort_options.dart';
 
+List<KnighthoodHero> filterHeroes(HeroesFilterOptions filterOptions, List<KnighthoodHero> heroes) {
+  List<KnighthoodHero> filteredHeroes = List.of(heroes);
+  filteredHeroes = filteredHeroes
+      .where((hero) =>
+          (filterOptions.heroClass == EHeroClass.none || filterOptions.heroClass == hero.heroClass) &&
+          (filterOptions.heroType == EHeroType.none || hero.heroType == filterOptions.heroType) &&
+          (filterOptions.rarity == ERarity.none || hero.rarity == filterOptions.rarity) &&
+          (filterOptions.enemyType == EEnemyType.none || hero.strongVs == filterOptions.enemyType) &&
+          (filterOptions.baseSkillClass == ESkillClass.none ||
+              hero.baseSkill.skillClass == filterOptions.baseSkillClass) &&
+          (filterOptions.baseSkillStrongVsDebuff == ESkillDebuff.none ||
+              hero.baseSkill.strongVsDebuff == filterOptions.baseSkillStrongVsDebuff) &&
+          (filterOptions.baseSkillChanceToDebuff == ESkillDebuff.none ||
+              hero.baseSkill.chanceTo == filterOptions.baseSkillChanceToDebuff) &&
+          (filterOptions.baseSkillEffect == ESkillEffect.none ||
+              hero.baseSkill.skillEffects.contains(filterOptions.baseSkillEffect)) &&
+          (filterOptions.baseSkillTarget == ESkillEffect.none ||
+              hero.baseSkill.skillEffects.contains(filterOptions.baseSkillTarget)) &&
+          (filterOptions.rageSkillClass == ESkillClass.none ||
+              hero.rageSkill.skillClass == filterOptions.rageSkillClass) &&
+          (filterOptions.rageSkillStrongVsDebuff == ESkillDebuff.none ||
+              hero.rageSkill.strongVsDebuff == filterOptions.rageSkillStrongVsDebuff) &&
+          (filterOptions.rageSkillChanceToDebuff == ESkillDebuff.none ||
+              hero.rageSkill.chanceTo == filterOptions.rageSkillChanceToDebuff) &&
+          (filterOptions.rageSkillEffect == ESkillEffect.none ||
+              hero.rageSkill.skillEffects.contains(filterOptions.rageSkillEffect)) &&
+          (filterOptions.rageSkillTarget == ESkillEffect.none ||
+              hero.rageSkill.skillEffects.contains(filterOptions.rageSkillTarget)))
+      .toList();
+
+  return filteredHeroes;
+}
+
 class Heroes extends StatefulWidget {
   const Heroes({super.key});
 
@@ -18,12 +51,12 @@ class _HeroesState extends State<Heroes> {
   List<KnighthoodHero> heroes = List.of(getHeroes);
   HeroesFilterOptions options = const HeroesFilterOptions();
   ESortType currentSortType = ESortType.nameAZ;
-  int shownHeroesCount = 0;
 
   @override
   Widget build(BuildContext context) {
     void setFilterOptions(HeroesFilterOptions filterOptions) {
       setState(() => options = filterOptions);
+      heroes = filterHeroes(filterOptions, getHeroes);
     }
 
     void sortHeroes(ESortType? newSortType) {
@@ -80,7 +113,7 @@ class _HeroesState extends State<Heroes> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SortOptions(sortHeroes, sortType: currentSortType),
-            Expanded(child: HeroesList(options, heroes)),
+            Expanded(child: HeroesList(heroes)),
           ],
         ),
       ),

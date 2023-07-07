@@ -108,15 +108,15 @@ class Skill {
         ESkillEffect.harmsPlayer => 'Harms Player',
         ESkillEffect.delayPowers => 'Delays Powers',
         ESkillEffect.leechHealth => 'Leech Health',
-        ESkillEffect.leechHealthAll => 'Leech Health from all Enemies',
+        ESkillEffect.leechHealthAll => 'Leech all Enemies Health',
         ESkillEffect.damagePlayerTarget => 'Damages Player Target',
         ESkillEffect.damageOneBack => 'Damages Enemy in Back Row',
         ESkillEffect.damageBackRow => 'Damages Back Row',
         ESkillEffect.damageFrontRow => 'Damages Front Row',
-        ESkillEffect.damageEnemiesInFront => 'Enemies In Front of the Player',
+        ESkillEffect.damageEnemiesInFront => 'Enemies facing the Player',
         ESkillEffect.damageRandom => 'Damages Random Enemy',
         ESkillEffect.damageAll => 'Damages All Enemies',
-        ESkillEffect.damageSpread => 'Damage is Spread to All Enemies',
+        ESkillEffect.damageSpread => 'Damage Spread to All Enemies',
       };
 
   static String getSkillClassImagePath(ESkillClass skillClass) => switch (skillClass) {
