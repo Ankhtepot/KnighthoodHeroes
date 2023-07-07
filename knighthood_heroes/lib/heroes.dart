@@ -54,11 +54,6 @@ class _HeroesState extends State<Heroes> {
 
   @override
   Widget build(BuildContext context) {
-    void setFilterOptions(HeroesFilterOptions filterOptions) {
-      setState(() => options = filterOptions);
-      heroes = filterHeroes(filterOptions, getHeroes);
-    }
-
     void sortHeroes(ESortType? newSortType) {
       setState(() {
         currentSortType = newSortType!;
@@ -76,6 +71,12 @@ class _HeroesState extends State<Heroes> {
           ESortType.enemyType => heroes.sort((a, b) => a.strongVs.index.compareTo(b.strongVs.index))
         };
       });
+    }
+
+    void setFilterOptions(HeroesFilterOptions filterOptions) {
+      setState(() => options = filterOptions);
+      heroes = filterHeroes(filterOptions, getHeroes);
+      sortHeroes(currentSortType);
     }
 
     return Scaffold(
