@@ -4,6 +4,7 @@ import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
+import 'package:knighthood_heroes/widgets/enemy_type_badge.dart';
 import 'package:knighthood_heroes/widgets/filter_options/enum_dropdown.dart';
 import 'package:knighthood_heroes/widgets/filter_options/skill_options.dart';
 import 'package:knighthood_heroes/widgets/text_rounded_with_background.dart';
@@ -77,7 +78,7 @@ class _FilterOptionsState extends State<FilterOptions> {
               elementBuilder: (value) {
                 return Row(
                   children: [
-                    Image(image: AssetImage(KnighthoodHero.getEnemyTypeImagePath(value!)), width: 20, height: 20),
+                    EnemyTypeBadge(value!),
                     const SizedBox(width: 5),
                     Text(value.toString().split('.').last.capitalize().insertSpaceForCamelCaseString()),
                   ],
