@@ -63,6 +63,7 @@ enum ESkillDebuff {
   regenerate,
   expose,
   freeze,
+  fury,
   delay,
   armor,
   focus,

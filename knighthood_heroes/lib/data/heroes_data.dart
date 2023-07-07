@@ -619,5 +619,87 @@ List<KnighthoodHero> get getHeroes {
         description: 'Distributes damage across all enemies.',
       ),
     ),
+    KnighthoodHero(
+      'Fahari',
+      ERarity.rare,
+      EHeroClass.rogue,
+      EHeroType.maverick,
+      EEnemyType.cult,
+      'Chance to Regenerate with Rage Power',
+      Skill(
+        'Ransack',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.fury,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damagePlayerTarget,
+        ],
+        description: 'Deals damage to your current target. ',
+      ),
+      Skill(
+        'Soul Thief',
+        ESkillClass.healAndDamage,
+        chanceTo: ESkillDebuff.none,
+        strongVsDebuff: ESkillDebuff.acid,
+        [
+          ESkillEffect.leechHealthAll,
+        ],
+        description: 'Deals damage to all enemies, and restores your health or armor by the same amount. ',
+      ),
+    ),
+    KnighthoodHero(
+      'Garron',
+      ERarity.legendary,
+      EHeroClass.warrior,
+      EHeroType.lawful,
+      EEnemyType.cult,
+      '+50% critical chance vs Cult',
+      Skill(
+        'Pure Impact',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.delay,
+        strongVsDebuff: ESkillDebuff.none,
+        [ESkillEffect.damagePlayerTarget, ESkillEffect.delayPowers],
+        description: 'Deals damage and delays power of your current target. ',
+      ),
+      Skill(
+        'Searing Font',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.delay,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageSpread,
+        ],
+        description: 'Distributes damage across all enemies. ',
+      ),
+    ),
+    KnighthoodHero(
+      'Geber',
+      ERarity.unique,
+      EHeroClass.alchemist,
+      EHeroType.rebel,
+      EEnemyType.cult,
+      'Increases damage of Golem Minions by 20%',
+      Skill(
+        'Blood Distill',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.regenerate,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageOneBack,
+        ],
+        description: 'Deals damage to one enemy on the back row. ',
+      ),
+      Skill(
+        'Volatile Mix',
+        ESkillClass.damage,
+        chanceTo: ESkillDebuff.acid,
+        strongVsDebuff: ESkillDebuff.none,
+        [
+          ESkillEffect.damageAll,
+        ],
+        description: 'Deals damage to all enemies. ',
+      ),
+    ),
   ];
 }
