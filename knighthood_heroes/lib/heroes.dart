@@ -91,14 +91,14 @@ class _HeroesState extends State<Heroes> {
               'Knighthood Heroes',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: appBarTextColor,
                 fontSize: 20,
               ),
             ),
             const SizedBox(width: 5),
             Text(
               '(${heroes.length})',
-              style: const TextStyle(color: Colors.white, fontSize: 20),
+              style: const TextStyle(color: appBarTextColor, fontSize: 20),
             ),
           ],
         ),
@@ -107,7 +107,7 @@ class _HeroesState extends State<Heroes> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.filter_alt, color: Colors.white),
+            icon: const Icon(Icons.filter_alt, color: appBarTextColor),
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(
@@ -120,7 +120,7 @@ class _HeroesState extends State<Heroes> {
               setFilterOptions(const HeroesFilterOptions());
               sortHeroes(ESortType.nameAZ);
             },
-            icon: const Icon(Icons.restore, color: Colors.white),
+            icon: const Icon(Icons.restore, color: appBarTextColor),
           ),
           IconButton(
               onPressed: () => Navigator.push(
@@ -129,7 +129,7 @@ class _HeroesState extends State<Heroes> {
                       builder: (context) => const Credits(),
                     ),
                   ),
-              icon: const Icon(Icons.badge, color: Colors.white)),
+              icon: const Icon(Icons.badge, color: appBarTextColor)),
         ],
       ),
       body: Center(

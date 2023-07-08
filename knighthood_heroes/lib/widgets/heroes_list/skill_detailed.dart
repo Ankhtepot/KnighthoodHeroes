@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
+import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/models/skill.dart';
-import 'package:knighthood_heroes/widgets/text_rounded_with_background.dart';
 
 class SkillDetailed extends StatelessWidget {
   const SkillDetailed(this.skill, this.isBaseSkill, {super.key, this.backgroundColor = Colors.white});

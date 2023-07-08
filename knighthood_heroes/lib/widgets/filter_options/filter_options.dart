@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/general/enum_dropdown.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/general/gradient_container.dart';
+import 'package:knighthood_heroes/general/leading_arrow_builder.dart';
+import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
 import 'package:knighthood_heroes/widgets/app_bar_background.dart';
 import 'package:knighthood_heroes/widgets/enemy_type_badge.dart';
-import 'package:knighthood_heroes/widgets/enum_dropdown.dart';
 import 'package:knighthood_heroes/widgets/filter_options/skill_options.dart';
-import 'package:knighthood_heroes/widgets/text_rounded_with_background.dart';
-
-Color appBarColor = const Color.fromARGB(255, 0, 140, 255);
+// Color appBarColor = Colors.white;
 
 class FilterOptions extends StatefulWidget {
   const FilterOptions(this.setFilterOptions, {super.key});
@@ -63,7 +63,7 @@ class _FilterOptionsState extends State<FilterOptions> {
         onPressed: _onApply,
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(const Color.fromARGB(255, 116, 207, 252)),
-          foregroundColor: MaterialStateProperty.all<Color>(appBarColor),
+          foregroundColor: MaterialStateProperty.all<Color>(appBarTextColor),
         ),
         child: const Text(
           'Apply Filters',
@@ -74,18 +74,8 @@ class _FilterOptionsState extends State<FilterOptions> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: Icon(Icons.arrow_back, color: appBarColor),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-              );
-            },
-          ),
-          title: Text('Filter Options', style: TextStyle(color: appBarColor, fontWeight: FontWeight.bold)),
+          leading: const LeadingArrowBuilder(),
+          title: const Text('Filter Options', style: TextStyle(color: appBarTextColor, fontWeight: FontWeight.bold)),
           flexibleSpace: const AppBarBackground(
             colors: [
               Color.fromARGB(255, 132, 196, 248),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
+import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/models/knighthood_hero.dart';
 import 'package:knighthood_heroes/widgets/enemy_type_badge.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/skill_description.dart';
-import 'package:knighthood_heroes/widgets/text_rounded_with_background.dart';
 
 String attackImage = 'assets/images/attack.png';
 String healImage = 'assets/images/heal.png';

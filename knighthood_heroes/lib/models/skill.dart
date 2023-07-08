@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
+import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/models/text_colors.dart';
-import 'package:knighthood_heroes/widgets/text_rounded_with_background.dart';
 
 String skillImagesBasePath = 'assets/images/skills/';
 String debuffImagesBasePath = 'assets/images/effects/';
@@ -28,6 +28,8 @@ class Skill {
 
   static String getSkillEffectImagePath(ESkillEffect effect) => '$skillImagesBasePath${effect.name}.png';
 
+  static String getDebuffImagePath(ESkillDebuff debuff) => '$debuffImagesBasePath${debuff.name}.png';
+
   static Widget getDebuffBadge(ESkillDebuff debuff, {bool bothIfAvailable = false}) {
     TextColors colors = getDebuffColors(debuff);
 
@@ -41,7 +43,7 @@ class Skill {
       return Row(
         children: [
           Image(
-            image: AssetImage('$debuffImagesBasePath${debuff.name}.png'),
+            image: AssetImage(getDebuffImagePath(debuff)),
             width: 20,
             height: 20,
           ),

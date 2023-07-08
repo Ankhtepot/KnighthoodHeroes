@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/general/enum_dropdown.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/models/skill.dart';
-import 'package:knighthood_heroes/widgets/enum_dropdown.dart';
 
 class SkillOptions extends StatelessWidget {
   const SkillOptions({

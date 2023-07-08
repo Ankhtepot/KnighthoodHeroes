@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/models/knighthood_hero.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/hero_card.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/hero_card_detailed.dart';
-import 'package:knighthood_heroes/widgets/text_rounded_with_background.dart';
 
 class HeroesList extends StatefulWidget {
   const HeroesList(this.heroes, {super.key});
@@ -19,6 +19,12 @@ class _HeroesListState extends State<HeroesList> {
   @override
   void initState() {
     super.initState();
+    expandedStates = List.filled(widget.heroes.length, false);
+  }
+
+  @override
+  void didUpdateWidget(covariant HeroesList oldWidget) {
+    super.didUpdateWidget(oldWidget);
     expandedStates = List.filled(widget.heroes.length, false);
   }
 

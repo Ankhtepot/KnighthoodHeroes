@@ -21,11 +21,15 @@ Color getRarityColor(ERarity rarity) {
 }
 
 List<Color> get appBarGradientColors => [
-      const Color.fromARGB(255, 125, 214, 255),
-      Colors.blue,
+      const Color.fromARGB(255, 132, 196, 248),
+      const Color.fromARGB(255, 116, 207, 252),
     ];
 
 List<Color> get backgroundGradientColors => [
       Colors.blue,
       const Color.fromARGB(255, 125, 214, 255),
     ];
+
+// const Color appBarTextColor = Color.fromARGB(255, 0, 140, 255);
+const Color appBarTextColor = Colors.black;
+const Color cardBackgroundColor = Color.fromARGB(255, 227, 242, 253); // Colors.blue.shade50;

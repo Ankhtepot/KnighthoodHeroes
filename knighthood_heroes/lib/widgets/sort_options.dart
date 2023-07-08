@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/enums.dart';
-import 'package:knighthood_heroes/widgets/enum_dropdown.dart';
+import 'package:knighthood_heroes/general/enum_dropdown.dart';
 
 class SortOptions extends StatefulWidget {
   const SortOptions(this.onChanged, {super.key, required this.sortType});
