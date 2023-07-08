@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 InlineSpan textSpanImage(String imagePath, {double width = 16, double height = 16, double padding = 0}) => WidgetSpan(
       child: Container(
-        padding: EdgeInsets.all(padding),
+        padding: EdgeInsets.fromLTRB(padding, padding, padding, 3),
         child: Image.asset(
           imagePath,
           width: width,
