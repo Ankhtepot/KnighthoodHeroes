@@ -6,6 +6,7 @@ import 'package:knighthood_heroes/general/gradient_container.dart';
 import 'package:knighthood_heroes/models/knighthood_hero.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
 import 'package:knighthood_heroes/widgets/app_bar_background.dart';
+import 'package:knighthood_heroes/widgets/credits.dart';
 import 'package:knighthood_heroes/widgets/filter_options/filter_options.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/heroes_list.dart';
 import 'package:knighthood_heroes/widgets/sort_options.dart';
@@ -88,12 +89,16 @@ class _HeroesState extends State<Heroes> {
           children: [
             const Text(
               'Knighthood Heroes',
-              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 20,
+              ),
             ),
-            const SizedBox(width: 10),
+            const SizedBox(width: 5),
             Text(
               '(${heroes.length})',
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white, fontSize: 20),
             ),
           ],
         ),
@@ -102,23 +107,29 @@ class _HeroesState extends State<Heroes> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.filter_alt),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FilterOptions(setFilterOptions),
-                ),
-              );
-            },
+            icon: const Icon(Icons.filter_alt, color: Colors.white),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => FilterOptions(setFilterOptions),
+              ),
+            ),
           ),
           IconButton(
             onPressed: () {
               setFilterOptions(const HeroesFilterOptions());
               sortHeroes(ESortType.nameAZ);
             },
-            icon: const Icon(Icons.restore),
+            icon: const Icon(Icons.restore, color: Colors.white),
           ),
+          IconButton(
+              onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Credits(),
+                    ),
+                  ),
+              icon: const Icon(Icons.badge, color: Colors.white)),
         ],
       ),
       body: Center(
