@@ -43,7 +43,7 @@ class _HeroesListState extends State<HeroesList> {
         itemCount: filteredHeroes.length,
         itemBuilder: (context, index) {
           final isExpanded = expandedStates[index];
-          return GestureDetector(
+          return InkWell(
             onTap: () {
               toggleExpansion(index);
             },
