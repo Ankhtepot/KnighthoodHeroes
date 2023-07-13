@@ -14,6 +14,7 @@ class HeroCardDetailed extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Card(
         color: Colors.lightBlue[100],
+        elevation: 5,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
