@@ -49,10 +49,11 @@ class _EnumDropdown<T extends Enum> extends State<EnumDropdown<T>> {
         ),
         SizedBox(width: widget.titleGap),
         DropdownButton<T>(
+          elevation: 5,
           dropdownColor: widget.dropdownColor,
           value: widget.selectedValue,
           items: widget.enumVaules.map((value) {
-            return DropdownMenuItem<T>(
+            return DropdownMenuItem<T>(              
               value: value,
               child: _buildDropdownItem(value),
             );

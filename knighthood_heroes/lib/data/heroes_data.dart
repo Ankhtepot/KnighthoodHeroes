@@ -1357,7 +1357,7 @@ List<KnighthoodHero> get getHeroes {
         strongVsDebuff: ESkillDebuff.none,
         [
           ESkillEffect.restoreHealth,
-          ESkillEffect.restoreHealth,
+          ESkillEffect.restoreArmor,
         ],
         description: 'Restores health or armor. ',
       ),

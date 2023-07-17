@@ -17,6 +17,7 @@ class HeroCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: const Color.fromARGB(255, 207, 253, 255),
+      elevation: 5,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
         child: Row(
