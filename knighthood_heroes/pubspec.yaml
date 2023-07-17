@@ -30,7 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  url_launcher: ^6.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -39,6 +39,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.13.1"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -61,17 +62,128 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
   # general
-    - assets/images/damage.png
-    - assets/images/damageHeal.png
-    - assets/images/heal.png
-    - assets/images/strongAgainst.png
-    - assets/images/debuff.png
+    - assets/images/skills/chance.png
+    - assets/images/skills/damage.png
+    - assets/images/skills/damageHeal.png
+    - assets/images/skills/debuff.png
+    - assets/images/skills/strongVs.png
+    - assets/images/skills/restoreHealth.png
+    - assets/images/skills/restoreArmor.png
+    - assets/images/skills/fillsRage.png
+    - assets/images/skills/harmsPlayer.png
+    - assets/images/skills/delayPowers.png
+    - assets/images/skills/leechHealth.png
+    - assets/images/skills/leechHealthAll.png
+    - assets/images/skills/damagePlayerTarget.png
+    - assets/images/skills/damageOneBack.png
+    - assets/images/skills/damageBackRow.png
+    - assets/images/skills/damageFrontRow.png
+    - assets/images/skills/damageEnemiesInFront.png
+    - assets/images/skills/damageRandom.png
+    - assets/images/skills/damageAll.png
+    - assets/images/skills/damageSpread.png
+    - assets/images/skills/ignoresArmor.png
+    - assets/images/skills/dispelBuffs.png
+    - assets/images/skills/dispelDebuffs.png
+    - assets/images/skills/focus.png
+    - assets/images/skills/none.png
 
   # heros avatars
-    - assets/images/Aeron.jpg
-    - assets/images/Alder.jpg
-    - assets/images/Anaara.jpg
-  
+    - assets/images/heroes/Aeron.jpeg
+    - assets/images/heroes/Alder.jpeg
+    - assets/images/heroes/Anaara.jpeg
+    - assets/images/heroes/Ash.jpeg
+    - assets/images/heroes/Ayako.jpeg
+    - assets/images/heroes/Azhar.jpeg
+    - assets/images/heroes/Balberith.jpeg
+    - assets/images/heroes/Balendu.jpeg
+    - assets/images/heroes/Bayani.jpeg
+    - assets/images/heroes/Blaine.jpeg
+    - assets/images/heroes/Brutus.jpeg
+    - assets/images/heroes/Byrne.jpeg
+    - assets/images/heroes/Caliban.jpeg
+    - assets/images/heroes/Carmilla.jpeg
+    - assets/images/heroes/Cladis.jpeg
+    - assets/images/heroes/Delphinia.jpeg
+    - assets/images/heroes/DonDiego.jpeg
+    - assets/images/heroes/DoctorFlox.jpeg
+    - assets/images/heroes/Dvalin.jpeg
+    - assets/images/heroes/Eileen.jpeg
+    - assets/images/heroes/Ericson.jpeg
+    - assets/images/heroes/Erinn.jpeg
+    - assets/images/heroes/Fahari.jpeg
+    - assets/images/heroes/Garron.jpeg
+    - assets/images/heroes/Geber.jpeg
+    - assets/images/heroes/Grax.jpeg
+    - assets/images/heroes/Grimm.jpeg
+    - assets/images/heroes/Griz.jpeg
+    - assets/images/heroes/Gunn.jpeg
+    - assets/images/heroes/Gwen.jpeg
+    - assets/images/heroes/Helmar.jpeg
+    - assets/images/heroes/Herne.jpeg
+    - assets/images/heroes/Isstara.jpeg
+    - assets/images/heroes/Kamil.jpeg
+    - assets/images/heroes/Keera.jpeg
+    - assets/images/heroes/Krusa.jpeg
+    - assets/images/heroes/Lanasa.jpeg
+    - assets/images/heroes/Lance.jpeg
+    - assets/images/heroes/Lars.jpeg
+    - assets/images/heroes/Logan.jpeg
+    - assets/images/heroes/Lukin.jpeg
+    - assets/images/heroes/Macleod.jpeg
+    - assets/images/heroes/Mikazuki.jpeg
+    - assets/images/heroes/Millicent.jpeg
+    - assets/images/heroes/Neko.jpeg
+    - assets/images/heroes/Nijuro.jpeg
+    - assets/images/heroes/Olaf.jpeg
+    - assets/images/heroes/Outis.jpeg
+    - assets/images/heroes/Pentatonix.jpeg
+    - assets/images/heroes/Petra.jpeg
+    - assets/images/heroes/QueenKrita.jpeg
+    - assets/images/heroes/Rhiannon.jpeg
+    - assets/images/heroes/Rokara.jpeg
+    - assets/images/heroes/Rosalin.jpeg
+    - assets/images/heroes/Samael.jpeg
+    - assets/images/heroes/Serra.jpeg
+    - assets/images/heroes/Sola.jpeg
+    - assets/images/heroes/Tara.jpeg
+    - assets/images/heroes/Titania.jpeg
+    - assets/images/heroes/Tristan.jpeg
+    - assets/images/heroes/Ulfred.jpeg
+    - assets/images/heroes/Urmas.jpeg
+    - assets/images/heroes/Ursula.jpeg
+    - assets/images/heroes/Viktor.jpeg
+    - assets/images/heroes/Vordrai.jpeg
+    - assets/images/heroes/WeiFeng.jpeg
+    - assets/images/heroes/Wormwood.jpeg
+    - assets/images/heroes/Zalam.jpeg
+    - assets/images/heroes/Zoe.jpeg
+
+  # Enemy types
+    - assets/images/enemy_types/None.png
+    - assets/images/enemy_types/Beast.png
+    - assets/images/enemy_types/Cult.png
+    - assets/images/enemy_types/Demon.png
+    - assets/images/enemy_types/Goblin.png
+    - assets/images/enemy_types/Golem.png
+    - assets/images/enemy_types/Militia.png
+    - assets/images/enemy_types/Outlaw.png
+    - assets/images/enemy_types/Troll.png
+    - assets/images/enemy_types/Undead.png
+
+  # Effects
+    - assets/images/effects/weaken.png
+    - assets/images/effects/unfocus.png
+    - assets/images/effects/stun.png
+    - assets/images/effects/regenerate.png
+    - assets/images/effects/protect.png
+    - assets/images/effects/poison.png
+    - assets/images/effects/fury.png
+    - assets/images/effects/freeze.png
+    - assets/images/effects/focus.png
+    - assets/images/effects/expose.png
+    - assets/images/effects/burn.png
+    - assets/images/effects/acid.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

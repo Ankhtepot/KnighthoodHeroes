@@ -1,4 +1,5 @@
 enum EEnemyType {
+  none,
   beast,
   cult,
   demon,
@@ -11,6 +12,7 @@ enum EEnemyType {
 }
 
 enum ERarity {
+  none,
   common,
   rare,
   epic,
@@ -20,24 +22,32 @@ enum ERarity {
 }
 
 enum ESkillClass {
+  none,
   heal,
   damage,
   healAndDamage,
 }
 
 enum ESkillEffect {
+  none,
   restoreHealth,
   restoreArmor,
+  dispelBuffs,
+  dispelDebuffs,
+  ignoresArmor,
+  fillsRage,
+  harmsPlayer,
+  delayPowers,
   leechHealth,
   leechHealthAll,
   damagePlayerTarget,
+  damageOneBack,
   damageBackRow,
   damageFrontRow,
   damageEnemiesInFront,
   damageRandom,
   damageAll,
   damageSpread,
-  ignoresArmor,
 }
 
 enum ESkillDebuff {
@@ -52,28 +62,45 @@ enum ESkillDebuff {
   dispel,
   regenerate,
   expose,
-  reeze,
+  freeze,
+  fury,
   delay,
   armor,
+  focus,
 }
 
 enum EHeroClass {
-  warrior,
-  mage,
-  rogue,
+  none,
   alchemist,
   hunter,
+  mage,
+  rogue,
+  warrior,
 }
 
 enum EHeroType {
+  none,
   dark,
-  logical,
+  champion,
   chaotic,
-  valiant,
   holy,
   lawful,
+  logical,
   maniacal,
-  champion,
-  rebel,
   maverick,
+  rebel,
+  valiant,
+}
+
+enum ESortType {
+  none,
+  nameAZ,
+  nameZA,
+  enemyType,
+  rarityAsc,
+  rarityDesc,
+  heroClassAZ,
+  heroClassZA,
+  heroTypeAZ,
+  heroTypeZA,
 }
