@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/models/weapons_filter_options.dart';
-import 'package:knighthood_heroes/widgets/rarity_badge.dart';
 import 'package:knighthood_heroes/widgets/weapons_crafting/rarity_button.dart';
 import 'package:knighthood_heroes/widgets/weapons_crafting/weapon_button.dart';
 

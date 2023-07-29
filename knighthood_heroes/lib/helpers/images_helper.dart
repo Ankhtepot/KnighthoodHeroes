@@ -12,4 +12,11 @@ class ImagesHelper {
       EImageIcons.hammer => 'assets/images/icons/hammer.png',
     };
   }
+
+  static String getWeaponIconPath(EWeaponType weaponType) => switch (weaponType) {
+        EWeaponType.none => ImagesHelper.getIconImagePath(EImageIcons.none),
+        EWeaponType.sword => ImagesHelper.getIconImagePath(EImageIcons.sword),
+        EWeaponType.axe => ImagesHelper.getIconImagePath(EImageIcons.axe),
+        EWeaponType.hammer => ImagesHelper.getIconImagePath(EImageIcons.hammer),
+      };
 }

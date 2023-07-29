@@ -15,13 +15,6 @@ class WeaponButton extends StatelessWidget {
   final Function onTap;
   final bool isSelected;
 
-  String getIconPath() => switch (weaponType) {
-        EWeaponType.none => ImagesHelper.getIconImagePath(EImageIcons.none),
-        EWeaponType.sword => ImagesHelper.getIconImagePath(EImageIcons.sword),
-        EWeaponType.axe => ImagesHelper.getIconImagePath(EImageIcons.axe),
-        EWeaponType.hammer => ImagesHelper.getIconImagePath(EImageIcons.hammer),
-      };
-
   @override
   build(BuildContext context) {
     return Expanded(
@@ -36,7 +29,7 @@ class WeaponButton extends StatelessWidget {
             children: [
               if (weaponType != EWeaponType.none)
                 Image.asset(
-                  getIconPath(),
+                  ImagesHelper.getWeaponIconPath(weaponType),
                   width: 30,
                   height: 30,
                 ),

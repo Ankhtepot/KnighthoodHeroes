@@ -6,7 +6,6 @@ import 'package:knighthood_heroes/general/gradient_container.dart';
 import 'package:knighthood_heroes/helpers/navigation.dart';
 import 'package:knighthood_heroes/models/knighthood_hero.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
-import 'package:knighthood_heroes/screens/weapons.dart';
 import 'package:knighthood_heroes/widgets/app_bar_background.dart';
 import 'package:knighthood_heroes/screens/credits.dart';
 import 'package:knighthood_heroes/widgets/filter_options/filter_options.dart';
@@ -60,25 +59,6 @@ class _HeroesState extends State<Heroes> {
   List<KnighthoodHero> heroes = List.of(getHeroes);
   HeroesFilterOptions options = const HeroesFilterOptions();
   ESortType currentSortType = ESortType.nameAZ;
-
-  void _setScreen(EScreens screenId) {
-    Navigator.of(context).pop();
-    if (screenId == EScreens.weapons) {
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (ctx) => WeaponsScreen(),
-        ),
-      );
-    }
-
-    if (screenId == EScreens.heroes) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (ctx) => const Heroes(),
-        ),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {

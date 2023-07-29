@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/data/weapons_crafting_data.dart';
 import 'package:knighthood_heroes/helpers/navigation.dart';
+import 'package:knighthood_heroes/models/weapons_crafting_info.dart';
 import 'package:knighthood_heroes/models/weapons_filter_options.dart';
 import 'package:knighthood_heroes/widgets/app_bar_background.dart';
 import 'package:knighthood_heroes/widgets/main_drawer.dart';
+import 'package:knighthood_heroes/widgets/weapons_crafting/weapon_crafting_info_presentation.dart';
 import 'package:knighthood_heroes/widgets/weapons_crafting/weapons_filter.dart';
 
 class WeaponsScreen extends StatefulWidget {
@@ -23,6 +26,18 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
     });
   }
 
+  List<Widget> _getFilteredWeapons() {
+    List<WeaponsCraftingInfo> infos = List<WeaponsCraftingInfo>.from(getWeaponsCraftingInfos);
+    if (_filterOptions.rarity != ERarity.none) {
+      infos = infos.where((element) => element.rarity == _filterOptions.rarity).toList();
+    }
+    if (_filterOptions.weaponType != EWeaponType.none) {
+      infos = infos.where((element) => element.weaponType == _filterOptions.weaponType).toList();
+    }
+
+    return infos.map((e) => WeaponCraftingPresentation(e)).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +51,15 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Expanded(child: WeaponsFilter(_setFilterOptions)),
+          IntrinsicHeight(
+            child: WeaponsFilter(_setFilterOptions),
+          ),
+          const SizedBox(height: 10),
+          Column(
+            children: [
+              ..._getFilteredWeapons(),
+            ],
+          ),
         ],
       ),
     );
