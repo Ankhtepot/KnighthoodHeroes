@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/data/weapons_crafting_data.dart';
+import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/helpers/navigation.dart';
 import 'package:knighthood_heroes/models/weapons_crafting_info.dart';
 import 'package:knighthood_heroes/models/weapons_filter_options.dart';
@@ -26,8 +27,33 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
     });
   }
 
+  Widget getWeaponTitle(String title) => TextRoundedWithBackground(
+        title,
+        backgroundColor: Colors.white,
+        textColor: Colors.black,
+        fontWeight: FontWeight.bold,
+        fontSize: 24,
+      );
+
   List<Widget> _getFilteredWeapons() {
     List<WeaponsCraftingInfo> infos = List<WeaponsCraftingInfo>.from(getWeaponsCraftingInfos);
+
+    if (_filterOptions.rarity == ERarity.none && _filterOptions.weaponType == EWeaponType.none) {
+      List<WeaponsCraftingInfo> swords = infos.where((element) => element.weaponType == EWeaponType.sword).toList();
+      List<WeaponsCraftingInfo> axes = infos.where((element) => element.weaponType == EWeaponType.axe).toList();
+      List<WeaponsCraftingInfo> hammers = infos.where((element) => element.weaponType == EWeaponType.hammer).toList();
+      return [
+        getWeaponTitle('Swords'),
+        ...swords.map((e) => WeaponCraftingPresentation(e)).toList(),
+        const SizedBox(height: 10),
+        getWeaponTitle('Axes'),
+        ...axes.map((e) => WeaponCraftingPresentation(e)).toList(),
+        const SizedBox(height: 10),
+        getWeaponTitle('Hammers'),
+        ...hammers.map((e) => WeaponCraftingPresentation(e)).toList(),
+      ];
+    }
+
     if (_filterOptions.rarity != ERarity.none) {
       infos = infos.where((element) => element.rarity == _filterOptions.rarity).toList();
     }

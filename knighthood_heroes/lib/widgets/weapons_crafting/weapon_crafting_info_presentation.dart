@@ -10,8 +10,9 @@ class WeaponCraftingPresentation extends StatelessWidget {
 
   final WeaponsCraftingInfo weaponCraftingInfo;
 
-  List<Widget> get _getEnemyTypeWidgets =>
-      weaponCraftingInfo.monsterTypeCrafting.map((e) => EnemyTypeBadge(e)).toList();
+  List<Widget> get _getEnemyTypeWidgets {
+    return weaponCraftingInfo.monsterTypeCrafting.map((e) => EnemyTypeBadge(e)).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
