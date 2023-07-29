@@ -104,3 +104,17 @@ enum ESortType {
   heroTypeAZ,
   heroTypeZA,
 }
+
+enum EImageIcons {
+  none,
+  explore,
+  swords,
+}
+
+enum EScreens {
+  none,
+  heroes,
+  minions,
+  weapons,
+  gloves,
+}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:knighthood_heroes/heroes.dart';
+import 'package:knighthood_heroes/screens/heroes.dart';
 
 ColorScheme colorScheme = ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 0, 149, 255));
 
