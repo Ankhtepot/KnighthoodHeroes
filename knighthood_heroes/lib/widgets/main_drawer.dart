@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/helpers/images_helper.dart';
 
+const double kIconSize = 32;
+
 class MainDrawer extends StatelessWidget {
   const MainDrawer(this.setScreen, {super.key});
 
@@ -55,11 +57,20 @@ class MainDrawer extends StatelessWidget {
           // Drawer Body
           ListTile(
             leading: Image.asset(
-              ImagesHelper.getIconImagePath(EImageIcons.swords),
-              width: 24,
-              height: 24,
+              ImagesHelper.getIconImagePath(EImageIcons.group),
+              width: kIconSize,
+              height: kIconSize,
             ),
-            title: const Text('Weapon Crafting'),
+            title: const Text('Heroes'),
+            onTap: () => setScreen(EScreens.heroes),
+          ),
+          ListTile(
+            leading: Image.asset(
+              ImagesHelper.getIconImagePath(EImageIcons.swords),
+              width: kIconSize,
+              height: kIconSize,
+            ),
+            title: const Text('Weapons Crafting'),
             onTap: () => setScreen(EScreens.weapons),
           ),
         ],

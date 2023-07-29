@@ -188,6 +188,10 @@ flutter:
   # Icons
     - assets/images/icons/explore_transparent.png
     - assets/images/icons/swords_transparent.png
+    - assets/images/icons/group_transparent.png
+    - assets/images/icons/sword.png
+    - assets/images/icons/axe.png
+    - assets/images/icons/hammer.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

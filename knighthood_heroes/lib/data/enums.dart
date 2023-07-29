@@ -109,6 +109,10 @@ enum EImageIcons {
   none,
   explore,
   swords,
+  group,
+  sword,
+  axe,
+  hammer,
 }
 
 enum EScreens {
@@ -117,4 +121,11 @@ enum EScreens {
   minions,
   weapons,
   gloves,
+}
+
+enum EWeaponType {
+  none,
+  sword,
+  axe,
+  hammer,
 }

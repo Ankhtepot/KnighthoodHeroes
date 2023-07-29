@@ -3,6 +3,7 @@ import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/data/heroes_data.dart';
 import 'package:knighthood_heroes/general/gradient_container.dart';
+import 'package:knighthood_heroes/helpers/navigation.dart';
 import 'package:knighthood_heroes/models/knighthood_hero.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
 import 'package:knighthood_heroes/screens/weapons.dart';
@@ -60,17 +61,25 @@ class _HeroesState extends State<Heroes> {
   HeroesFilterOptions options = const HeroesFilterOptions();
   ESortType currentSortType = ESortType.nameAZ;
 
-void _setScreen(EScreens screenId) {
-      Navigator.of(context).pop();
-      if (screenId == EScreens.weapons) {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (ctx) => WeaponsScreen(),
-          ),
-        );
-      }
+  void _setScreen(EScreens screenId) {
+    Navigator.of(context).pop();
+    if (screenId == EScreens.weapons) {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (ctx) => WeaponsScreen(),
+        ),
+      );
     }
-    
+
+    if (screenId == EScreens.heroes) {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (ctx) => const Heroes(),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     void sortHeroes(ESortType? newSortType) {
@@ -150,7 +159,7 @@ void _setScreen(EScreens screenId) {
               icon: const Icon(Icons.badge, color: appBarTextColor)),
         ],
       ),
-      drawer: MainDrawer(_setScreen),
+      drawer: MainDrawer((screenId) => Navigation.setScreen(context, screenId)),
       body: Center(
         child: GradientContainer.linear(
           gradientColors: backgroundGradientColors,
