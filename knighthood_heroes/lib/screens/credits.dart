@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
-import 'package:knighthood_heroes/general/gradient_container.dart';
+import 'package:knighthood_heroes/general/special_container.dart';
 import 'package:knighthood_heroes/general/leading_arrow_builder.dart';
 import 'package:knighthood_heroes/models/skill.dart';
 import 'package:knighthood_heroes/widgets/app_bar_background.dart';

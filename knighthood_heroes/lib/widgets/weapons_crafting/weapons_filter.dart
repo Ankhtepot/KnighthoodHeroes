@@ -4,7 +4,7 @@ import 'package:knighthood_heroes/models/weapons_filter_options.dart';
 import 'package:knighthood_heroes/widgets/weapons_crafting/rarity_button.dart';
 import 'package:knighthood_heroes/widgets/weapons_crafting/weapon_button.dart';
 
-const Color kCardBackgroundBlueColor = Color.fromARGB(255, 88, 179, 254);
+final Color cardBackgroundColor = Colors.brown.withAlpha(180);
 
 class WeaponsFilter extends StatefulWidget {
   const WeaponsFilter(this.onFilterChanged, {super.key});
@@ -39,7 +39,7 @@ class _WeaponsFilterState extends State<WeaponsFilter> {
       children: [
         // Rarity Filter
         Card(
-          color: kCardBackgroundBlueColor,
+          color: cardBackgroundColor,
           elevation: 5,
           child: Column(
             children: [
@@ -73,7 +73,7 @@ class _WeaponsFilterState extends State<WeaponsFilter> {
         ),
         // Weapon Type Filter
         Card(
-          color: kCardBackgroundBlueColor,
+          color: cardBackgroundColor,
           elevation: 5,
           child: Column(
             children: [

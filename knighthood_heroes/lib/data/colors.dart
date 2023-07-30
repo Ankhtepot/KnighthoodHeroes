@@ -36,6 +36,6 @@ List<Color> get backgroundGradientColorsReversed => [
     ];
 
 // const Color appBarTextColor = Color.fromARGB(255, 0, 140, 255);
-const Color appBarTextColor = Colors.black;
+const Color appBarTextColor = Colors.white;
 const Color cardBackgroundColor = Color.fromARGB(255, 227, 242, 253); // Colors.blue.shade50;
 const Color buttonBackgroundBlueColor = Color.fromARGB(255, 116, 207, 252);

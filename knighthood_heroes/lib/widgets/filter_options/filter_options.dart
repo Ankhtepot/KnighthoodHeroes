@@ -3,7 +3,7 @@ import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/general/enum_dropdown.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
-import 'package:knighthood_heroes/general/gradient_container.dart';
+import 'package:knighthood_heroes/general/special_container.dart';
 import 'package:knighthood_heroes/general/leading_arrow_builder.dart';
 import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';

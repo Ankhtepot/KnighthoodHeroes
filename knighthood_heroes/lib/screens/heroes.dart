@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/data/heroes_data.dart';
-import 'package:knighthood_heroes/general/gradient_container.dart';
+import 'package:knighthood_heroes/general/special_container.dart';
+import 'package:knighthood_heroes/helpers/images_helper.dart';
 import 'package:knighthood_heroes/helpers/navigation.dart';
 import 'package:knighthood_heroes/models/knighthood_hero.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
@@ -88,61 +89,79 @@ class _HeroesState extends State<Heroes> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
+        child: Stack(
           children: [
-            const Text(
-              'Knighthood Heroes',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: appBarTextColor,
-                fontSize: 18,
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(ImagesHelper.getBackgroundImagePath(EBackground.guildhall)),
+                  opacity: 1,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-            const SizedBox(width: 5),
-            Text(
-              '${heroes.length}',
-              style: const TextStyle(color: appBarTextColor, fontSize: 20),
+            AppBar(
+              title: Row(
+                children: [
+                  const Text(
+                    'Knighthood Heroes',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: appBarTextColor,
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(width: 5),
+                  Text(
+                    '${heroes.length}',
+                    style: const TextStyle(color: appBarTextColor, fontSize: 20),
+                  ),
+                ],
+              ),
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              centerTitle: false,
+              iconTheme: const IconThemeData(color: Colors.white),
+              actions: [
+                IconButton(
+                  visualDensity: kVisualDensity,
+                  icon: const Icon(Icons.filter_alt, color: appBarTextColor),
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => FilterOptions(setFilterOptions),
+                    ),
+                  ),
+                ),
+                IconButton(
+                  visualDensity: kVisualDensity,
+                  onPressed: () {
+                    setFilterOptions(const HeroesFilterOptions());
+                    sortHeroes(ESortType.nameAZ);
+                  },
+                  icon: const Icon(Icons.autorenew_rounded, color: appBarTextColor),
+                ),
+                IconButton(
+                    visualDensity: kVisualDensity,
+                    onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Credits(),
+                          ),
+                        ),
+                    icon: const Icon(Icons.badge, color: appBarTextColor)),
+              ],
             ),
           ],
         ),
-        flexibleSpace: AppBarBackground(
-          colors: appBarGradientColors,
-        ),
-        actions: [
-          IconButton(
-            visualDensity: kVisualDensity,
-            icon: const Icon(Icons.filter_alt, color: appBarTextColor),
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => FilterOptions(setFilterOptions),
-              ),
-            ),
-          ),
-          IconButton(
-            visualDensity: kVisualDensity,
-            onPressed: () {
-              setFilterOptions(const HeroesFilterOptions());
-              sortHeroes(ESortType.nameAZ);
-            },
-            icon: const Icon(Icons.autorenew_rounded, color: appBarTextColor),
-          ),
-          IconButton(
-              visualDensity: kVisualDensity,
-              onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Credits(),
-                    ),
-                  ),
-              icon: const Icon(Icons.badge, color: appBarTextColor)),
-        ],
       ),
       drawer: MainDrawer((screenId) => Navigation.setScreen(context, screenId)),
       body: Center(
-        child: SpecialContainer.linearGradient(
-          gradientColors: backgroundGradientColors,
+        child: SpecialContainer.image(
+          imagePath: 'assets/images/backgrounds/blue_background.jpg',
+          // imagePath: ImagesHelper.getBackgroundImagePath(EBackground.forge),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [

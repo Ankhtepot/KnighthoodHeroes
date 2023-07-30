@@ -22,7 +22,9 @@ class ImagesHelper {
 
   static String getBackgroundImagePath(EBackground background) => switch (background) {
         EBackground.none => 'null',
-        EBackground.blue => 'assets/images/backgrounds/blue_background.png',
-        EBackground.forge => 'assets/images/backgrounds/forge_background.png',
+        EBackground.blue => 'assets/images/backgrounds/blue_background.jpg',
+        EBackground.forge => 'assets/images/backgrounds/forge_background.jpg',
+        EBackground.knight => 'assets/images/backgrounds/knight_banner.jpg',
+        EBackground.guildhall => 'assets/images/backgrounds/guildhall_background.jpg',
       };
 }

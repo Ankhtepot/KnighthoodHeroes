@@ -6,30 +6,30 @@ const Alignment centerAlignment = Alignment.center;
 const Widget defaultChild = SizedBox();
 const List<Color> defaultColors = [Colors.white];
 
-enum GradientType { linear, circle, image }
+enum EContainerType { linear, circle, image }
 
 class SpecialContainer extends StatelessWidget {
-  const SpecialContainer.linearGradient(
-      {super.key, this.gradientColors = defaultColors, this.child = defaultChild, this.imagePath = ''})
-      : gradientType = GradientType.linear;
-  const SpecialContainer.circleGradient(
-      {super.key, this.gradientColors = defaultColors, this.child = defaultChild, this.imagePath = ''})
-      : gradientType = GradientType.circle;
+  const SpecialContainer.linearGradient({super.key, this.gradientColors = defaultColors, this.child = defaultChild})
+      : containerType = EContainerType.linear,
+        imagePath = '';
+  const SpecialContainer.circleGradient({super.key, this.gradientColors = defaultColors, this.child = defaultChild})
+      : containerType = EContainerType.circle,
+        imagePath = '';
   const SpecialContainer.image({super.key, required this.imagePath, this.child = defaultChild})
-      : gradientType = GradientType.image,
+      : containerType = EContainerType.image,
         gradientColors = defaultColors;
 
-  final GradientType gradientType;
+  final EContainerType containerType;
   final List<Color> gradientColors;
   final Widget child;
   final String imagePath;
 
   @override
   Widget build(BuildContext context) => Container(
-      decoration: switch (gradientType) {
-        GradientType.linear => getGradientLinearDecoration(),
-        GradientType.circle => getGradientCircleDecoration(),
-        GradientType.image => getImageDecoration(),
+      decoration: switch (containerType) {
+        EContainerType.linear => getGradientLinearDecoration(),
+        EContainerType.circle => getGradientCircleDecoration(),
+        EContainerType.image => getImageDecoration(),
       },
       child: child);
 
@@ -68,6 +68,7 @@ class SpecialContainer extends StatelessWidget {
   BoxDecoration getImageDecoration() => BoxDecoration(
         image: DecorationImage(
           image: AssetImage(imagePath),
+          opacity: 0.7,
           fit: BoxFit.cover,
         ),
       );

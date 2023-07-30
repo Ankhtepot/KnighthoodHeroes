@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/data/weapons_crafting_data.dart';
-import 'package:knighthood_heroes/general/gradient_container.dart';
+import 'package:knighthood_heroes/general/special_container.dart';
 import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/helpers/images_helper.dart';
 import 'package:knighthood_heroes/helpers/navigation.dart';
 import 'package:knighthood_heroes/models/weapons_crafting_info.dart';
 import 'package:knighthood_heroes/models/weapons_filter_options.dart';
-import 'package:knighthood_heroes/widgets/app_bar_background.dart';
 import 'package:knighthood_heroes/widgets/main_drawer.dart';
 import 'package:knighthood_heroes/widgets/weapons_crafting/weapon_crafting_info_presentation.dart';
 import 'package:knighthood_heroes/widgets/weapons_crafting/weapons_filter.dart';
@@ -31,7 +29,7 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
 
   Widget getWeaponTitle(String title) => TextRoundedWithBackground(
         title,
-        backgroundColor: const Color.fromARGB(180, 190, 227, 249),
+        backgroundColor: const Color.fromARGB(220, 190, 227, 249),
         textColor: const Color.fromARGB(255, 0, 31, 57),
         fontWeight: FontWeight.bold,
         fontSize: 24,
@@ -71,36 +69,68 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Weapons Crafting', style: TextStyle(color: appBarTextColor, fontWeight: FontWeight.bold)),
-        flexibleSpace: AppBarBackground(
-          colors: appBarGradientColors,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
+        child: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(ImagesHelper.getBackgroundImagePath(EBackground.forge)),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            AppBar(
+              title: const Text(
+                'Weapons Crafting',
+                style: TextStyle(
+                  color: Colors.white, // Set the color of the title text
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              centerTitle: true,
+              iconTheme: const IconThemeData(color: Colors.white),
+            ),
+          ],
         ),
       ),
       drawer: MainDrawer((screenId) => Navigation.setScreen(context, screenId)),
       body: SpecialContainer.image(
-        imagePath: 'assets/images/backgrounds/forge_background.jpg',
-        // imagePath: ImagesHelper.getBackgroundImagePath(EBackground.forge),
-        // gradientColors: backgroundGradientColorsReversed,
-        child: FractionallySizedBox(
-          widthFactor: 1,
-          child: Transform.scale(
-            scale: 1,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                IntrinsicHeight(
-                  child: WeaponsFilter(_setFilterOptions),
-                ),
-                const SizedBox(height: 10),
-                Column(
-                  children: [
-                    ..._getFilteredWeapons(),
-                  ],
-                ),
-              ],
+        imagePath: ImagesHelper.getBackgroundImagePath(EBackground.blue),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            IntrinsicHeight(
+              child: WeaponsFilter(_setFilterOptions),
             ),
-          ),
+            const SizedBox(height: 5),
+            Card(
+              color: Colors.white.withOpacity(0.8),
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Note: Crafting by \'strong vs\' takes precedence. Crafting by weapon type (axe, sword, hammer) is not guaranteed as its sligtly based on RNG.',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Expanded(
+              child: ListView(
+                shrinkWrap: true,
+                children: [
+                  ..._getFilteredWeapons(),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
