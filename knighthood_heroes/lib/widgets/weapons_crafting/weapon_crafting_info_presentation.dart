@@ -48,18 +48,24 @@ class WeaponCraftingPresentation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 1),
-      child: Row(
-        children: [
-          RarityBadge(weaponCraftingInfo.rarity),
-          const SizedBox(width: 5),
-          Image.asset(ImagesHelper.getWeaponIconPath(weaponCraftingInfo.weaponType), width: 30, height: 30),
-          const SizedBox(width: 5),
-          const Icon(Icons.arrow_forward, size: 20, color: Colors.black),
-          const SizedBox(width: 5),
-          ..._getEnemyTypeWidgets,
-          const SizedBox(width: 5),
-          ..._getSameTypeCraftingpart
-        ],
+      child: FractionallySizedBox(
+        widthFactor: 1,
+        child: Transform.scale(
+          scale: 1,
+          child: Row(
+            children: [
+              RarityBadge(weaponCraftingInfo.rarity),
+              const SizedBox(width: 1),
+              Image.asset(ImagesHelper.getWeaponIconPath(weaponCraftingInfo.weaponType), width: 30, height: 30),
+              const SizedBox(width: 1),
+              const Icon(Icons.arrow_forward, size: 20, color: Colors.black),
+              const SizedBox(width: 5),
+              ..._getEnemyTypeWidgets,
+              const SizedBox(width: 5),
+              ..._getSameTypeCraftingpart
+            ],
+          ),
+        ),
       ),
     );
   }

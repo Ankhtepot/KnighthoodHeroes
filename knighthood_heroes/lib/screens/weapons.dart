@@ -30,8 +30,8 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
 
   Widget getWeaponTitle(String title) => TextRoundedWithBackground(
         title,
-        backgroundColor: Color.fromARGB(255, 190, 227, 249),
-        textColor: Color.fromARGB(255, 0, 31, 57),
+        backgroundColor: const Color.fromARGB(255, 190, 227, 249),
+        textColor: const Color.fromARGB(255, 0, 31, 57),
         fontWeight: FontWeight.bold,
         fontSize: 24,
         borderRadius: 20,

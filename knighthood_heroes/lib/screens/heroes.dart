@@ -101,7 +101,7 @@ class _HeroesState extends State<Heroes> {
             ),
             const SizedBox(width: 5),
             Text(
-              '(${heroes.length})',
+              '${heroes.length}',
               style: const TextStyle(color: appBarTextColor, fontSize: 20),
             ),
           ],
