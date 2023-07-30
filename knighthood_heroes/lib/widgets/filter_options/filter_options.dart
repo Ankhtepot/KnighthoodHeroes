@@ -10,7 +10,6 @@ import 'package:knighthood_heroes/models/heroes_filter_options.dart';
 import 'package:knighthood_heroes/widgets/app_bar_background.dart';
 import 'package:knighthood_heroes/widgets/enemy_type_badge.dart';
 import 'package:knighthood_heroes/widgets/filter_options/skill_options.dart';
-// Color appBarColor = Colors.white;
 
 class FilterOptions extends StatefulWidget {
   const FilterOptions(this.setFilterOptions, {super.key});
@@ -62,7 +61,7 @@ class _FilterOptionsState extends State<FilterOptions> {
   Widget get applyButton => ElevatedButton(
         onPressed: _onApply,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(const Color.fromARGB(255, 116, 207, 252)),
+          backgroundColor: MaterialStateProperty.all<Color>(buttonBackgroundBlueColor),
           foregroundColor: MaterialStateProperty.all<Color>(appBarTextColor),
         ),
         child: const Text(

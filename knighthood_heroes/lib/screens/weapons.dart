@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/data/weapons_crafting_data.dart';
+import 'package:knighthood_heroes/general/gradient_container.dart';
 import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/helpers/navigation.dart';
 import 'package:knighthood_heroes/models/weapons_crafting_info.dart';
@@ -29,10 +30,12 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
 
   Widget getWeaponTitle(String title) => TextRoundedWithBackground(
         title,
-        backgroundColor: Colors.white,
-        textColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 190, 227, 249),
+        textColor: Color.fromARGB(255, 0, 31, 57),
         fontWeight: FontWeight.bold,
         fontSize: 24,
+        borderRadius: 20,
+        horizontalPadding: 50,
       );
 
   List<Widget> _getFilteredWeapons() {
@@ -74,19 +77,28 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
         ),
       ),
       drawer: MainDrawer((screenId) => Navigation.setScreen(context, screenId)),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          IntrinsicHeight(
-            child: WeaponsFilter(_setFilterOptions),
+      body: FractionallySizedBox(
+        widthFactor: 1,
+        child: Transform.scale(
+          scale: 1,
+          child: GradientContainer.linear(
+            gradientColors: backgroundGradientColorsReversed,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                IntrinsicHeight(
+                  child: WeaponsFilter(_setFilterOptions),
+                ),
+                const SizedBox(height: 10),
+                Column(
+                  children: [
+                    ..._getFilteredWeapons(),
+                  ],
+                ),
+              ],
+            ),
           ),
-          const SizedBox(height: 10),
-          Column(
-            children: [
-              ..._getFilteredWeapons(),
-            ],
-          ),
-        ],
+        ),
       ),
     );
   }

@@ -17,6 +17,8 @@ class WeaponButton extends StatelessWidget {
 
   @override
   build(BuildContext context) {
+    final bool isNone = weaponType == EWeaponType.none;
+
     return Expanded(
       child: ElevatedButton(
           onPressed: () => onTap(weaponType),
@@ -27,14 +29,15 @@ class WeaponButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              if (weaponType != EWeaponType.none)
+              if (!isNone)
                 Image.asset(
                   ImagesHelper.getWeaponIconPath(weaponType),
                   width: 30,
                   height: 30,
+                  color: isSelected ? Colors.black : Colors.white,
                 ),
               Text(
-                weaponType.toString().textFromEnumName(),
+                isNone ? 'All types' : weaponType.toString().textFromEnumName(),
                 style: TextStyle(
                   color: isSelected ? Colors.black : Colors.white,
                   fontWeight: FontWeight.bold,

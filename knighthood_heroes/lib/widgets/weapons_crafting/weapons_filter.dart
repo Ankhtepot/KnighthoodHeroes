@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/models/weapons_filter_options.dart';
 import 'package:knighthood_heroes/widgets/weapons_crafting/rarity_button.dart';
 import 'package:knighthood_heroes/widgets/weapons_crafting/weapon_button.dart';
+
+const Color kCardBackgroundBlueColor = Color.fromARGB(255, 88, 179, 254);
 
 class WeaponsFilter extends StatefulWidget {
   const WeaponsFilter(this.onFilterChanged, {super.key});
@@ -38,6 +39,7 @@ class _WeaponsFilterState extends State<WeaponsFilter> {
       children: [
         // Rarity Filter
         Card(
+          color: kCardBackgroundBlueColor,
           elevation: 5,
           child: Column(
             children: [
@@ -46,39 +48,24 @@ class _WeaponsFilterState extends State<WeaponsFilter> {
                 children: [
                   RarityButton(
                       rarity: ERarity.none,
-                      onPressed: _onRarityButtonPressed,
-                      color: _rarity == ERarity.none
-                          ? getRarityColor(ERarity.none)
-                          : getRarityColor(ERarity.none).withOpacity(0.5)),
+                      onTap: _onRarityButtonPressed,
+                      fontSize: 12,
+                      isSelected: _rarity == ERarity.none),
                   const SizedBox(width: 5),
                   RarityButton(
-                      rarity: ERarity.rare,
-                      onPressed: _onRarityButtonPressed,
-                      color: _rarity == ERarity.rare
-                          ? getRarityColor(ERarity.rare)
-                          : getRarityColor(ERarity.rare).withOpacity(0.5)),
+                      rarity: ERarity.rare, onTap: _onRarityButtonPressed, isSelected: _rarity == ERarity.rare),
                   const SizedBox(width: 5),
                   RarityButton(
-                      rarity: ERarity.epic,
-                      onPressed: _onRarityButtonPressed,
-                      color: _rarity == ERarity.epic
-                          ? getRarityColor(ERarity.epic)
-                          : getRarityColor(ERarity.epic).withOpacity(0.5)),
+                      rarity: ERarity.epic, onTap: _onRarityButtonPressed, isSelected: _rarity == ERarity.epic),
                   const SizedBox(width: 5),
                   RarityButton(
                       rarity: ERarity.legendary,
-                      onPressed: _onRarityButtonPressed,
+                      onTap: _onRarityButtonPressed,
                       fontSize: 12,
-                      color: _rarity == ERarity.legendary
-                          ? getRarityColor(ERarity.legendary)
-                          : getRarityColor(ERarity.legendary).withOpacity(0.5)),
+                      isSelected: _rarity == ERarity.legendary),
                   const SizedBox(width: 5),
                   RarityButton(
-                      rarity: ERarity.unique,
-                      onPressed: _onRarityButtonPressed,
-                      color: _rarity == ERarity.unique
-                          ? getRarityColor(ERarity.unique)
-                          : getRarityColor(ERarity.unique).withOpacity(0.5)),
+                      rarity: ERarity.unique, onTap: _onRarityButtonPressed, isSelected: _rarity == ERarity.unique),
                 ],
               ),
             ],
@@ -86,6 +73,7 @@ class _WeaponsFilterState extends State<WeaponsFilter> {
         ),
         // Weapon Type Filter
         Card(
+          color: kCardBackgroundBlueColor,
           elevation: 5,
           child: Column(
             children: [
