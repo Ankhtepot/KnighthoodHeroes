@@ -6,23 +6,31 @@ const Alignment centerAlignment = Alignment.center;
 const Widget defaultChild = SizedBox();
 const List<Color> defaultColors = [Colors.white];
 
-enum GradientType { linear, circle }
+enum GradientType { linear, circle, image }
 
-class GradientContainer extends StatelessWidget {
-  const GradientContainer.linear({super.key, this.gradientColors = defaultColors, this.child = defaultChild})
+class SpecialContainer extends StatelessWidget {
+  const SpecialContainer.linearGradient(
+      {super.key, this.gradientColors = defaultColors, this.child = defaultChild, this.imagePath = ''})
       : gradientType = GradientType.linear;
-  const GradientContainer.circle({super.key, this.gradientColors = defaultColors, this.child = defaultChild})
+  const SpecialContainer.circleGradient(
+      {super.key, this.gradientColors = defaultColors, this.child = defaultChild, this.imagePath = ''})
       : gradientType = GradientType.circle;
+  const SpecialContainer.image({super.key, required this.imagePath, this.child = defaultChild})
+      : gradientType = GradientType.image,
+        gradientColors = defaultColors;
 
   final GradientType gradientType;
   final List<Color> gradientColors;
   final Widget child;
-
-  final String activeDiceImage = 'assets/images/dice-1.png';
+  final String imagePath;
 
   @override
   Widget build(BuildContext context) => Container(
-      decoration: gradientType == GradientType.linear ? getGradientLinearDecoration() : getGradientCircleDecoration(),
+      decoration: switch (gradientType) {
+        GradientType.linear => getGradientLinearDecoration(),
+        GradientType.circle => getGradientCircleDecoration(),
+        GradientType.image => getImageDecoration(),
+      },
       child: child);
 
   List<double> getGradientStops({start = 0, end = 1}) {
@@ -54,6 +62,13 @@ class GradientContainer extends StatelessWidget {
           radius: 1.4,
           tileMode: TileMode.clamp,
           stops: getGradientStops(start: 0.3),
+        ),
+      );
+
+  BoxDecoration getImageDecoration() => BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(imagePath),
+          fit: BoxFit.cover,
         ),
       );
 }

@@ -82,7 +82,7 @@ class _FilterOptionsState extends State<FilterOptions> {
             ],
           ),
         ),
-        body: GradientContainer.linear(
+        body: SpecialContainer.linearGradient(
           gradientColors: [
             Colors.blue,
             Colors.grey.shade200,

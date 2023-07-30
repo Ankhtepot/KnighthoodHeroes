@@ -141,7 +141,7 @@ class _HeroesState extends State<Heroes> {
       ),
       drawer: MainDrawer((screenId) => Navigation.setScreen(context, screenId)),
       body: Center(
-        child: GradientContainer.linear(
+        child: SpecialContainer.linearGradient(
           gradientColors: backgroundGradientColors,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,

@@ -129,3 +129,9 @@ enum EWeaponType {
   axe,
   hammer,
 }
+
+enum EBackground {
+  none,
+  blue,
+  forge,
+}

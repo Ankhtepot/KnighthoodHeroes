@@ -193,6 +193,9 @@ flutter:
     - assets/images/icons/axe.png
     - assets/images/icons/hammer.png
 
+  # Backgrounds
+    - assets/images/backgrounds/forge_background.jpg
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

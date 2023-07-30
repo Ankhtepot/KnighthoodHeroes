@@ -18,7 +18,7 @@ class Credits extends StatelessWidget {
         title: const Text('Credits', style: TextStyle(color: appBarTextColor, fontWeight: FontWeight.bold)),
         flexibleSpace: AppBarBackground(colors: appBarGradientColors),
       ),
-      body: GradientContainer.linear(
+      body: SpecialContainer.linearGradient(
         gradientColors: backgroundGradientColors,
         child: Center(
           child: Padding(

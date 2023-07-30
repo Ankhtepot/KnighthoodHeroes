@@ -4,6 +4,7 @@ import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/data/weapons_crafting_data.dart';
 import 'package:knighthood_heroes/general/gradient_container.dart';
 import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
+import 'package:knighthood_heroes/helpers/images_helper.dart';
 import 'package:knighthood_heroes/helpers/navigation.dart';
 import 'package:knighthood_heroes/models/weapons_crafting_info.dart';
 import 'package:knighthood_heroes/models/weapons_filter_options.dart';
@@ -30,7 +31,7 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
 
   Widget getWeaponTitle(String title) => TextRoundedWithBackground(
         title,
-        backgroundColor: const Color.fromARGB(255, 190, 227, 249),
+        backgroundColor: const Color.fromARGB(180, 190, 227, 249),
         textColor: const Color.fromARGB(255, 0, 31, 57),
         fontWeight: FontWeight.bold,
         fontSize: 24,
@@ -77,12 +78,14 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
         ),
       ),
       drawer: MainDrawer((screenId) => Navigation.setScreen(context, screenId)),
-      body: FractionallySizedBox(
-        widthFactor: 1,
-        child: Transform.scale(
-          scale: 1,
-          child: GradientContainer.linear(
-            gradientColors: backgroundGradientColorsReversed,
+      body: SpecialContainer.image(
+        imagePath: 'assets/images/backgrounds/forge_background.jpg',
+        // imagePath: ImagesHelper.getBackgroundImagePath(EBackground.forge),
+        // gradientColors: backgroundGradientColorsReversed,
+        child: FractionallySizedBox(
+          widthFactor: 1,
+          child: Transform.scale(
+            scale: 1,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [

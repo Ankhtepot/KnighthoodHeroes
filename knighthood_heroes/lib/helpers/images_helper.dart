@@ -19,4 +19,10 @@ class ImagesHelper {
         EWeaponType.axe => ImagesHelper.getIconImagePath(EImageIcons.axe),
         EWeaponType.hammer => ImagesHelper.getIconImagePath(EImageIcons.hammer),
       };
+
+  static String getBackgroundImagePath(EBackground background) => switch (background) {
+        EBackground.none => 'null',
+        EBackground.blue => 'assets/images/backgrounds/blue_background.png',
+        EBackground.forge => 'assets/images/backgrounds/forge_background.png',
+      };
 }
