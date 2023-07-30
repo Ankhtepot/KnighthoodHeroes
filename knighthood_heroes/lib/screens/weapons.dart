@@ -8,7 +8,7 @@ import 'package:knighthood_heroes/helpers/navigation.dart';
 import 'package:knighthood_heroes/models/weapons_crafting_info.dart';
 import 'package:knighthood_heroes/models/weapons_filter_options.dart';
 import 'package:knighthood_heroes/widgets/main_drawer.dart';
-import 'package:knighthood_heroes/widgets/weapons_crafting/weapon_crafting_info_presentation.dart';
+import 'package:knighthood_heroes/widgets/weapons_crafting/weapon_crafting_info_presenter.dart';
 import 'package:knighthood_heroes/widgets/weapons_crafting/weapons_filter.dart';
 
 class WeaponsScreen extends StatefulWidget {
@@ -46,13 +46,13 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
       List<WeaponsCraftingInfo> hammers = infos.where((element) => element.weaponType == EWeaponType.hammer).toList();
       return [
         getWeaponTitle('Swords'),
-        ...swords.map((e) => WeaponCraftingPresentation(e)).toList(),
+        ...swords.map((e) => WeaponCraftingPresenter(e)).toList(),
         const SizedBox(height: 10),
         getWeaponTitle('Axes'),
-        ...axes.map((e) => WeaponCraftingPresentation(e)).toList(),
+        ...axes.map((e) => WeaponCraftingPresenter(e)).toList(),
         const SizedBox(height: 10),
         getWeaponTitle('Hammers'),
-        ...hammers.map((e) => WeaponCraftingPresentation(e)).toList(),
+        ...hammers.map((e) => WeaponCraftingPresenter(e)).toList(),
       ];
     }
 
@@ -63,7 +63,7 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
       infos = infos.where((element) => element.weaponType == _filterOptions.weaponType).toList();
     }
 
-    return infos.map((e) => WeaponCraftingPresentation(e)).toList();
+    return infos.map((e) => WeaponCraftingPresenter(e)).toList();
   }
 
   @override
@@ -82,12 +82,13 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
               ),
             ),
             AppBar(
-              title: const Text(
+              title: const TextRoundedWithBackground(
                 'Weapons Crafting',
-                style: TextStyle(
-                  color: Colors.white, // Set the color of the title text
-                  fontWeight: FontWeight.bold,
-                ),
+                fontWeight: FontWeight.bold,
+                textColor: Colors.white,
+                horizontalPadding: 30,
+                fontSize: 24,
+                borderRadius: 20,
               ),
               backgroundColor: Colors.transparent,
               elevation: 0,

@@ -31,6 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   url_launcher: ^6.0.0
+  google_fonts: ^5.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -161,15 +162,15 @@ flutter:
 
   # Enemy types
     - assets/images/enemy_types/None.png
-    - assets/images/enemy_types/Beast.png
-    - assets/images/enemy_types/Cult.png
-    - assets/images/enemy_types/Demon.png
-    - assets/images/enemy_types/Goblin.png
-    - assets/images/enemy_types/Golem.png
-    - assets/images/enemy_types/Militia.png
-    - assets/images/enemy_types/Outlaw.png
-    - assets/images/enemy_types/Troll.png
-    - assets/images/enemy_types/Undead.png
+    - assets/images/enemy_types/Beast_Diamond.png
+    - assets/images/enemy_types/Cult_Diamond.png
+    - assets/images/enemy_types/Demon_Diamond.png
+    - assets/images/enemy_types/Goblin_Diamond.png
+    - assets/images/enemy_types/Golem_Diamond.png
+    - assets/images/enemy_types/Militia_Diamond.png
+    - assets/images/enemy_types/Outlaw_Diamond.png
+    - assets/images/enemy_types/Troll_Diamond.png
+    - assets/images/enemy_types/Undead_Diamond.png
 
   # Effects
     - assets/images/effects/weaken.png
@@ -198,6 +199,7 @@ flutter:
     - assets/images/backgrounds/blue_background.jpg
     - assets/images/backgrounds/knight_banner.jpg
     - assets/images/backgrounds/guildhall_background.jpg
+    - assets/images/backgrounds/study_background.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

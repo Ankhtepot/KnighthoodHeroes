@@ -26,5 +26,6 @@ class ImagesHelper {
         EBackground.forge => 'assets/images/backgrounds/forge_background.jpg',
         EBackground.knight => 'assets/images/backgrounds/knight_banner.jpg',
         EBackground.guildhall => 'assets/images/backgrounds/guildhall_background.jpg',
+        EBackground.study => 'assets/images/backgrounds/study_background.jpg',
       };
 }

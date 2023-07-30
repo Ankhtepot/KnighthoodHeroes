@@ -25,7 +25,7 @@ class KnighthoodHero {
   final Skill rageSkill;
 
   static String getEnemyTypeImagePath(EEnemyType enemyType) =>
-      'assets/images/enemy_types/${enemyType.name.capitalize()}.png';
+      'assets/images/enemy_types/${enemyType.name.capitalize()}_Diamond.png';
 
   static int getStarsCount(ERarity rarity) => switch (rarity) {
         ERarity.common => 3,

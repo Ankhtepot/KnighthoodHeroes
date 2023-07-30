@@ -33,8 +33,8 @@ class HeroCard extends StatelessWidget {
                     height: 81,
                   ),
                   Positioned(
-                    bottom: 2,
-                    right: 2,
+                    bottom: -2,
+                    right: -2,
                     child: EnemyTypeBadge(hero.strongVs),
                   ),
                 ],

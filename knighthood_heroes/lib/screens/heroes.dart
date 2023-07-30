@@ -3,11 +3,11 @@ import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/data/heroes_data.dart';
 import 'package:knighthood_heroes/general/special_container.dart';
+import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/helpers/images_helper.dart';
 import 'package:knighthood_heroes/helpers/navigation.dart';
 import 'package:knighthood_heroes/models/knighthood_hero.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
-import 'package:knighthood_heroes/widgets/app_bar_background.dart';
 import 'package:knighthood_heroes/screens/credits.dart';
 import 'package:knighthood_heroes/widgets/filter_options/filter_options.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/heroes_list.dart';
@@ -93,31 +93,25 @@ class _HeroesState extends State<Heroes> {
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: Stack(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(ImagesHelper.getBackgroundImagePath(EBackground.guildhall)),
-                  opacity: 1,
-                  fit: BoxFit.cover,
-                ),
-              ),
+            SpecialContainer.image(
+              imagePath: ImagesHelper.getBackgroundImagePath(EBackground.study),
+              oppacity: 1,
             ),
             AppBar(
               title: Row(
                 children: [
-                  const Text(
-                    'Knighthood Heroes',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: appBarTextColor,
-                      fontSize: 18,
-                    ),
+                  TextRoundedWithBackground(
+                    'Knighthood Heroes ${heroes.length}',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    textColor: appBarTextColor,
+                    horizontalPadding: 10,
                   ),
-                  const SizedBox(width: 5),
-                  Text(
-                    '${heroes.length}',
-                    style: const TextStyle(color: appBarTextColor, fontSize: 20),
-                  ),
+                  // const SizedBox(width: 5),
+                  // Text(
+                  //   '${heroes.length}',
+                  //   style: const TextStyle(color: appBarTextColor, fontSize: 20),
+                  // ),
                 ],
               ),
               backgroundColor: Colors.transparent,
@@ -160,7 +154,7 @@ class _HeroesState extends State<Heroes> {
       drawer: MainDrawer((screenId) => Navigation.setScreen(context, screenId)),
       body: Center(
         child: SpecialContainer.image(
-          imagePath: 'assets/images/backgrounds/blue_background.jpg',
+          imagePath: ImagesHelper.getBackgroundImagePath(EBackground.blue),
           // imagePath: ImagesHelper.getBackgroundImagePath(EBackground.forge),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,

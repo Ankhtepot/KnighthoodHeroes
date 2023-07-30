@@ -3,26 +3,29 @@ import 'package:flutter/material.dart';
 const Alignment startAlignment = Alignment.topLeft;
 const Alignment endAlignment = Alignment.bottomRight;
 const Alignment centerAlignment = Alignment.center;
-const Widget defaultChild = SizedBox();
+const Widget defaultChild = SizedBox.shrink();
 const List<Color> defaultColors = [Colors.white];
 
 enum EContainerType { linear, circle, image }
 
 class SpecialContainer extends StatelessWidget {
-  const SpecialContainer.linearGradient({super.key, this.gradientColors = defaultColors, this.child = defaultChild})
+  const SpecialContainer.linearGradient({super.key, this.gradientColors = defaultColors, this.child})
       : containerType = EContainerType.linear,
-        imagePath = '';
-  const SpecialContainer.circleGradient({super.key, this.gradientColors = defaultColors, this.child = defaultChild})
+        imagePath = '',
+        oppacity = 1;
+  const SpecialContainer.circleGradient({super.key, this.gradientColors = defaultColors, this.child})
       : containerType = EContainerType.circle,
-        imagePath = '';
-  const SpecialContainer.image({super.key, required this.imagePath, this.child = defaultChild})
+        imagePath = '',
+        oppacity = 1;
+  const SpecialContainer.image({super.key, required this.imagePath, this.child, this.oppacity = 1})
       : containerType = EContainerType.image,
         gradientColors = defaultColors;
 
   final EContainerType containerType;
   final List<Color> gradientColors;
-  final Widget child;
+  final Widget? child;
   final String imagePath;
+  final double oppacity;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -68,7 +71,7 @@ class SpecialContainer extends StatelessWidget {
   BoxDecoration getImageDecoration() => BoxDecoration(
         image: DecorationImage(
           image: AssetImage(imagePath),
-          opacity: 0.7,
+          opacity: oppacity,
           fit: BoxFit.cover,
         ),
       );

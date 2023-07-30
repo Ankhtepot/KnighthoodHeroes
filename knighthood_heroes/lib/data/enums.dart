@@ -133,5 +133,5 @@ enum EWeaponType {
 enum EBackground {
   none,
   blue,
-  forge, knight, guildhall,
+  forge, knight, guildhall, study,
 }

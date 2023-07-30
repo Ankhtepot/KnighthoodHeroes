@@ -6,24 +6,17 @@ import 'package:knighthood_heroes/models/weapons_crafting_info.dart';
 import 'package:knighthood_heroes/widgets/enemy_type_badge.dart';
 import 'package:knighthood_heroes/widgets/rarity_badge.dart';
 
-class WeaponCraftingPresentation extends StatelessWidget {
-  const WeaponCraftingPresentation(this.weaponCraftingInfo, {super.key});
+class WeaponCraftingPresenter extends StatelessWidget {
+  const WeaponCraftingPresenter(this.weaponCraftingInfo, {super.key});
 
   final WeaponsCraftingInfo weaponCraftingInfo;
 
-  List<Widget> get _getEnemyTypeWidgets {
-    List<Widget> result = [];
-
-    for (var i = 0; i < weaponCraftingInfo.monsterTypeCrafting.length; i++) {
-      result.add(EnemyTypeBadge(weaponCraftingInfo.monsterTypeCrafting[i]));
-
-      if (i != weaponCraftingInfo.monsterTypeCrafting.length - 1) {
-        result.add(const SizedBox(width: 2));
-      }
-    }
-
-    return result;
-  }
+  List<Widget> get _getEnemyTypeWidgets => weaponCraftingInfo.monsterTypeCrafting
+      .map((enemyType) => EnemyTypeBadge(
+            enemyType,
+            iconSize: const EdgeInsets.all(13),
+          ))
+      .toList();
 
   List<Widget> get _getSameTypeCraftingpart {
     if (weaponCraftingInfo.rarity == ERarity.rare) {

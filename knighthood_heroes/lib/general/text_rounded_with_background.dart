@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knighthood_heroes/data/global.dart';
 
 class TextRoundedWithBackground extends StatelessWidget {
   const TextRoundedWithBackground(this.text,
@@ -30,7 +31,7 @@ class TextRoundedWithBackground extends StatelessWidget {
         child: Text(
           text,
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: getFont.copyWith(
             color: textColor,
             fontSize: fontSize,
             fontWeight: fontWeight,
