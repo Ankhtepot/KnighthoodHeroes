@@ -133,5 +133,13 @@ enum EWeaponType {
 enum EBackground {
   none,
   blue,
-  forge, knight, guildhall, study,
+  forge,
+  knight,
+  guildhall,
+  study,
+}
+
+enum EFontFamilly {
+  cabin,
+  troika
 }

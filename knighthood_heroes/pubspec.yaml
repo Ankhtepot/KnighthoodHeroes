@@ -62,6 +62,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+
+  # fonts
+    - assets/fonts/troika.ttf
+
   # general
     - assets/images/skills/chance.png
     - assets/images/skills/damage.png
@@ -161,7 +165,7 @@ flutter:
     - assets/images/heroes/Zoe.jpeg
 
   # Enemy types
-    - assets/images/enemy_types/None.png
+    - assets/images/enemy_types/None_Diamond.png
     - assets/images/enemy_types/Beast_Diamond.png
     - assets/images/enemy_types/Cult_Diamond.png
     - assets/images/enemy_types/Demon_Diamond.png

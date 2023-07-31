@@ -100,18 +100,10 @@ class _HeroesState extends State<Heroes> {
             AppBar(
               title: Row(
                 children: [
-                  TextRoundedWithBackground(
-                    'Knighthood Heroes ${heroes.length}',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    textColor: appBarTextColor,
+                  TextRoundedWithBackground.header(
+                    'Heroes (${heroes.length})',
                     horizontalPadding: 10,
                   ),
-                  // const SizedBox(width: 5),
-                  // Text(
-                  //   '${heroes.length}',
-                  //   style: const TextStyle(color: appBarTextColor, fontSize: 20),
-                  // ),
                 ],
               ),
               backgroundColor: Colors.transparent,
