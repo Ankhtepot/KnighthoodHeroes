@@ -9,55 +9,43 @@ import 'package:knighthood_heroes/helpers/navigation.dart';
 import 'package:knighthood_heroes/models/knighthood_hero.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
 import 'package:knighthood_heroes/screens/credits.dart';
+import 'package:knighthood_heroes/widgets/action_icon.dart';
 // import 'package:knighthood_heroes/widgets/action_icon.dart';
-import 'package:knighthood_heroes/widgets/filter_options/filter_options.dart';
+import 'package:knighthood_heroes/screens/filter_options.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/heroes_list.dart';
 import 'package:knighthood_heroes/widgets/main_drawer.dart';
 import 'package:knighthood_heroes/widgets/heroes_screen/sort_options.dart';
 
 const VisualDensity kVisualDensity = VisualDensity(horizontal: -4, vertical: 0);
 
-List<KnighthoodHero> filterHeroes(
-    HeroesFilterOptions filterOptions, List<KnighthoodHero> heroes) {
+List<KnighthoodHero> filterHeroes(HeroesFilterOptions filterOptions, List<KnighthoodHero> heroes) {
   List<KnighthoodHero> filteredHeroes = List.of(heroes);
   filteredHeroes = filteredHeroes
       .where((hero) =>
-          (filterOptions.heroClass == EHeroClass.none ||
-              filterOptions.heroClass == hero.heroClass) &&
-          (filterOptions.heroType == EHeroType.none ||
-              hero.heroType == filterOptions.heroType) &&
-          (filterOptions.rarity == ERarity.none ||
-              hero.rarity == filterOptions.rarity) &&
-          (filterOptions.enemyType == EEnemyType.none ||
-              hero.strongVs == filterOptions.enemyType) &&
+          (filterOptions.heroClass == EHeroClass.none || filterOptions.heroClass == hero.heroClass) &&
+          (filterOptions.heroType == EHeroType.none || hero.heroType == filterOptions.heroType) &&
+          (filterOptions.rarity == ERarity.none || hero.rarity == filterOptions.rarity) &&
+          (filterOptions.enemyType == EEnemyType.none || hero.strongVs == filterOptions.enemyType) &&
           (filterOptions.baseSkillClass == ESkillClass.none ||
               hero.baseSkill.skillClass == filterOptions.baseSkillClass) &&
           (filterOptions.baseSkillStrongVsDebuff == ESkillDebuff.none ||
-              hero.baseSkill.strongVsDebuff ==
-                  filterOptions.baseSkillStrongVsDebuff) &&
+              hero.baseSkill.strongVsDebuff == filterOptions.baseSkillStrongVsDebuff) &&
           (filterOptions.baseSkillChanceToDebuff == ESkillDebuff.none ||
-              hero.baseSkill.chanceTo ==
-                  filterOptions.baseSkillChanceToDebuff) &&
+              hero.baseSkill.chanceTo == filterOptions.baseSkillChanceToDebuff) &&
           (filterOptions.baseSkillEffect == ESkillEffect.none ||
-              hero.baseSkill.skillEffects
-                  .contains(filterOptions.baseSkillEffect)) &&
+              hero.baseSkill.skillEffects.contains(filterOptions.baseSkillEffect)) &&
           (filterOptions.baseSkillTarget == ESkillEffect.none ||
-              hero.baseSkill.skillEffects
-                  .contains(filterOptions.baseSkillTarget)) &&
+              hero.baseSkill.skillEffects.contains(filterOptions.baseSkillTarget)) &&
           (filterOptions.rageSkillClass == ESkillClass.none ||
               hero.rageSkill.skillClass == filterOptions.rageSkillClass) &&
           (filterOptions.rageSkillStrongVsDebuff == ESkillDebuff.none ||
-              hero.rageSkill.strongVsDebuff ==
-                  filterOptions.rageSkillStrongVsDebuff) &&
+              hero.rageSkill.strongVsDebuff == filterOptions.rageSkillStrongVsDebuff) &&
           (filterOptions.rageSkillChanceToDebuff == ESkillDebuff.none ||
-              hero.rageSkill.chanceTo ==
-                  filterOptions.rageSkillChanceToDebuff) &&
+              hero.rageSkill.chanceTo == filterOptions.rageSkillChanceToDebuff) &&
           (filterOptions.rageSkillEffect == ESkillEffect.none ||
-              hero.rageSkill.skillEffects
-                  .contains(filterOptions.rageSkillEffect)) &&
+              hero.rageSkill.skillEffects.contains(filterOptions.rageSkillEffect)) &&
           (filterOptions.rageSkillTarget == ESkillEffect.none ||
-              hero.rageSkill.skillEffects
-                  .contains(filterOptions.rageSkillTarget)))
+              hero.rageSkill.skillEffects.contains(filterOptions.rageSkillTarget)))
       .toList();
 
   return filteredHeroes;
@@ -85,20 +73,13 @@ class _HeroesState extends State<Heroes> {
           ESortType.none => {},
           ESortType.nameAZ => heroes.sort((a, b) => a.name.compareTo(b.name)),
           ESortType.nameZA => heroes.sort((a, b) => b.name.compareTo(a.name)),
-          ESortType.rarityAsc =>
-            heroes.sort((a, b) => a.rarity.index.compareTo(b.rarity.index)),
-          ESortType.rarityDesc =>
-            heroes.sort((a, b) => b.rarity.index.compareTo(a.rarity.index)),
-          ESortType.heroClassAZ => heroes
-              .sort((a, b) => a.heroClass.index.compareTo(b.heroClass.index)),
-          ESortType.heroClassZA => heroes
-              .sort((a, b) => b.heroClass.index.compareTo(a.heroClass.index)),
-          ESortType.heroTypeAZ =>
-            heroes.sort((a, b) => a.heroType.index.compareTo(b.heroType.index)),
-          ESortType.heroTypeZA =>
-            heroes.sort((a, b) => b.heroType.index.compareTo(a.heroType.index)),
-          ESortType.enemyType =>
-            heroes.sort((a, b) => a.strongVs.index.compareTo(b.strongVs.index))
+          ESortType.rarityAsc => heroes.sort((a, b) => a.rarity.index.compareTo(b.rarity.index)),
+          ESortType.rarityDesc => heroes.sort((a, b) => b.rarity.index.compareTo(a.rarity.index)),
+          ESortType.heroClassAZ => heroes.sort((a, b) => a.heroClass.index.compareTo(b.heroClass.index)),
+          ESortType.heroClassZA => heroes.sort((a, b) => b.heroClass.index.compareTo(a.heroClass.index)),
+          ESortType.heroTypeAZ => heroes.sort((a, b) => a.heroType.index.compareTo(b.heroType.index)),
+          ESortType.heroTypeZA => heroes.sort((a, b) => b.heroType.index.compareTo(a.heroType.index)),
+          ESortType.enemyType => heroes.sort((a, b) => a.strongVs.index.compareTo(b.strongVs.index))
         };
       });
     }
@@ -136,55 +117,35 @@ class _HeroesState extends State<Heroes> {
                   scale: 0.8,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: knighhoodTitleColor.withOpacity(0.7),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        bottomLeft: Radius.circular(30),
-                      ),
+                      color: knighhoodTitleColor.withOpacity(1),
+                      borderRadius: BorderRadius.circular(15),
                     ),
                     child: Row(
                       children: [
-                        // ActionIcon(Icons.filter_alt, onTap: () {
-                        //   Navigator.pop(context);
-                        //   Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //       builder: (context) =>
-                        //           FilterOptions(setFilterOptions),
-                        //     ),
-                        //   );
-                        // }),
-                        IconButton(
-                          visualDensity: kVisualDensity,
-                          icon: const Icon(Icons.filter_alt,
-                              color: appBarTextColor),
-                          onPressed: () => Navigator.push(
+                        const SizedBox(width: 10),
+                        ActionIcon(Icons.filter_alt, onTap: () {
+                          Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  FilterOptions(setFilterOptions),
+                              builder: (context) => FilterOptions(setFilterOptions),
                             ),
-                          ),
-                        ),
-                        IconButton(
-                          visualDensity: kVisualDensity,
-                          onPressed: () {
-                            setFilterOptions(const HeroesFilterOptions());
-                            sortHeroes(ESortType.nameAZ);
-                          },
-                          icon: const Icon(Icons.autorenew_rounded,
-                              color: appBarTextColor),
-                        ),
-                        IconButton(
-                            visualDensity: kVisualDensity,
-                            onPressed: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const Credits(),
-                                  ),
-                                ),
-                            icon: const Icon(Icons.badge,
-                                color: appBarTextColor)),
+                          );
+                        }),
+                        const SizedBox(width: 15),
+                        ActionIcon(Icons.autorenew_rounded, onTap: () {
+                          setFilterOptions(const HeroesFilterOptions());
+                          sortHeroes(ESortType.nameAZ);
+                        }),
+                        const SizedBox(width: 15),
+                        ActionIcon(Icons.badge, onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Credits(),
+                            ),
+                          );
+                        }),
+                        const SizedBox(width: 10),
                       ],
                     ),
                   ),
@@ -197,8 +158,7 @@ class _HeroesState extends State<Heroes> {
       drawer: MainDrawer((screenId) => Navigation.setScreen(context, screenId)),
       body: Center(
         child: SpecialContainer.image(
-          imagePath: ImagesHelper.getBackgroundImagePath(EBackground.blue),
-          // imagePath: ImagesHelper.getBackgroundImagePath(EBackground.forge),
+          imagePath: ImagesHelper.getBackgroundImagePathByRarity(options.rarity),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [

@@ -136,7 +136,7 @@ enum EBackground {
   forge,
   knight,
   guildhall,
-  study,
+  study, green, yellow, violet,
 }
 
 enum EFontFamilly {

@@ -197,7 +197,10 @@ flutter:
 
   # Backgrounds
     - assets/images/backgrounds/forge_background.jpg
+    - assets/images/backgrounds/green_background.jpg
     - assets/images/backgrounds/blue_background.jpg
+    - assets/images/backgrounds/violet_background.jpg
+    - assets/images/backgrounds/yellow_background.jpg
     - assets/images/backgrounds/knight_banner.jpg
     - assets/images/backgrounds/guildhall_background.jpg
     - assets/images/backgrounds/study_background.jpg

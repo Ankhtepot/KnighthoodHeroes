@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/general/enum_dropdown.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/general/special_container.dart';
 import 'package:knighthood_heroes/general/leading_arrow_builder.dart';
 import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
+import 'package:knighthood_heroes/helpers/images_helper.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
 import 'package:knighthood_heroes/widgets/app_bar_background.dart';
 import 'package:knighthood_heroes/widgets/enemy_type_badge.dart';
@@ -61,32 +64,38 @@ class _FilterOptionsState extends State<FilterOptions> {
   Widget get applyButton => ElevatedButton(
         onPressed: _onApply,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(buttonBackgroundBlueColor),
+          backgroundColor: MaterialStateProperty.all<Color>(knighhoodTitleColor),
           foregroundColor: MaterialStateProperty.all<Color>(appBarTextColor),
         ),
-        child: const Text(
+        child: Text(
           'Apply Filters',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: normalTextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       );
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          leading: const LeadingArrowBuilder(),
-          title: const Text('Filter Options', style: TextStyle(color: appBarTextColor, fontWeight: FontWeight.bold)),
-          flexibleSpace: const AppBarBackground(
-            colors: [
-              Color.fromARGB(255, 132, 196, 248),
-              Color.fromARGB(255, 116, 207, 252),
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(kToolbarHeight),
+          child: Stack(
+            children: [
+              SpecialContainer.image(
+                imagePath: ImagesHelper.getBackgroundImagePath(EBackground.forge),
+                oppacity: 1,
+              ),
+              AppBar(
+                leading: const LeadingArrowBuilder(),
+                title: const TextRoundedWithBackground.header('Filter Options'),
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                centerTitle: true,
+                iconTheme: const IconThemeData(color: Colors.white),
+              ),
             ],
           ),
         ),
-        body: SpecialContainer.linearGradient(
-          gradientColors: [
-            Colors.blue,
-            Colors.grey.shade200,
-          ],
+        body: SpecialContainer.image(
+          imagePath: ImagesHelper.getBackgroundImagePath(EBackground.blue),
           child: SingleChildScrollView(
             child: FractionallySizedBox(
               widthFactor: 1,
@@ -104,9 +113,12 @@ class _FilterOptionsState extends State<FilterOptions> {
                       element: (value) {
                         return Row(
                           children: [
-                            EnemyTypeBadge(value!),
+                            EnemyTypeBadge(value!, iconSize: const EdgeInsets.all(15)),
                             const SizedBox(width: 5),
-                            Text(value.toString().split('.').last.capitalize().insertSpaceForCamelCaseString()),
+                            Text(
+                              value.toString().split('.').last.capitalize().insertSpaceForCamelCaseString(),
+                              style: GoogleFonts.cabin(color: Colors.white),
+                            ),
                           ],
                         );
                       },
@@ -116,7 +128,7 @@ class _FilterOptionsState extends State<FilterOptions> {
                       selectedValue: _selectedRarity,
                       onChanged: (value) => setState(() => _selectedRarity = value!),
                       enumVaules: ERarity.values,
-                      element: (value) => TextRoundedWithBackground(
+                      element: (value) => TextRoundedWithBackground.cabin(
                         value.toString().split('.').last.capitalize(),
                         textColor: Colors.black,
                         backgroundColor: getRarityColor(value!),

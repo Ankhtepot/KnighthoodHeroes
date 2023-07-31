@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 InlineSpan textSpanImage(String imagePath, {double width = 16, double height = 16, double padding = 0}) => WidgetSpan(
@@ -14,15 +15,20 @@ InlineSpan textSpanImage(String imagePath, {double width = 16, double height = 1
       ),
     );
 
+TextSpan textSpan(String text) => TextSpan(
+      text: text,
+      style: GoogleFonts.cabin(),
+    );
+
 TextSpan textSpanBold(String text) => TextSpan(
       text: text,
-      style: const TextStyle(fontWeight: FontWeight.bold),
+      style: GoogleFonts.cabin(fontWeight: FontWeight.bold),
     );
 
 TextSpan textSpanLink(String text, String url) => TextSpan(
       text: text,
-      style: const TextStyle(
-        color: Color.fromARGB(255, 13, 0, 255),
+      style: GoogleFonts.cabin(
+        color: const Color.fromARGB(255, 13, 0, 255),
         decoration: TextDecoration.underline,
         fontWeight: FontWeight.bold,
       ),

@@ -22,10 +22,20 @@ class ImagesHelper {
 
   static String getBackgroundImagePath(EBackground background) => switch (background) {
         EBackground.none => 'null',
+        EBackground.green => 'assets/images/backgrounds/green_background.jpg',
         EBackground.blue => 'assets/images/backgrounds/blue_background.jpg',
+        EBackground.violet => 'assets/images/backgrounds/violet_background.jpg',
+        EBackground.yellow => 'assets/images/backgrounds/yellow_background.jpg',
         EBackground.forge => 'assets/images/backgrounds/forge_background.jpg',
         EBackground.knight => 'assets/images/backgrounds/knight_banner.jpg',
         EBackground.guildhall => 'assets/images/backgrounds/guildhall_background.jpg',
         EBackground.study => 'assets/images/backgrounds/study_background.jpg',
+      };
+
+  static String getBackgroundImagePathByRarity(ERarity rarity) => switch (rarity) {
+        ERarity.rare => ImagesHelper.getBackgroundImagePath(EBackground.green),
+        ERarity.legendary => ImagesHelper.getBackgroundImagePath(EBackground.violet),
+        ERarity.unique => ImagesHelper.getBackgroundImagePath(EBackground.yellow),
+        _ => ImagesHelper.getBackgroundImagePath(EBackground.blue),
       };
 }

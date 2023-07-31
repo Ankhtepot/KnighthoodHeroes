@@ -6,7 +6,7 @@ class ActionIcon extends StatelessWidget {
   const ActionIcon(
     this.icon, {
     super.key,
-    this.iconSize = 32,
+    this.iconSize = 20,
     required this.onTap,
   });
 
@@ -23,7 +23,7 @@ class ActionIcon extends StatelessWidget {
         icon: Icon(
           icon,
           color: appBarTextColor,
-          size: iconSize,        
+          size: iconSize,
         ),
         onPressed: onTap,
       ),

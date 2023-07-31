@@ -3,6 +3,8 @@ import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/general/special_container.dart';
 import 'package:knighthood_heroes/general/leading_arrow_builder.dart';
+import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
+import 'package:knighthood_heroes/helpers/images_helper.dart';
 import 'package:knighthood_heroes/models/skill.dart';
 import 'package:knighthood_heroes/widgets/app_bar_background.dart';
 import 'package:knighthood_heroes/general/text_spans.dart';
@@ -13,13 +15,27 @@ class Credits extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: const LeadingArrowBuilder(),
-        title: const Text('Credits', style: TextStyle(color: appBarTextColor, fontWeight: FontWeight.bold)),
-        flexibleSpace: AppBarBackground(colors: appBarGradientColors),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(56),
+        child: Stack(
+          children: [
+            SpecialContainer.image(
+              imagePath: ImagesHelper.getBackgroundImagePath(EBackground.guildhall),
+              oppacity: 1,
+            ),
+            AppBar(
+              leading: const LeadingArrowBuilder(),
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              centerTitle: true,
+              iconTheme: const IconThemeData(color: Colors.white),
+              title: const TextRoundedWithBackground.header('Credits'),
+            ),
+          ],
+        ),
       ),
-      body: SpecialContainer.linearGradient(
-        gradientColors: backgroundGradientColors,
+      body: SpecialContainer.image(
+        imagePath: ImagesHelper.getBackgroundImagePath(EBackground.blue),
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -27,7 +43,8 @@ class Credits extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Card(
-                  color: Colors.lightBlue[50],
+                  elevation: 15,
+                  color: cardBackgroundColor,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: RichText(
@@ -36,11 +53,11 @@ class Credits extends StatelessWidget {
                         style: const TextStyle(color: Colors.black, fontSize: 20),
                         children: [
                           textSpanBold('Knighthood'),
-                          const TextSpan(text: ' and '),
+                          textSpan(' and '),
                           textSpanBold('all the data '),
-                          const TextSpan(text: 'are the property of creators of'),
+                          textSpan('are the property of creators of'),
                           textSpanBold(' Knighthood '),
-                          const TextSpan(text: 'RPG game: '),
+                          textSpan('RPG game: '),
                           textSpanLink('Midoki.com. ', 'https://www.midoki.com/'),
                         ],
                       ),
@@ -48,6 +65,7 @@ class Credits extends StatelessWidget {
                   ),
                 ),
                 Card(
+                  elevation: 15,
                   color: cardBackgroundColor,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -56,25 +74,26 @@ class Credits extends StatelessWidget {
                       text: TextSpan(
                         style: const TextStyle(color: Colors.black, fontSize: 20),
                         children: [
-                          const TextSpan(text: 'All '),
+                          textSpan('All '),
                           textSpanBold('Icons '),
-                          const TextSpan(text: ' like '),
+                          textSpan(' like '),
                           textSpanImage(Skill.getDebuffImagePath(ESkillDebuff.burn)),
-                          const TextSpan(text: ' or '),
+                          textSpan(' or '),
                           textSpanImage(Skill.getDebuffImagePath(ESkillDebuff.poison)),
-                          const TextSpan(text: ' and '),
+                          textSpan(' and '),
                           textSpanBold('Hero Avatars '),
-                          const TextSpan(text: 'are obtained from wonderful'),
+                          textSpan('are obtained from wonderful'),
                           textSpanBold(' Knighthood '),
-                          const TextSpan(text: 'Wiki: '),
+                          textSpan('Wiki: '),
                           textSpanLink('knighhood.fandom.com', 'https://knighthood.fandom.com/wiki/Knighthood_Wiki'),
-                          const TextSpan(text: ' .'),
+                          textSpan(' .'),
                         ],
                       ),
                     ),
                   ),
                 ),
                 Card(
+                  elevation: 15,
                   color: cardBackgroundColor,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -83,21 +102,22 @@ class Credits extends StatelessWidget {
                       text: TextSpan(
                         style: const TextStyle(color: Colors.black, fontSize: 20),
                         children: [
-                          const TextSpan(text: 'All '),
+                          textSpan('All '),
                           textSpanBold('Icons '),
-                          const TextSpan(text: ' like '),
+                          textSpan(' like '),
                           textSpanImage(Skill.getSkillEffectImagePath(ESkillEffect.harmsPlayer)),
-                          const TextSpan(text: ' or '),
+                          textSpan(' or '),
                           textSpanImage(Skill.getSkillEffectImagePath(ESkillEffect.leechHealthAll)),
-                          const TextSpan(text: ' are customized and created on fantastic page: '),
+                          textSpan(' are customized and created on fantastic page: '),
                           textSpanLink('Game-icons.net', 'https://game-icons.net/'),
-                          const TextSpan(text: ' .'),
+                          textSpan(' .'),
                         ],
                       ),
                     ),
                   ),
                 ),
                 Card(
+                  elevation: 15,
                   color: cardBackgroundColor,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -107,17 +127,17 @@ class Credits extends StatelessWidget {
                         style: const TextStyle(color: Colors.black, fontSize: 20),
                         children: [
                           textSpanBold('Icons '),
-                          const TextSpan(text: ' like '),
+                          textSpan(' like '),
                           textSpanImage(Skill.getSkillEffectImagePath(ESkillEffect.damageSpread)),
-                          const TextSpan(text: ' or '),
+                          textSpan(' or '),
                           textSpanImage(Skill.getSkillEffectImagePath(ESkillEffect.damageBackRow)),
-                          const TextSpan(text: ' , '),
+                          textSpan(' , '),
                           textSpanBold('App Design, '),
-                          const TextSpan(text: ' and '),
+                          textSpan(' and '),
                           textSpanBold('Programming '),
-                          const TextSpan(text: 'are made as a labor of love by Petr Zavodny: '),
+                          textSpan('are made as a labor of love by Petr Zavodny: '),
                           textSpanLink('petrzavodny.com', 'https://www.petrzavodny.com/'),
-                          const TextSpan(text: ' .'),
+                          textSpan(' .'),
                         ],
                       ),
                     ),
