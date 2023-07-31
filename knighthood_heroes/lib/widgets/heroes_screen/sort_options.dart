@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/general/enum_dropdown.dart';
 
 class SortOptions extends StatefulWidget {
@@ -56,9 +57,9 @@ class _SortOptionsState extends State<SortOptions> {
               enumVaules: ESortType.values,
               textColor: Colors.white,
               dropdownColor: Colors.blue,
-              elementBuilder: (value) => Text(
+              element: (value) => Text(
                     getDisplayText(value!),
-                    style: const TextStyle(fontSize: 16, color: Colors.white),
+                    style: normalTextStyle(),
                   ))
         ],
       ),

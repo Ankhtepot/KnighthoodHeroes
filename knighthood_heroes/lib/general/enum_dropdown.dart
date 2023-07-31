@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 
 class EnumDropdown<T extends Enum> extends StatefulWidget {
@@ -7,7 +8,7 @@ class EnumDropdown<T extends Enum> extends StatefulWidget {
     required this.selectedValue,
     required this.onChanged,
     required this.enumVaules,
-    this.elementBuilder,
+    this.element,
     this.titleFontSize = 20,
     this.titleGap = 20,
     this.textColor = Colors.black,
@@ -19,7 +20,7 @@ class EnumDropdown<T extends Enum> extends StatefulWidget {
   final T selectedValue;
   final List<T> enumVaules;
   final void Function(T?) onChanged;
-  final Function(T?)? elementBuilder;
+  final Function(T?)? element;
   final double titleFontSize;
   final double titleGap;
   final Color textColor;
@@ -31,7 +32,9 @@ class EnumDropdown<T extends Enum> extends StatefulWidget {
 
 class _EnumDropdown<T extends Enum> extends State<EnumDropdown<T>> {
   Widget _buildDropdownItem(T value) {
-    return widget.elementBuilder == null ? Text(value.name.textFromEnumName()) : widget.elementBuilder!(value);
+    return widget.element == null
+        ? Text(value.name.textFromEnumName())
+        : widget.element!(value);
   }
 
   @override
@@ -39,21 +42,19 @@ class _EnumDropdown<T extends Enum> extends State<EnumDropdown<T>> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Text(
-          widget.title,
-          style: TextStyle(
-            fontSize: widget.titleFontSize,
-            fontWeight: FontWeight.bold,
-            color: widget.textColor,
-          ),
-        ),
+        Text(widget.title,
+            style: normalTextStyle(
+              fontSize: widget.titleFontSize,
+              color: widget.textColor,
+              fontWeight: FontWeight.bold,
+            )),
         SizedBox(width: widget.titleGap),
         DropdownButton<T>(
           elevation: 5,
           dropdownColor: widget.dropdownColor,
           value: widget.selectedValue,
           items: widget.enumVaules.map((value) {
-            return DropdownMenuItem<T>(              
+            return DropdownMenuItem<T>(
               value: value,
               child: _buildDropdownItem(value),
             );

@@ -62,7 +62,7 @@ class SkillOptions extends StatelessWidget {
           selectedValue: selectedSkillClass,
           onChanged: onSkillClassChanged,
           enumVaules: ESkillClass.values,
-          elementBuilder: (value) {
+          element: (value) {
             return Row(
               children: [
                 Image(image: AssetImage(Skill.getSkillClassImagePath(value!)), width: 20, height: 20),
@@ -78,14 +78,14 @@ class SkillOptions extends StatelessWidget {
           selectedValue: selectedSkillChanceToDebuff,
           onChanged: onSkillChanceToDebuffChanged,
           enumVaules: ESkillDebuff.values,
-          elementBuilder: onSkillDebuffChangedBuilder,
+          element: onSkillDebuffChangedBuilder,
         ),
         // Skill Strong vs debuff
         EnumDropdown<ESkillDebuff>('Strong vs debuff:',
             selectedValue: selectedSkillStrongVsDebuff,
             onChanged: onSkillStrongVsDebuffChanged,
             enumVaules: ESkillDebuff.values,
-            elementBuilder: onSkillDebuffChangedBuilder),
+            element: onSkillDebuffChangedBuilder),
         // Targets
         EnumDropdown<ESkillEffect>(
           'Skill targets:',
@@ -94,7 +94,7 @@ class SkillOptions extends StatelessWidget {
           selectedValue: selectedSkillTarget,
           onChanged: onSkillTargetChanged,
           enumVaules: Skill.getSkillTargets,
-          elementBuilder: onSkillEffectChangedBuilder,
+          element: onSkillEffectChangedBuilder,
         ),
         // Skill Effect
         EnumDropdown<ESkillEffect>(
@@ -104,7 +104,7 @@ class SkillOptions extends StatelessWidget {
           selectedValue: selectedSkillEffect,
           onChanged: onSkillEffectChanged,
           enumVaules: Skill.getSkillDebuffs,
-          elementBuilder: onSkillEffectChangedBuilder,
+          element: onSkillEffectChangedBuilder,
         ),
       ],
     );

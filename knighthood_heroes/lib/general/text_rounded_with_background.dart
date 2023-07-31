@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
-import 'package:knighthood_heroes/data/global.dart';
 
 class TextRoundedWithBackground extends StatelessWidget {
   const TextRoundedWithBackground(this.text,
@@ -29,8 +28,8 @@ class TextRoundedWithBackground extends StatelessWidget {
       this.backgroundColor = knighhoodTitleColor,
       this.fontSize = 20,
       this.fontWeight = FontWeight.bold,
-      this.horizontalPadding = 5,
-      this.borderRadius = 10})
+      this.horizontalPadding = 20,
+      this.borderRadius = 5})
       : fontStyle = EFontFamilly.troika;
 
   final String text;
@@ -52,6 +51,7 @@ class TextRoundedWithBackground extends StatelessWidget {
           fontSize: fontSize,
           fontWeight: fontWeight,
           color: textColor,
+          letterSpacing: 1.5,
         );
       default:
         return GoogleFonts.cabin(textStyle: TextStyle(fontSize: fontSize, fontWeight: fontWeight, color: textColor));
@@ -68,7 +68,7 @@ class TextRoundedWithBackground extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
         child: Text(
-          fontStyle == EFontFamilly.troika ? text.toUpperCase() : text,
+          fontStyle == EFontFamilly.troika ? text : text,
           textAlign: TextAlign.center,
           style: getTextStyle,
         ),

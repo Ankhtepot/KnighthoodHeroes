@@ -101,7 +101,7 @@ class _FilterOptionsState extends State<FilterOptions> {
                       selectedValue: _selectedEnemyType,
                       onChanged: (value) => setState(() => _selectedEnemyType = value!),
                       enumVaules: EEnemyType.values,
-                      elementBuilder: (value) {
+                      element: (value) {
                         return Row(
                           children: [
                             EnemyTypeBadge(value!),
@@ -116,7 +116,7 @@ class _FilterOptionsState extends State<FilterOptions> {
                       selectedValue: _selectedRarity,
                       onChanged: (value) => setState(() => _selectedRarity = value!),
                       enumVaules: ERarity.values,
-                      elementBuilder: (value) => TextRoundedWithBackground(
+                      element: (value) => TextRoundedWithBackground(
                         value.toString().split('.').last.capitalize(),
                         textColor: Colors.black,
                         backgroundColor: getRarityColor(value!),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/helpers/images_helper.dart';
 
 const double kIconSize = 32;
@@ -38,18 +39,14 @@ class MainDrawer extends StatelessWidget {
                     ),
                     const SizedBox(width: 18),
                     Text(
-                      'Knighthood Heroes',
-                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
+                      'Heroes',
+                      style: headerTextStyle(),
                     ),
                   ],
                 ),
                 Text(
                   'Tools',
-                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
+                  style: headerTextStyle(),
                 ),
               ],
             ),
