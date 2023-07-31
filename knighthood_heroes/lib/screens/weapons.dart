@@ -82,7 +82,7 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
               ),
             ),
             AppBar(
-              title: const TextRoundedWithBackground(
+              title: const TextRoundedWithBackground.header(
                 'Weapons Crafting',
                 fontWeight: FontWeight.bold,
                 textColor: Colors.white,
