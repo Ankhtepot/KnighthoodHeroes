@@ -41,3 +41,4 @@ const Color cardBackgroundColor = Color.fromARGB(180, 227, 242, 253); // Colors.
 const Color buttonBackgroundBlueColor = Color.fromARGB(255, 116, 207, 252);
 const Color knighhoodTitleColor = Color.fromARGB(255, 24, 53, 109);
 const Color knighthoodContentColor = Color.fromARGB(255, 3, 19, 64);
+const Color knighthoodTextColor = Color.fromARGB(255, 250, 250, 250);

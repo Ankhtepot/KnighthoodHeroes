@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
@@ -14,7 +15,7 @@ class EnumDropdown<T extends Enum> extends StatefulWidget {
     this.titleFontSize = 20,
     this.titleGap = 20,
     this.textColor = Colors.white,
-    this.dropdownColor = const Color.fromARGB(255, 180, 180, 180),
+    this.dropdownColor = knighthoodContentColor,
     super.key,
   });
 
@@ -34,9 +35,11 @@ class EnumDropdown<T extends Enum> extends StatefulWidget {
 
 class _EnumDropdown<T extends Enum> extends State<EnumDropdown<T>> {
   Widget _buildDropdownItem(T value) {
+    String text = value.name.textFromEnumName();
+
     return widget.element == null
         ? TextRoundedWithBackground.cabin(
-            value.name.textFromEnumName(),
+            text == 'None' ? 'All' : text,
           )
         : widget.element!(value);
   }

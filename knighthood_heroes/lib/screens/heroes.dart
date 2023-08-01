@@ -104,7 +104,7 @@ class _HeroesState extends State<Heroes> {
                 children: [
                   TextRoundedWithBackground.header(
                     'Heroes (${heroes.length})',
-                    horizontalPadding: 20,
+                    horizontalPadding: 15,
                   ),
                 ],
               ),

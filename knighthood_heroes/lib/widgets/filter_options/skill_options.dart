@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/general/enum_dropdown.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/models/skill.dart';
@@ -35,24 +37,49 @@ class SkillOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget onSkillDebuffChangedBuilder(ESkillDebuff? value) => Skill.getDebuffBadge(value!, bothIfAvailable: true);
+    Widget onSkillDebuffChangedBuilder(ESkillDebuff? value) {
+      return Card(
+          color: knighthoodContentColor,
+          child: Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: Skill.getDebuffBadge(value!, bothIfAvailable: true),
+          ));
+    }
 
     Widget onSkillEffectChangedBuilder(ESkillEffect? value) {
-      return Row(
-        children: [
-          Image(
-            image: AssetImage(Skill.getSkillEffectImagePath(value!)),
-            width: 20,
-            height: 20,
+      return Card(
+        color: knighthoodContentColor,
+        child: Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: Row(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.white, width: 1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Image(
+                    image: AssetImage(Skill.getSkillEffectImagePath(value!)),
+                    width: 20,
+                    height: 20,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 5),
+              Text(
+                Skill.getSkillEffectDisplayText(value),
+                style: normalTextStyle(fontSize: _skillEffectFontSize),
+              ),
+            ],
           ),
-          const SizedBox(width: 5),
-          Text(
-            Skill.getSkillEffectDisplayText(value),
-            style: const TextStyle(fontSize: _skillEffectFontSize),
-          ),
-        ],
+        ),
       );
     }
+
+    String getValueText(String text) => text == 'None' ? 'All' : text;
 
     return Column(
       children: [
@@ -63,12 +90,29 @@ class SkillOptions extends StatelessWidget {
           onChanged: onSkillClassChanged,
           enumVaules: ESkillClass.values,
           element: (value) {
-            return Row(
-              children: [
-                Image(image: AssetImage(Skill.getSkillClassImagePath(value!)), width: 20, height: 20),
-                const SizedBox(width: 5),
-                Text(value.toString().split('.').last.capitalize().insertSpaceForCamelCaseString()),
-              ],
+            return Card(
+              color: knighthoodContentColor,
+              child: Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.white, width: 1),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Image(image: AssetImage(Skill.getSkillClassImagePath(value!)), width: 20, height: 20),
+                      ),
+                    ),
+                    const SizedBox(width: 5),
+                    Text(getValueText(value.toString().split('.').last.capitalize().insertSpaceForCamelCaseString()),
+                        style: normalTextStyle()),
+                  ],
+                ),
+              ),
             );
           },
         ),

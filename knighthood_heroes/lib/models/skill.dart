@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
@@ -28,13 +29,22 @@ class Skill {
 
   static String getSkillEffectImagePath(ESkillEffect effect) => '$skillImagesBasePath${effect.name}.png';
 
+  static Widget getSkillEffectIcon(ESkillEffect effect, {double size = 20}) {
+    return Image.asset(
+      getSkillEffectImagePath(effect),
+      width: size,
+    );
+  }
+
   static String getDebuffImagePath(ESkillDebuff debuff) => '$debuffImagesBasePath${debuff.name}.png';
 
   static Widget getDebuffBadge(ESkillDebuff debuff, {bool bothIfAvailable = false}) {
     TextColors colors = getDebuffColors(debuff);
 
+    String text = debuff.name.capitalize();
+
     Widget textBadge = TextRoundedWithBackground(
-      debuff.name.capitalize(),
+      text == 'None' ? 'All' : text,
       backgroundColor: colors.backgroundColor,
       textColor: colors.textColor,
     );
@@ -129,7 +139,7 @@ class Skill {
       };
 
   static TextColors getDebuffColors(ESkillDebuff debuff) => switch (debuff) {
-        ESkillDebuff.none => TextColors(Colors.white, Colors.black),
+        ESkillDebuff.none => TextColors(knighthoodContentColor, Colors.white),
         ESkillDebuff.poison =>
           TextColors(const Color.fromARGB(255, 123, 255, 128), const Color.fromARGB(255, 0, 50, 17)),
         ESkillDebuff.acid => TextColors(Colors.green, const Color.fromARGB(255, 255, 255, 255)),

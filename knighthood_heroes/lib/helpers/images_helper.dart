@@ -1,5 +1,8 @@
 import 'package:knighthood_heroes/data/enums.dart';
 
+String chanceIconPath = 'assets/images/skills/chance.png';
+String strongVsIconPath = 'assets/images/skills/strongVs.png';
+
 class ImagesHelper {
   static String getIconImagePath(EImageIcons requestedImage) {
     return switch (requestedImage) {
@@ -19,6 +22,23 @@ class ImagesHelper {
         EWeaponType.axe => ImagesHelper.getIconImagePath(EImageIcons.axe),
         EWeaponType.hammer => ImagesHelper.getIconImagePath(EImageIcons.hammer),
       };
+
+  static String getRarityBanner(ERarity rarity, {EOrientation orientation = EOrientation.horizontal}) {
+    const String path = 'assets/images/rarity_banners/';
+
+    final String orientationPath = switch (orientation) {
+      EOrientation.horizontal => '_horizontal',
+      EOrientation.vertical => '_vertical',
+    };
+    return switch (rarity) {
+      ERarity.rare => '${path}rare$orientationPath.png',
+      ERarity.epic => '${path}epic$orientationPath.png',
+      ERarity.legendary => '${path}legendary$orientationPath.png',
+      ERarity.unique => '${path}unique$orientationPath.png',
+      ERarity.mythic => '${path}mythic$orientationPath.png',
+      _ => '${path}common$orientationPath.png',
+    };
+  }
 
   static String getBackgroundImagePath(EBackground background) => switch (background) {
         EBackground.none => 'null',

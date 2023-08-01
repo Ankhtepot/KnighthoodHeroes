@@ -195,6 +195,14 @@ flutter:
     - assets/images/icons/axe.png
     - assets/images/icons/hammer.png
 
+  # Rarity banners
+    - assets/images/rarity_banners/common_horizontal.png
+    - assets/images/rarity_banners/rare_horizontal.png
+    - assets/images/rarity_banners/epic_horizontal.png
+    - assets/images/rarity_banners/legendary_horizontal.png
+    - assets/images/rarity_banners/unique_horizontal.png
+    - assets/images/rarity_banners/mythic_horizontal.png
+
   # Backgrounds
     - assets/images/backgrounds/forge_background.jpg
     - assets/images/backgrounds/green_background.jpg

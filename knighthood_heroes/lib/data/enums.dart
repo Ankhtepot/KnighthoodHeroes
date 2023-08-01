@@ -143,3 +143,8 @@ enum EFontFamilly {
   cabin,
   troika
 }
+
+enum EOrientation {
+  horizontal,
+  vertical,
+}

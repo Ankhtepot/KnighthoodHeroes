@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:knighthood_heroes/data/colors.dart';
+import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
+import 'package:knighthood_heroes/helpers/images_helper.dart';
 import 'package:knighthood_heroes/models/knighthood_hero.dart';
+import 'package:knighthood_heroes/models/skill.dart';
 import 'package:knighthood_heroes/widgets/enemy_type_badge.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/skill_detailed.dart';
+import 'package:knighthood_heroes/widgets/rarity_banner.dart';
+
+const double kHeaderTextSize = 18;
 
 class HeroCardDetailed extends StatelessWidget {
   const HeroCardDetailed(this.hero, {super.key});
@@ -42,52 +48,54 @@ class HeroCardDetailed extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Text(
-                            hero.name,
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
+                          RarityBanner(
+                            hero.rarity,
+                            size: 25,
                           ),
                           const SizedBox(width: 5),
-                          TextRoundedWithBackground(
-                            hero.rarity.toString().textFromEnumName(),
-                            backgroundColor: getRarityColor(hero.rarity),
-                            fontWeight: FontWeight.bold,
-                            textColor: Colors.black,
-                          ),
-                          const SizedBox(width: 5),
-                          EnemyTypeBadge(hero.strongVs),
+                          Image.asset(strongVsIconPath, width: 28, height: 28),
+                          const Icon(Icons.arrow_forward_sharp, size: 28, color: Color.fromARGB(255, 72, 72, 72)),
+                          EnemyTypeBadge(hero.strongVs, size: 30),
                         ],
                       ),
-                      const SizedBox(height: 5),
+                      Row(
+                        children: [
+                          Text(
+                            hero.name,
+                            style: normalTextStyle(
+                              fontSize: kHeaderTextSize,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
+                      ),
                       Row(
                         children: [
                           const Text(
                             'Class: ',
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: kHeaderTextSize,
                             ),
                           ),
                           Text(
                             hero.heroClass.name.capitalize(),
-                            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                            style: const TextStyle(fontSize: kHeaderTextSize, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 5),
                       Row(
                         children: [
                           const Text(
                             'Alignment: ',
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: kHeaderTextSize,
                             ),
                           ),
                           Text(
                             hero.heroType.name.capitalize(),
                             style: const TextStyle(
-                              fontSize: 20,
+                              fontSize: kHeaderTextSize,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

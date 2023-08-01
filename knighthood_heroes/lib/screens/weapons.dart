@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/data/weapons_crafting_data.dart';
 import 'package:knighthood_heroes/general/special_container.dart';
@@ -27,10 +28,9 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
     });
   }
 
-  Widget getWeaponTitle(String title) => TextRoundedWithBackground(
+  Widget getWeaponTitle(String title) => TextRoundedWithBackground.header(
         title,
-        backgroundColor: const Color.fromARGB(220, 190, 227, 249),
-        textColor: const Color.fromARGB(255, 0, 31, 57),
+        backgroundColor: knighhoodTitleColor,
         fontWeight: FontWeight.bold,
         fontSize: 24,
         borderRadius: 20,

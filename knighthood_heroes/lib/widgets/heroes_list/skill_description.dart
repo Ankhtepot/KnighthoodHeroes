@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/data/global.dart';
+import 'package:knighthood_heroes/helpers/images_helper.dart';
 import 'package:knighthood_heroes/models/skill.dart';
-
-String chanceIconPath = 'assets/images/skills/chance.png';
-String strongVsIconPath = 'assets/images/skills/strongVs.png';
 
 class SkillDescription extends StatelessWidget {
   const SkillDescription(this.skill, this.isBase, {super.key});
@@ -30,7 +29,7 @@ class SkillDescription extends StatelessWidget {
     }
 
     effectsIcons.add(
-      const Text(' |', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+      Text(' |', style: normalTextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
     );
 
     return effectsIcons;
@@ -75,7 +74,7 @@ class SkillDescription extends StatelessWidget {
 
     return Row(
       children: [
-        Text(title),
+        Text(title, style: normalTextStyle(color: Colors.black)),
         Image(
           image: AssetImage(skill.getSkillImagePath),
           width: 20,

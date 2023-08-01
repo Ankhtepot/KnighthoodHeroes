@@ -15,7 +15,7 @@ class TextRoundedWithBackground extends StatelessWidget {
       : fontStyle = EFontFamilly.cabin;
   const TextRoundedWithBackground.cabin(this.text,
       {super.key,
-      this.textColor = Colors.white,
+      this.textColor = knighthoodTextColor,
       this.backgroundColor = Colors.black,
       this.fontSize = 16,
       this.fontWeight = FontWeight.w600, //semi-bold
@@ -24,7 +24,7 @@ class TextRoundedWithBackground extends StatelessWidget {
       : fontStyle = EFontFamilly.cabin;
   const TextRoundedWithBackground.header(this.text,
       {super.key,
-      this.textColor = Colors.white,
+      this.textColor = knighthoodTextColor,
       this.backgroundColor = knighhoodTitleColor,
       this.fontSize = 20,
       this.fontWeight = FontWeight.bold,

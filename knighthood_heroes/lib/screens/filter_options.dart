@@ -13,6 +13,8 @@ import 'package:knighthood_heroes/models/heroes_filter_options.dart';
 import 'package:knighthood_heroes/widgets/app_bar_background.dart';
 import 'package:knighthood_heroes/widgets/enemy_type_badge.dart';
 import 'package:knighthood_heroes/widgets/filter_options/skill_options.dart';
+import 'package:knighthood_heroes/widgets/rarity_badge.dart';
+import 'package:knighthood_heroes/widgets/rarity_banner.dart';
 
 class FilterOptions extends StatefulWidget {
   const FilterOptions(this.setFilterOptions, {super.key});
@@ -113,7 +115,7 @@ class _FilterOptionsState extends State<FilterOptions> {
                       element: (value) {
                         return Row(
                           children: [
-                            EnemyTypeBadge(value!, iconSize: const EdgeInsets.all(15)),
+                            EnemyTypeBadge(value!, size: 15),
                             const SizedBox(width: 5),
                             Text(
                               value.toString().split('.').last.capitalize().insertSpaceForCamelCaseString(),
@@ -128,12 +130,16 @@ class _FilterOptionsState extends State<FilterOptions> {
                       selectedValue: _selectedRarity,
                       onChanged: (value) => setState(() => _selectedRarity = value!),
                       enumVaules: ERarity.values,
-                      element: (value) => TextRoundedWithBackground.cabin(
-                        value.toString().split('.').last.capitalize(),
-                        textColor: Colors.black,
-                        backgroundColor: getRarityColor(value!),
-                        fontWeight: FontWeight.bold,
-                      ),
+                      element: (value) {
+                        if (value == ERarity.none) {
+                          return const RarityBadge(ERarity.none,
+                              textColor: Colors.white, backgroundColor: knighthoodContentColor);
+                        }
+                        return RarityBanner(
+                          value!,
+                          size: 30,
+                        );
+                      },
                     ),
                     EnumDropdown<EHeroClass>(
                       'Hero Class:',
@@ -148,7 +154,10 @@ class _FilterOptionsState extends State<FilterOptions> {
                       enumVaules: EHeroType.values,
                     ),
                     const SizedBox(height: 5),
-                    const TextRoundedWithBackground('Base skill options:'),
+                    const TextRoundedWithBackground.header(
+                      'Base skill options:',
+                      fontSize: 25,
+                    ),
                     SkillOptions(
                         selectedSkillClass: _selectedBaseSkillClass,
                         selectedSkillEffect: _selectedBaseSkillEffect,
@@ -163,7 +172,10 @@ class _FilterOptionsState extends State<FilterOptions> {
                         onSkillStrongVsDebuffChanged: (value) =>
                             setState(() => _selectedBaseSkillStrongVsDebuff = value!)),
                     const SizedBox(height: 5),
-                    const TextRoundedWithBackground('Rage skill options:'),
+                    const TextRoundedWithBackground.header(
+                      'Rage skill options:',
+                      fontSize: 25,
+                    ),
                     SkillOptions(
                         selectedSkillClass: _selectedRageSkillClass,
                         selectedSkillEffect: _selectedRageSkillEffect,

@@ -11,19 +11,21 @@ class RarityBadge extends StatelessWidget {
     this.fontSize = 16,
     this.textColor = Colors.black,
     this.backgroundColor = Colors.transparent,
+    this.noneText = 'All',
   });
 
   final ERarity rarity;
   final double fontSize;
   final Color textColor;
   final Color backgroundColor;
+  final String noneText;
 
   @override
   Widget build(BuildContext context) {
     Color usedBackgroundColor = backgroundColor == Colors.transparent ? getRarityColor(rarity) : backgroundColor;
 
     return TextRoundedWithBackground(
-      rarity.toString().textFromEnumName(),
+      rarity == ERarity.none ? noneText : rarity.toString().textFromEnumName(),
       backgroundColor: usedBackgroundColor,
       fontWeight: FontWeight.bold,
       textColor: textColor,
