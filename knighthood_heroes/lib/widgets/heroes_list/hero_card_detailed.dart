@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/helpers/images_helper.dart';
 import 'package:knighthood_heroes/models/knighthood_hero.dart';
-import 'package:knighthood_heroes/models/skill.dart';
 import 'package:knighthood_heroes/widgets/enemy_type_badge.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/skill_detailed.dart';
 import 'package:knighthood_heroes/widgets/rarity_banner.dart';
@@ -36,9 +35,12 @@ class HeroCardDetailed extends StatelessWidget {
                       height: 100,
                     ),
                     Positioned(
-                      bottom: 2,
-                      right: 2,
-                      child: EnemyTypeBadge(hero.strongVs),
+                      bottom: 0,
+                      right: 0,
+                      child: EnemyTypeBadge(
+                        hero.strongVs,
+                        size: 35,
+                      ),
                     ),
                   ]),
                   const SizedBox(width: 5),
@@ -62,41 +64,48 @@ class HeroCardDetailed extends StatelessWidget {
                         children: [
                           Text(
                             hero.name,
-                            style: normalTextStyle(
+                            style: commonTextStyle(
                               fontSize: kHeaderTextSize,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                              color: cardTextColor,
                             ),
                           ),
                         ],
                       ),
                       Row(
                         children: [
-                          const Text(
+                          Text(
                             'Class: ',
-                            style: TextStyle(
+                            style: commonTextStyle(
                               fontSize: kHeaderTextSize,
+                              color: cardTextColor,
                             ),
                           ),
                           Text(
                             hero.heroClass.name.capitalize(),
-                            style: const TextStyle(fontSize: kHeaderTextSize, fontWeight: FontWeight.bold),
+                            style: commonTextStyle(
+                              fontSize: kHeaderTextSize,
+                              fontWeight: FontWeight.bold,
+                              color: cardTextColor,
+                            ),
                           ),
                         ],
                       ),
                       Row(
                         children: [
-                          const Text(
+                          Text(
                             'Alignment: ',
-                            style: TextStyle(
+                            style: commonTextStyle(
                               fontSize: kHeaderTextSize,
+                              color: cardTextColor,
                             ),
                           ),
                           Text(
                             hero.heroType.name.capitalize(),
-                            style: const TextStyle(
+                            style: commonTextStyle(
                               fontSize: kHeaderTextSize,
                               fontWeight: FontWeight.bold,
+                              color: cardTextColor,
                             ),
                           ),
                         ],
@@ -124,7 +133,7 @@ class HeroCardDetailed extends StatelessWidget {
                       Text(
                         hero.fullStarsEffect,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(fontStyle: FontStyle.italic, fontSize: 16),
+                        style: commonTextStyle(fontStyle: FontStyle.italic, fontSize: 16, color: cardTextColor),
                       )
                     ],
                   ),

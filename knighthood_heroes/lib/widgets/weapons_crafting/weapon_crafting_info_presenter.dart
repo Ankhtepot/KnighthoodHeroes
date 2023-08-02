@@ -26,14 +26,14 @@ class WeaponCraftingPresenter extends StatelessWidget {
 
     return [
       Text('OR chance from',
-          style: normalTextStyle(
+          style: commonTextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
           )),
       const SizedBox(width: 5),
       const Icon(Icons.arrow_forward, size: 20, color: Colors.white),
       Text('${weaponCraftingInfo.getCraftCountbyRarity(weaponCraftingInfo.rarity)}x',
-          style: normalTextStyle(fontWeight: FontWeight.bold)),
+          style: commonTextStyle(fontWeight: FontWeight.bold)),
       const SizedBox(width: 5),
       Image.asset(
         ImagesHelper.getWeaponIconPath(weaponCraftingInfo.sameTypeCrafting),

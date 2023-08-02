@@ -10,7 +10,6 @@ import 'package:knighthood_heroes/general/leading_arrow_builder.dart';
 import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/helpers/images_helper.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
-import 'package:knighthood_heroes/widgets/app_bar_background.dart';
 import 'package:knighthood_heroes/widgets/enemy_type_badge.dart';
 import 'package:knighthood_heroes/widgets/filter_options/skill_options.dart';
 import 'package:knighthood_heroes/widgets/rarity_badge.dart';
@@ -71,7 +70,7 @@ class _FilterOptionsState extends State<FilterOptions> {
         ),
         child: Text(
           'Apply Filters',
-          style: normalTextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: commonTextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       );
 

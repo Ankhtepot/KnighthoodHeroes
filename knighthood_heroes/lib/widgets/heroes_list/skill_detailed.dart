@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:knighthood_heroes/data/colors.dart';
+import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/models/skill.dart';
@@ -31,7 +33,7 @@ class SkillDetailed extends StatelessWidget {
               const SizedBox(width: 5),
               Text(
                 effect.name.textFromEnumName(),
-                style: const TextStyle(fontSize: 16),
+                style: commonTextStyle(fontSize: 16, color: cardTextColor),
               ),
             ],
           ),
@@ -57,25 +59,28 @@ class SkillDetailed extends StatelessWidget {
             ),
             Text(
               skill.name,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: commonTextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: cardTextColor),
             ),
             const SizedBox(height: 5),
             Text(
               skill.description,
-              style: const TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
+              style: commonTextStyle(fontSize: 16, fontStyle: FontStyle.italic, color: cardTextColor),
             ),
             const SizedBox(height: 5),
             ...getEffectsIcons(),
             Row(
               children: [
-                const Text('Chance to apply:'),
+                Text(
+                  'Chance to apply:',
+                  style: commonTextStyle(color: cardTextColor),
+                ),
                 const SizedBox(width: 5),
                 Skill.getDebuffBadge(skill.chanceTo, bothIfAvailable: true),
               ],
             ),
             Row(
               children: [
-                const Text('Strong against:'),
+                Text('Strong against:', style: commonTextStyle(color: cardTextColor)),
                 const SizedBox(width: 5),
                 Skill.getDebuffBadge(skill.strongVsDebuff, bothIfAvailable: true),
               ],

@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-TextStyle normalTextStyle({double fontSize = 16, Color color = Colors.white, FontWeight fontWeight = FontWeight.normal}) {
+TextStyle commonTextStyle({
+  double fontSize = 16,
+  Color color = Colors.white,
+  FontWeight fontWeight = FontWeight.normal,
+  FontStyle fontStyle = FontStyle.normal,
+}) {
   return GoogleFonts.cabin(
       textStyle: TextStyle(
-          fontSize: fontSize, fontWeight: fontWeight, color: color));
+    fontSize: fontSize,
+    fontWeight: fontWeight,
+    color: color,
+    fontStyle: fontStyle,
+  ));
 }
 
 TextStyle headerTextStyle({double fontSize = 20, Color color = Colors.white}) {

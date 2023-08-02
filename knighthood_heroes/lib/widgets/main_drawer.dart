@@ -49,7 +49,7 @@ class MainDrawer extends StatelessWidget {
                 width: kIconSize,
                 height: kIconSize,
               ),
-              title: Text('Heroes', style: normalTextStyle(fontSize: 24)),
+              title: Text('Heroes', style: commonTextStyle(fontSize: 24)),
               onTap: () => setScreen(EScreens.heroes),
             ),
             ListTile(
@@ -60,7 +60,7 @@ class MainDrawer extends StatelessWidget {
               ),
               title: Text(
                 'Weapons Crafting',
-                style: normalTextStyle(fontSize: 24),
+                style: commonTextStyle(fontSize: 24),
               ),
               onTap: () => setScreen(EScreens.weapons),
             ),

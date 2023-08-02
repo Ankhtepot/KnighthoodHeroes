@@ -59,7 +59,7 @@ class _SortOptionsState extends State<SortOptions> {
               dropdownColor: Colors.blue,
               element: (value) => Text(
                     getDisplayText(value!),
-                    style: normalTextStyle(),
+                    style: commonTextStyle(),
                   ))
         ],
       ),

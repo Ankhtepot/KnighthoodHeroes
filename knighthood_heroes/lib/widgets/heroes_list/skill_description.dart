@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/helpers/images_helper.dart';
@@ -29,7 +30,7 @@ class SkillDescription extends StatelessWidget {
     }
 
     effectsIcons.add(
-      Text(' |', style: normalTextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
+      Text(' |', style: commonTextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: cardTextColor)),
     );
 
     return effectsIcons;
@@ -74,7 +75,7 @@ class SkillDescription extends StatelessWidget {
 
     return Row(
       children: [
-        Text(title, style: normalTextStyle(color: Colors.black)),
+        Text(title, style: commonTextStyle(color: cardTextColor)),
         Image(
           image: AssetImage(skill.getSkillImagePath),
           width: 20,

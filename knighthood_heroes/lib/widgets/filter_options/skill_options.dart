@@ -42,7 +42,7 @@ class SkillOptions extends StatelessWidget {
           color: knighthoodContentColor,
           child: Padding(
             padding: const EdgeInsets.all(3.0),
-            child: Skill.getDebuffBadge(value!, bothIfAvailable: true),
+            child: Skill.getDebuffBadge(value!, bothIfAvailable: true, noneText: 'All'),
           ));
     }
 
@@ -71,7 +71,7 @@ class SkillOptions extends StatelessWidget {
               const SizedBox(width: 5),
               Text(
                 Skill.getSkillEffectDisplayText(value),
-                style: normalTextStyle(fontSize: _skillEffectFontSize),
+                style: commonTextStyle(fontSize: _skillEffectFontSize),
               ),
             ],
           ),
@@ -109,7 +109,7 @@ class SkillOptions extends StatelessWidget {
                     ),
                     const SizedBox(width: 5),
                     Text(getValueText(value.toString().split('.').last.capitalize().insertSpaceForCamelCaseString()),
-                        style: normalTextStyle()),
+                        style: commonTextStyle()),
                   ],
                 ),
               ),

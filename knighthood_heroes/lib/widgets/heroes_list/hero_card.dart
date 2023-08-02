@@ -35,7 +35,10 @@ class HeroCard extends StatelessWidget {
                   Positioned(
                     bottom: -2,
                     right: -2,
-                    child: EnemyTypeBadge(hero.strongVs),
+                    child: EnemyTypeBadge(
+                      hero.strongVs,
+                      size: 35,
+                    ),
                   ),
                 ],
               ),
@@ -49,7 +52,7 @@ class HeroCard extends StatelessWidget {
                   children: [
                     TextRoundedWithBackground(
                       hero.name,
-                      textColor: Colors.black,
+                      textColor: cardTextColor,
                       backgroundColor: getRarityColor(hero.rarity),
                       fontWeight: FontWeight.bold,
                       horizontalPadding: 10,

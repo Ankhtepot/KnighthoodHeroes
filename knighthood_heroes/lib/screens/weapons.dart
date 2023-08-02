@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/data/weapons_crafting_data.dart';
 import 'package:knighthood_heroes/general/special_container.dart';
 import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
@@ -100,7 +101,7 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
       ),
       drawer: MainDrawer((screenId) => Navigation.setScreen(context, screenId)),
       body: SpecialContainer.image(
-        imagePath: ImagesHelper.getBackgroundImagePath(EBackground.blue),
+        imagePath: ImagesHelper.getBackgroundImagePathByRarity(_filterOptions.rarity),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -110,12 +111,12 @@ class _WeaponsScreenState extends State<WeaponsScreen> {
             const SizedBox(height: 5),
             Card(
               color: Colors.white.withOpacity(0.8),
-              child: const Padding(
-                padding: EdgeInsets.all(8.0),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Text(
                   'Note: Crafting by \'strong vs\' takes precedence. Crafting by weapon type (axe, sword, hammer) is not guaranteed as its sligtly based on RNG.',
-                  style: TextStyle(
-                    color: Colors.black,
+                  style: commonTextStyle(
+                    color: cardTextColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),

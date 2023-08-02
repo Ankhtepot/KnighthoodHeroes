@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/general/special_container.dart';
 import 'package:knighthood_heroes/general/leading_arrow_builder.dart';
 import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/helpers/images_helper.dart';
 import 'package:knighthood_heroes/models/skill.dart';
-import 'package:knighthood_heroes/widgets/app_bar_background.dart';
 import 'package:knighthood_heroes/general/text_spans.dart';
 
 class Credits extends StatelessWidget {
@@ -50,7 +50,7 @@ class Credits extends StatelessWidget {
                     child: RichText(
                       textAlign: TextAlign.center,
                       text: TextSpan(
-                        style: const TextStyle(color: Colors.black, fontSize: 20),
+                        style: commonTextStyle(color: cardTextColor, fontSize: 20),
                         children: [
                           textSpanBold('Knighthood'),
                           textSpan(' and '),
@@ -72,7 +72,7 @@ class Credits extends StatelessWidget {
                     child: RichText(
                       textAlign: TextAlign.center,
                       text: TextSpan(
-                        style: const TextStyle(color: Colors.black, fontSize: 20),
+                        style: commonTextStyle(color: cardTextColor, fontSize: 20),
                         children: [
                           textSpan('All '),
                           textSpanBold('Icons '),
@@ -100,7 +100,7 @@ class Credits extends StatelessWidget {
                     child: RichText(
                       textAlign: TextAlign.center,
                       text: TextSpan(
-                        style: const TextStyle(color: Colors.black, fontSize: 20),
+                        style: commonTextStyle(color: cardTextColor, fontSize: 20),
                         children: [
                           textSpan('All '),
                           textSpanBold('Icons '),
@@ -124,7 +124,7 @@ class Credits extends StatelessWidget {
                     child: RichText(
                       textAlign: TextAlign.center,
                       text: TextSpan(
-                        style: const TextStyle(color: Colors.black, fontSize: 20),
+                        style: commonTextStyle(color: cardTextColor, fontSize: 20),
                         children: [
                           textSpanBold('Icons '),
                           textSpan(' like '),

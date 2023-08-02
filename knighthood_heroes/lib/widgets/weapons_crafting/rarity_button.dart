@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/widgets/rarity_badge.dart';
 
 class RarityButton extends StatelessWidget {
@@ -28,7 +29,7 @@ class RarityButton extends StatelessWidget {
         child: isNone
             ? Text(
                 'All rarities',
-                style: TextStyle(color: buttonTextColor, fontWeight: FontWeight.bold, fontSize: fontSize),
+                style: commonTextStyle(color: buttonTextColor, fontWeight: FontWeight.bold, fontSize: fontSize),
               )
             : RarityBadge(
                 rarity,

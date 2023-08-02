@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
@@ -50,7 +49,7 @@ class _EnumDropdown<T extends Enum> extends State<EnumDropdown<T>> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Text(widget.title,
-            style: normalTextStyle(
+            style: commonTextStyle(
               fontSize: widget.titleFontSize,
               color: widget.textColor,
               fontWeight: FontWeight.bold,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:knighthood_heroes/data/enums.dart';
+import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/helpers/images_helper.dart';
 
@@ -38,7 +39,7 @@ class WeaponButton extends StatelessWidget {
                 ),
               Text(
                 isNone ? 'All types' : weaponType.toString().textFromEnumName(),
-                style: TextStyle(
+                style: commonTextStyle(
                   color: isSelected ? Colors.black : Colors.white,
                   fontWeight: FontWeight.bold,
                 ),

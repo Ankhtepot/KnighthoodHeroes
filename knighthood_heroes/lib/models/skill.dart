@@ -38,13 +38,22 @@ class Skill {
 
   static String getDebuffImagePath(ESkillDebuff debuff) => '$debuffImagesBasePath${debuff.name}.png';
 
-  static Widget getDebuffBadge(ESkillDebuff debuff, {bool bothIfAvailable = false}) {
+  static const String kNotSet = 'not set';
+  static Widget getDebuffBadge(
+    ESkillDebuff debuff, {
+    bool bothIfAvailable = false,
+    String noneText = kNotSet,
+  }) {
     TextColors colors = getDebuffColors(debuff);
 
     String text = debuff.name.capitalize();
 
     Widget textBadge = TextRoundedWithBackground(
-      text == 'None' ? 'All' : text,
+      text == 'None'
+          ? noneText == kNotSet
+              ? 'None'
+              : noneText
+          : text,
       backgroundColor: colors.backgroundColor,
       textColor: colors.textColor,
     );
