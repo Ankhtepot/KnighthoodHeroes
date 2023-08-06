@@ -88,11 +88,6 @@ class _HeroesState extends ConsumerState<Heroes> {
       });
     }
 
-    void setFilterOptions(HeroesFilterOptions filterOptions) {
-      ref.read(heroesFilterProvider.notifier).setFilters(filterOptions);
-      sortHeroes(currentSortType);
-    }
-
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -139,7 +134,7 @@ class _HeroesState extends ConsumerState<Heroes> {
                         }),
                         const SizedBox(width: 15),
                         ActionIcon(Icons.autorenew_rounded, onTap: () {
-                          setFilterOptions(const HeroesFilterOptions());
+                          ref.read(heroesFilterProvider.notifier).resetFilters();
                           sortHeroes(ESortType.nameAZ);
                         }),
                         const SizedBox(width: 15),

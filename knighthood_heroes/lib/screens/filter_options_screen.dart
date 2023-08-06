@@ -27,6 +27,7 @@ class _FilterOptionsScreenState extends ConsumerState<FilterOptionsScreen> {
   @override
   Widget build(BuildContext context) {
     final selectedFilters = ref.watch(heroesFilterProvider);
+    final filtersNotifier = ref.read(heroesFilterProvider.notifier);
 
     Widget getApplyButton() => ElevatedButton(
           onPressed: () => Navigator.pop(context),
@@ -74,7 +75,7 @@ class _FilterOptionsScreenState extends ConsumerState<FilterOptionsScreen> {
                   EnumDropdown<EEnemyType>(
                     'Strong against:',
                     selectedValue: selectedFilters.enemyType,
-                    onChanged: (value) => ref.read(heroesFilterProvider.notifier).setEnemyType(value!),
+                    onChanged: (value) => filtersNotifier.setEnemyType(value!),
                     enumVaules: EEnemyType.values,
                     element: (value) {
                       return Row(
@@ -91,8 +92,8 @@ class _FilterOptionsScreenState extends ConsumerState<FilterOptionsScreen> {
                   ),
                   EnumDropdown<ERarity>(
                     'Rarity:',
-                    selectedValue: ref.read(heroesFilterProvider).rarity,
-                    onChanged: (value) => ref.read(heroesFilterProvider.notifier).setRarity(value!),
+                    selectedValue: selectedFilters.rarity,
+                    onChanged: (value) => filtersNotifier.setRarity(value!),
                     enumVaules: ERarity.values,
                     element: (value) {
                       if (value == ERarity.none) {
@@ -107,14 +108,14 @@ class _FilterOptionsScreenState extends ConsumerState<FilterOptionsScreen> {
                   ),
                   EnumDropdown<EHeroClass>(
                     'Hero Class:',
-                    selectedValue: ref.read(heroesFilterProvider).heroClass,
-                    onChanged: (value) => ref.read(heroesFilterProvider.notifier).setHeroClass(value!),
+                    selectedValue: selectedFilters.heroClass,
+                    onChanged: (value) => filtersNotifier.setHeroClass(value!),
                     enumVaules: EHeroClass.values,
                   ),
                   EnumDropdown<EHeroType>(
                     'Hero Type:',
-                    selectedValue: ref.read(heroesFilterProvider).heroType,
-                    onChanged: (value) => ref.read(heroesFilterProvider.notifier).setHeroType(value!),
+                    selectedValue: selectedFilters.heroType,
+                    onChanged: (value) => filtersNotifier.setHeroType(value!),
                     enumVaules: EHeroType.values,
                   ),
                   const SizedBox(height: 5),
@@ -123,18 +124,16 @@ class _FilterOptionsScreenState extends ConsumerState<FilterOptionsScreen> {
                     fontSize: 25,
                   ),
                   SkillOptions(
-                    selectedSkillClass: ref.read(heroesFilterProvider).baseSkillClass,
-                    selectedSkillEffect: ref.read(heroesFilterProvider).baseSkillEffect,
-                    selectedSkillTarget: ref.read(heroesFilterProvider).baseSkillTarget,
-                    selectedSkillChanceToDebuff: ref.read(heroesFilterProvider).baseSkillChanceToDebuff,
-                    selectedSkillStrongVsDebuff: ref.read(heroesFilterProvider).baseSkillStrongVsDebuff,
-                    onSkillClassChanged: (value) => ref.read(heroesFilterProvider.notifier).setBaseSkillClass(value!),
-                    onSkillEffectChanged: (value) => ref.read(heroesFilterProvider.notifier).setBaseSkillEffect(value!),
-                    onSkillTargetChanged: (value) => ref.read(heroesFilterProvider.notifier).setBaseSkillTarget(value!),
-                    onSkillChanceToDebuffChanged: (value) =>
-                        ref.read(heroesFilterProvider.notifier).setBaseSkillChanceToDebuff(value!),
-                    onSkillStrongVsDebuffChanged: (value) =>
-                        ref.read(heroesFilterProvider.notifier).setBaseSkillStrongVsDebuff(value!),
+                    selectedSkillClass: selectedFilters.baseSkillClass,
+                    selectedSkillEffect: selectedFilters.baseSkillEffect,
+                    selectedSkillTarget: selectedFilters.baseSkillTarget,
+                    selectedSkillChanceToDebuff: selectedFilters.baseSkillChanceToDebuff,
+                    selectedSkillStrongVsDebuff: selectedFilters.baseSkillStrongVsDebuff,
+                    onSkillClassChanged: (value) => filtersNotifier.setBaseSkillClass(value!),
+                    onSkillEffectChanged: (value) => filtersNotifier.setBaseSkillEffect(value!),
+                    onSkillTargetChanged: (value) => filtersNotifier.setBaseSkillTarget(value!),
+                    onSkillChanceToDebuffChanged: (value) => filtersNotifier.setBaseSkillChanceToDebuff(value!),
+                    onSkillStrongVsDebuffChanged: (value) => filtersNotifier.setBaseSkillStrongVsDebuff(value!),
                   ),
                   const SizedBox(height: 5),
                   const TextRoundedWithBackground.header(
@@ -142,18 +141,18 @@ class _FilterOptionsScreenState extends ConsumerState<FilterOptionsScreen> {
                     fontSize: 25,
                   ),
                   SkillOptions(
-                    selectedSkillClass: ref.read(heroesFilterProvider).rageSkillClass,
-                    selectedSkillEffect: ref.read(heroesFilterProvider).rageSkillEffect,
-                    selectedSkillTarget: ref.read(heroesFilterProvider).rageSkillTarget,
-                    selectedSkillChanceToDebuff: ref.read(heroesFilterProvider).rageSkillChanceToDebuff,
-                    selectedSkillStrongVsDebuff: ref.read(heroesFilterProvider).rageSkillStrongVsDebuff,
-                    onSkillClassChanged: (value) => ref.read(heroesFilterProvider.notifier).setRageSkillClass(value!),
-                    onSkillEffectChanged: (value) => ref.read(heroesFilterProvider.notifier).setRageSkillEffect(value!),
-                    onSkillTargetChanged: (value) => ref.read(heroesFilterProvider.notifier).setRageSkillTarget(value!),
+                    selectedSkillClass: selectedFilters.rageSkillClass,
+                    selectedSkillEffect: selectedFilters.rageSkillEffect,
+                    selectedSkillTarget: selectedFilters.rageSkillTarget,
+                    selectedSkillChanceToDebuff: selectedFilters.rageSkillChanceToDebuff,
+                    selectedSkillStrongVsDebuff: selectedFilters.rageSkillStrongVsDebuff,
+                    onSkillClassChanged: (value) => filtersNotifier.setRageSkillClass(value!),
+                    onSkillEffectChanged: (value) => filtersNotifier.setRageSkillEffect(value!),
+                    onSkillTargetChanged: (value) => filtersNotifier.setRageSkillTarget(value!),
                     onSkillChanceToDebuffChanged: (value) =>
-                        ref.read(heroesFilterProvider.notifier).setRageSkillChanceToDebuff(value!),
+                        filtersNotifier.setRageSkillChanceToDebuff(value!),
                     onSkillStrongVsDebuffChanged: (value) =>
-                        ref.read(heroesFilterProvider.notifier).setRageSkillStrongVsDebuff(value!),
+                        filtersNotifier.setRageSkillStrongVsDebuff(value!),
                   ),
                   getApplyButton(),
                 ]),
