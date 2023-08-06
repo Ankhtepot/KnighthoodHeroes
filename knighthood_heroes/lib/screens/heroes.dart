@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/data/heroes_data.dart';
@@ -8,63 +9,66 @@ import 'package:knighthood_heroes/helpers/images_helper.dart';
 import 'package:knighthood_heroes/helpers/navigation.dart';
 import 'package:knighthood_heroes/models/knighthood_hero.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
+import 'package:knighthood_heroes/providers/hero_filters_provider.dart';
 import 'package:knighthood_heroes/screens/credits.dart';
 import 'package:knighthood_heroes/widgets/action_icon.dart';
-// import 'package:knighthood_heroes/widgets/action_icon.dart';
-import 'package:knighthood_heroes/screens/filter_options.dart';
+import 'package:knighthood_heroes/screens/filter_options_screen.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/heroes_list.dart';
 import 'package:knighthood_heroes/widgets/main_drawer.dart';
 import 'package:knighthood_heroes/widgets/heroes_screen/sort_options.dart';
 
 const VisualDensity kVisualDensity = VisualDensity(horizontal: -4, vertical: 0);
 
-List<KnighthoodHero> filterHeroes(HeroesFilterOptions filterOptions, List<KnighthoodHero> heroes) {
-  List<KnighthoodHero> filteredHeroes = List.of(heroes);
-  filteredHeroes = filteredHeroes
-      .where((hero) =>
-          (filterOptions.heroClass == EHeroClass.none || filterOptions.heroClass == hero.heroClass) &&
-          (filterOptions.heroType == EHeroType.none || hero.heroType == filterOptions.heroType) &&
-          (filterOptions.rarity == ERarity.none || hero.rarity == filterOptions.rarity) &&
-          (filterOptions.enemyType == EEnemyType.none || hero.strongVs == filterOptions.enemyType) &&
-          (filterOptions.baseSkillClass == ESkillClass.none ||
-              hero.baseSkill.skillClass == filterOptions.baseSkillClass) &&
-          (filterOptions.baseSkillStrongVsDebuff == ESkillDebuff.none ||
-              hero.baseSkill.strongVsDebuff == filterOptions.baseSkillStrongVsDebuff) &&
-          (filterOptions.baseSkillChanceToDebuff == ESkillDebuff.none ||
-              hero.baseSkill.chanceTo == filterOptions.baseSkillChanceToDebuff) &&
-          (filterOptions.baseSkillEffect == ESkillEffect.none ||
-              hero.baseSkill.skillEffects.contains(filterOptions.baseSkillEffect)) &&
-          (filterOptions.baseSkillTarget == ESkillEffect.none ||
-              hero.baseSkill.skillEffects.contains(filterOptions.baseSkillTarget)) &&
-          (filterOptions.rageSkillClass == ESkillClass.none ||
-              hero.rageSkill.skillClass == filterOptions.rageSkillClass) &&
-          (filterOptions.rageSkillStrongVsDebuff == ESkillDebuff.none ||
-              hero.rageSkill.strongVsDebuff == filterOptions.rageSkillStrongVsDebuff) &&
-          (filterOptions.rageSkillChanceToDebuff == ESkillDebuff.none ||
-              hero.rageSkill.chanceTo == filterOptions.rageSkillChanceToDebuff) &&
-          (filterOptions.rageSkillEffect == ESkillEffect.none ||
-              hero.rageSkill.skillEffects.contains(filterOptions.rageSkillEffect)) &&
-          (filterOptions.rageSkillTarget == ESkillEffect.none ||
-              hero.rageSkill.skillEffects.contains(filterOptions.rageSkillTarget)))
-      .toList();
-
-  return filteredHeroes;
-}
-
-class Heroes extends StatefulWidget {
+class Heroes extends ConsumerStatefulWidget {
   const Heroes({super.key});
 
   @override
-  State<Heroes> createState() => _HeroesState();
+  ConsumerState<Heroes> createState() => _HeroesState();
 }
 
-class _HeroesState extends State<Heroes> {
+class _HeroesState extends ConsumerState<Heroes> {
   List<KnighthoodHero> heroes = List.of(getHeroes);
-  HeroesFilterOptions options = const HeroesFilterOptions();
+
   ESortType currentSortType = ESortType.nameAZ;
 
   @override
   Widget build(BuildContext context) {
+    final HeroesFilterOptions filterOptions = ref.watch(heroesFilterProvider);
+
+    List<KnighthoodHero> getFilteredHeroes() {
+      List<KnighthoodHero> filteredHeroes = List.of(heroes);
+
+      filteredHeroes = filteredHeroes
+          .where((hero) =>
+              (filterOptions.heroClass == EHeroClass.none || filterOptions.heroClass == hero.heroClass) &&
+              (filterOptions.heroType == EHeroType.none || hero.heroType == filterOptions.heroType) &&
+              (filterOptions.rarity == ERarity.none || hero.rarity == filterOptions.rarity) &&
+              (filterOptions.enemyType == EEnemyType.none || hero.strongVs == filterOptions.enemyType) &&
+              (filterOptions.baseSkillClass == ESkillClass.none ||
+                  hero.baseSkill.skillClass == filterOptions.baseSkillClass) &&
+              (filterOptions.baseSkillStrongVsDebuff == ESkillDebuff.none ||
+                  hero.baseSkill.strongVsDebuff == filterOptions.baseSkillStrongVsDebuff) &&
+              (filterOptions.baseSkillChanceToDebuff == ESkillDebuff.none ||
+                  hero.baseSkill.chanceTo == filterOptions.baseSkillChanceToDebuff) &&
+              (filterOptions.baseSkillEffect == ESkillEffect.none ||
+                  hero.baseSkill.skillEffects.contains(filterOptions.baseSkillEffect)) &&
+              (filterOptions.baseSkillTarget == ESkillEffect.none ||
+                  hero.baseSkill.skillEffects.contains(filterOptions.baseSkillTarget)) &&
+              (filterOptions.rageSkillClass == ESkillClass.none ||
+                  hero.rageSkill.skillClass == filterOptions.rageSkillClass) &&
+              (filterOptions.rageSkillStrongVsDebuff == ESkillDebuff.none ||
+                  hero.rageSkill.strongVsDebuff == filterOptions.rageSkillStrongVsDebuff) &&
+              (filterOptions.rageSkillChanceToDebuff == ESkillDebuff.none ||
+                  hero.rageSkill.chanceTo == filterOptions.rageSkillChanceToDebuff) &&
+              (filterOptions.rageSkillEffect == ESkillEffect.none ||
+                  hero.rageSkill.skillEffects.contains(filterOptions.rageSkillEffect)) &&
+              (filterOptions.rageSkillTarget == ESkillEffect.none ||
+                  hero.rageSkill.skillEffects.contains(filterOptions.rageSkillTarget)))
+          .toList();
+
+      return filteredHeroes;
+    }
+
     void sortHeroes(ESortType? newSortType) {
       setState(() {
         currentSortType = newSortType!;
@@ -85,8 +89,7 @@ class _HeroesState extends State<Heroes> {
     }
 
     void setFilterOptions(HeroesFilterOptions filterOptions) {
-      setState(() => options = filterOptions);
-      heroes = filterHeroes(filterOptions, getHeroes);
+      ref.read(heroesFilterProvider.notifier).setFilters(filterOptions);
       sortHeroes(currentSortType);
     }
 
@@ -123,13 +126,16 @@ class _HeroesState extends State<Heroes> {
                     child: Row(
                       children: [
                         const SizedBox(width: 10),
-                        ActionIcon(Icons.filter_alt, onTap: () {
+                        ActionIcon(Icons.filter_alt, onTap: () async {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => FilterOptions(setFilterOptions),
+                              builder: (context) => const FilterOptionsScreen(),
                             ),
                           );
+                          // Delay reseting filters so screen wont flicker
+                          await Future.delayed(const Duration(milliseconds: 20));
+                          ref.read(heroesFilterProvider.notifier).resetFilters();
                         }),
                         const SizedBox(width: 15),
                         ActionIcon(Icons.autorenew_rounded, onTap: () {
@@ -158,12 +164,12 @@ class _HeroesState extends State<Heroes> {
       drawer: MainDrawer((screenId) => Navigation.setScreen(context, screenId)),
       body: Center(
         child: SpecialContainer.image(
-          imagePath: ImagesHelper.getBackgroundImagePathByRarity(options.rarity),
+          imagePath: ImagesHelper.getBackgroundImagePathByRarity(filterOptions.rarity),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SortOptions(sortHeroes, sortType: currentSortType),
-              Expanded(child: HeroesList(heroes)),
+              Expanded(child: HeroesList(getFilteredHeroes())),
             ],
           ),
         ),

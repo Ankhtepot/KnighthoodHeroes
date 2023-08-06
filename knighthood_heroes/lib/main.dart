@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:knighthood_heroes/screens/heroes.dart';
 
 ColorScheme colorScheme = ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 0, 149, 255));
@@ -7,12 +8,12 @@ ColorScheme colorScheme = ColorScheme.fromSeed(seedColor: const Color.fromARGB(2
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
-    runApp(const MyApp());
+    runApp(const ProviderScope(child: KnighthoodHeroes()));
   });
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class KnighthoodHeroes extends StatelessWidget {
+  const KnighthoodHeroes({super.key});
 
   @override
   Widget build(BuildContext context) {

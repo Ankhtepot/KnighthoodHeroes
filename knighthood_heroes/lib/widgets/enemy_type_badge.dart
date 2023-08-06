@@ -9,8 +9,11 @@ class EnemyTypeBadge extends StatelessWidget {
   final double size;
 
   @override
-  Widget build(BuildContext context) => Image.asset(
-        KnighthoodHero.getEnemyTypeImagePath(enemyType),
-        height: size,
+  Widget build(BuildContext context) => Padding(
+        padding: enemyType == EEnemyType.none ? EdgeInsets.symmetric(horizontal: size - 23) : const EdgeInsets.all(0),
+        child: Image.asset(
+          KnighthoodHero.getEnemyTypeImagePath(enemyType),
+          height: enemyType == EEnemyType.none ? 15 : size,
+        ),
       );
 }
