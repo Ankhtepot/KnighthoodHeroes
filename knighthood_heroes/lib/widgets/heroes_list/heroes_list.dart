@@ -58,12 +58,7 @@ class _HeroesListState extends State<HeroesList> {
           Padding(
             padding: EdgeInsets.all(8.0),
             child: Center(
-              child: TextRoundedWithBackground(
-                'No heroes mathing filter criteria found.',
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                horizontalPadding: 40,
-              ),
+              child: TextRoundedWithBackground.header('No heroes mathing filter criteria found.'),
             ),
           ),
         ],

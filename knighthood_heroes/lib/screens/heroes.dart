@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
-import 'package:knighthood_heroes/data/heroes_data.dart';
 import 'package:knighthood_heroes/general/special_container.dart';
 import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/helpers/images_helper.dart';
@@ -10,6 +9,7 @@ import 'package:knighthood_heroes/helpers/navigation.dart';
 import 'package:knighthood_heroes/models/knighthood_hero.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
 import 'package:knighthood_heroes/providers/hero_filters_provider.dart';
+import 'package:knighthood_heroes/providers/heroes_provider.dart';
 import 'package:knighthood_heroes/screens/credits.dart';
 import 'package:knighthood_heroes/widgets/action_icon.dart';
 import 'package:knighthood_heroes/screens/filter_options_screen.dart';
@@ -27,18 +27,15 @@ class Heroes extends ConsumerStatefulWidget {
 }
 
 class _HeroesState extends ConsumerState<Heroes> {
-  List<KnighthoodHero> heroes = List.of(getHeroes);
-
   ESortType currentSortType = ESortType.nameAZ;
 
   @override
   Widget build(BuildContext context) {
     final HeroesFilterOptions filterOptions = ref.watch(heroesFilterProvider);
+    final heroes = ref.watch(heroesProvider).heroes;
 
     List<KnighthoodHero> getFilteredHeroes() {
-      List<KnighthoodHero> filteredHeroes = List.of(heroes);
-
-      filteredHeroes = filteredHeroes
+      List<KnighthoodHero> filteredHeroes = heroes
           .where((hero) =>
               (filterOptions.heroClass == EHeroClass.none || filterOptions.heroClass == hero.heroClass) &&
               (filterOptions.heroType == EHeroType.none || hero.heroType == filterOptions.heroType) &&

@@ -1,42 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:knighthood_heroes/data/colors.dart';
 import 'package:knighthood_heroes/data/enums.dart';
 import 'package:knighthood_heroes/data/global.dart';
 import 'package:knighthood_heroes/general/enum_dropdown.dart';
 import 'package:knighthood_heroes/general/extensions.dart';
 import 'package:knighthood_heroes/models/skill.dart';
+import 'package:knighthood_heroes/providers/hero_filters_provider.dart';
 
-class SkillOptions extends StatelessWidget {
+class SkillOptions extends ConsumerWidget {
   const SkillOptions({
-    required this.selectedSkillClass,
-    required this.selectedSkillEffect,
-    required this.selectedSkillTarget,
-    required this.selectedSkillChanceToDebuff,
-    required this.selectedSkillStrongVsDebuff,
-    required this.onSkillClassChanged,
-    required this.onSkillEffectChanged,
-    required this.onSkillTargetChanged,
-    required this.onSkillChanceToDebuffChanged,
-    required this.onSkillStrongVsDebuffChanged,
+    required this.isBaseSkill,
     super.key,
   });
 
-  final ESkillClass selectedSkillClass;
-  final ESkillEffect selectedSkillEffect;
-  final ESkillEffect selectedSkillTarget;
-  final ESkillDebuff selectedSkillChanceToDebuff;
-  final ESkillDebuff selectedSkillStrongVsDebuff;
-  final Function(ESkillClass?) onSkillClassChanged;
-  final Function(ESkillEffect?) onSkillEffectChanged;
-  final Function(ESkillEffect?) onSkillTargetChanged;
-  final Function(ESkillDebuff?) onSkillChanceToDebuffChanged;
-  final Function(ESkillDebuff?) onSkillStrongVsDebuffChanged;
+  final bool isBaseSkill;
 
   static const double _skillEffectFontSize = 15;
   static const double _skillEffectEnumTitleGap = 5;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var selectedFilters = ref.watch(heroesFilterProvider);
+    var filtersNotifier = ref.read(heroesFilterProvider.notifier);
+
     Widget onSkillDebuffChangedBuilder(ESkillDebuff? value) {
       return Card(
           color: knighthoodContentColor,
@@ -86,8 +73,9 @@ class SkillOptions extends StatelessWidget {
         // Skill Main Effect
         EnumDropdown<ESkillClass>(
           'Main effect:',
-          selectedValue: selectedSkillClass,
-          onChanged: onSkillClassChanged,
+          selectedValue: isBaseSkill ? selectedFilters.baseSkillClass : selectedFilters.rageSkillClass,
+          onChanged: (value) =>
+              isBaseSkill ? filtersNotifier.setBaseSkillClass(value!) : filtersNotifier.setRageSkillClass(value!),
           enumVaules: ESkillClass.values,
           element: (value) {
             return Card(
@@ -119,15 +107,21 @@ class SkillOptions extends StatelessWidget {
         // Skil Chance to debuff
         EnumDropdown<ESkillDebuff>(
           'Chance to debuff:',
-          selectedValue: selectedSkillChanceToDebuff,
-          onChanged: onSkillChanceToDebuffChanged,
+          selectedValue:
+              isBaseSkill ? selectedFilters.baseSkillChanceToDebuff : selectedFilters.rageSkillChanceToDebuff,
+          onChanged: (value) => isBaseSkill
+              ? filtersNotifier.setBaseSkillChanceToDebuff(value!)
+              : filtersNotifier.setRageSkillChanceToDebuff(value!),
           enumVaules: ESkillDebuff.values,
           element: onSkillDebuffChangedBuilder,
         ),
         // Skill Strong vs debuff
         EnumDropdown<ESkillDebuff>('Strong vs debuff:',
-            selectedValue: selectedSkillStrongVsDebuff,
-            onChanged: onSkillStrongVsDebuffChanged,
+            selectedValue:
+                isBaseSkill ? selectedFilters.baseSkillStrongVsDebuff : selectedFilters.rageSkillStrongVsDebuff,
+            onChanged: (value) => isBaseSkill
+                ? filtersNotifier.setBaseSkillStrongVsDebuff(value!)
+                : filtersNotifier.setRageSkillStrongVsDebuff(value!),
             enumVaules: ESkillDebuff.values,
             element: onSkillDebuffChangedBuilder),
         // Targets
@@ -135,8 +129,9 @@ class SkillOptions extends StatelessWidget {
           'Skill targets:',
           titleFontSize: _skillEffectFontSize,
           titleGap: _skillEffectEnumTitleGap,
-          selectedValue: selectedSkillTarget,
-          onChanged: onSkillTargetChanged,
+          selectedValue: isBaseSkill ? selectedFilters.baseSkillTarget : selectedFilters.rageSkillTarget,
+          onChanged: (value) =>
+              isBaseSkill ? filtersNotifier.setBaseSkillTarget(value!) : filtersNotifier.setRageSkillTarget(value!),
           enumVaules: Skill.getSkillTargets,
           element: onSkillEffectChangedBuilder,
         ),
@@ -145,8 +140,9 @@ class SkillOptions extends StatelessWidget {
           'Causes effect:',
           titleFontSize: _skillEffectFontSize,
           titleGap: _skillEffectEnumTitleGap,
-          selectedValue: selectedSkillEffect,
-          onChanged: onSkillEffectChanged,
+          selectedValue: isBaseSkill ? selectedFilters.baseSkillEffect : selectedFilters.rageSkillEffect,
+          onChanged: (value) =>
+              isBaseSkill ? filtersNotifier.setBaseSkillEffect(value!) : filtersNotifier.setRageSkillEffect(value!),
           enumVaules: Skill.getSkillDebuffs,
           element: onSkillEffectChangedBuilder,
         ),
