@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/models/knighthood_hero.dart';
+import 'package:knighthood_heroes/providers/hero_filters_provider.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/hero_card.dart';
 import 'package:knighthood_heroes/widgets/heroes_list/hero_card_detailed.dart';
 
-class HeroesList extends StatefulWidget {
-  const HeroesList(this.heroes, {super.key});
-
-  final List<KnighthoodHero> heroes;
+class HeroesList extends ConsumerStatefulWidget {
+  const HeroesList({super.key});
 
   @override
-  State<HeroesList> createState() => _HeroesListState();
+  ConsumerState<HeroesList> createState() => _HeroesListState();
 }
 
-class _HeroesListState extends State<HeroesList> {
+class _HeroesListState extends ConsumerState<HeroesList> {
   List<bool> expandedStates = [];
 
   @override
@@ -36,7 +36,7 @@ class _HeroesListState extends State<HeroesList> {
 
   @override
   Widget build(BuildContext context) {
-    List<KnighthoodHero> filteredHeroes = widget.heroes;
+    List<KnighthoodHero> filteredHeroes = ref.watch(filteredHeroesProvider).exclusive;
 
     if (filteredHeroes.isNotEmpty) {
       return ListView.builder(

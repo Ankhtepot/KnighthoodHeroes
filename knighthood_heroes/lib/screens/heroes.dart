@@ -32,39 +32,39 @@ class _HeroesState extends ConsumerState<Heroes> {
   @override
   Widget build(BuildContext context) {
     final HeroesFilterOptions filterOptions = ref.watch(heroesFilterProvider);
-    final heroes = ref.watch(heroesProvider).heroes;
+    final heroes = ref.watch(heroesProvider);
 
-    List<KnighthoodHero> getFilteredHeroes() {
-      List<KnighthoodHero> filteredHeroes = heroes
-          .where((hero) =>
-              (filterOptions.heroClass == EHeroClass.none || filterOptions.heroClass == hero.heroClass) &&
-              (filterOptions.heroType == EHeroType.none || hero.heroType == filterOptions.heroType) &&
-              (filterOptions.rarity == ERarity.none || hero.rarity == filterOptions.rarity) &&
-              (filterOptions.enemyType == EEnemyType.none || hero.strongVs == filterOptions.enemyType) &&
-              (filterOptions.baseSkillClass == ESkillClass.none ||
-                  hero.baseSkill.skillClass == filterOptions.baseSkillClass) &&
-              (filterOptions.baseSkillStrongVsDebuff == ESkillDebuff.none ||
-                  hero.baseSkill.strongVsDebuff == filterOptions.baseSkillStrongVsDebuff) &&
-              (filterOptions.baseSkillChanceToDebuff == ESkillDebuff.none ||
-                  hero.baseSkill.chanceTo == filterOptions.baseSkillChanceToDebuff) &&
-              (filterOptions.baseSkillEffect == ESkillEffect.none ||
-                  hero.baseSkill.skillEffects.contains(filterOptions.baseSkillEffect)) &&
-              (filterOptions.baseSkillTarget == ESkillEffect.none ||
-                  hero.baseSkill.skillEffects.contains(filterOptions.baseSkillTarget)) &&
-              (filterOptions.rageSkillClass == ESkillClass.none ||
-                  hero.rageSkill.skillClass == filterOptions.rageSkillClass) &&
-              (filterOptions.rageSkillStrongVsDebuff == ESkillDebuff.none ||
-                  hero.rageSkill.strongVsDebuff == filterOptions.rageSkillStrongVsDebuff) &&
-              (filterOptions.rageSkillChanceToDebuff == ESkillDebuff.none ||
-                  hero.rageSkill.chanceTo == filterOptions.rageSkillChanceToDebuff) &&
-              (filterOptions.rageSkillEffect == ESkillEffect.none ||
-                  hero.rageSkill.skillEffects.contains(filterOptions.rageSkillEffect)) &&
-              (filterOptions.rageSkillTarget == ESkillEffect.none ||
-                  hero.rageSkill.skillEffects.contains(filterOptions.rageSkillTarget)))
-          .toList();
+    // List<KnighthoodHero> getFilteredHeroes() {
+    //   List<KnighthoodHero> filteredHeroes = heroes
+    //       .where((hero) =>
+    //           (filterOptions.heroClass == EHeroClass.none || filterOptions.heroClass == hero.heroClass) &&
+    //           (filterOptions.heroType == EHeroType.none || hero.heroType == filterOptions.heroType) &&
+    //           (filterOptions.rarity == ERarity.none || hero.rarity == filterOptions.rarity) &&
+    //           (filterOptions.enemyType == EEnemyType.none || hero.strongVs == filterOptions.enemyType) &&
+    //           (filterOptions.baseSkillClass == ESkillClass.none ||
+    //               hero.baseSkill.skillClass == filterOptions.baseSkillClass) &&
+    //           (filterOptions.baseSkillStrongVsDebuff == ESkillDebuff.none ||
+    //               hero.baseSkill.strongVsDebuff == filterOptions.baseSkillStrongVsDebuff) &&
+    //           (filterOptions.baseSkillChanceToDebuff == ESkillDebuff.none ||
+    //               hero.baseSkill.chanceTo == filterOptions.baseSkillChanceToDebuff) &&
+    //           (filterOptions.baseSkillEffect == ESkillEffect.none ||
+    //               hero.baseSkill.skillEffects.contains(filterOptions.baseSkillEffect)) &&
+    //           (filterOptions.baseSkillTarget == ESkillEffect.none ||
+    //               hero.baseSkill.skillEffects.contains(filterOptions.baseSkillTarget)) &&
+    //           (filterOptions.rageSkillClass == ESkillClass.none ||
+    //               hero.rageSkill.skillClass == filterOptions.rageSkillClass) &&
+    //           (filterOptions.rageSkillStrongVsDebuff == ESkillDebuff.none ||
+    //               hero.rageSkill.strongVsDebuff == filterOptions.rageSkillStrongVsDebuff) &&
+    //           (filterOptions.rageSkillChanceToDebuff == ESkillDebuff.none ||
+    //               hero.rageSkill.chanceTo == filterOptions.rageSkillChanceToDebuff) &&
+    //           (filterOptions.rageSkillEffect == ESkillEffect.none ||
+    //               hero.rageSkill.skillEffects.contains(filterOptions.rageSkillEffect)) &&
+    //           (filterOptions.rageSkillTarget == ESkillEffect.none ||
+    //               hero.rageSkill.skillEffects.contains(filterOptions.rageSkillTarget)))
+    //       .toList();
 
-      return filteredHeroes;
-    }
+    //   return filteredHeroes;
+    // }
 
     void sortHeroes(ESortType? newSortType) {
       setState(() {
@@ -161,7 +161,7 @@ class _HeroesState extends ConsumerState<Heroes> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SortOptions(sortHeroes, sortType: currentSortType),
-              Expanded(child: HeroesList(getFilteredHeroes())),
+              Expanded(child: HeroesList()),
             ],
           ),
         ),
