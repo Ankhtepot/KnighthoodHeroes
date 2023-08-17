@@ -35,3 +35,17 @@ class HeroesFilterNotifier extends StateNotifier<HeroesFilterOptions> {
   void setRageSkillStrongVsDebuff(ESkillDebuff rageSkillStrongVsDebuff) =>
       state = state.withRageSkillStrongVsDebuff(rageSkillStrongVsDebuff);
 }
+
+final heroesFilteringTypeProvider =
+    StateNotifierProvider<HeroesFilteringTypeStateNotifier, bool>((ref) => HeroesFilteringTypeStateNotifier());
+
+class HeroesFilteringTypeStateNotifier extends StateNotifier<bool> {
+  HeroesFilteringTypeStateNotifier() : super(true);
+
+  void toggleFilteringType() => state = !state;
+
+  void setFilteringType(bool isExclusive) => state = isExclusive;
+
+  bool get isExclusive => state;
+  bool get isInclusive => !state;
+}

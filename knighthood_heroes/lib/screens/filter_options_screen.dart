@@ -28,17 +28,52 @@ class _FilterOptionsScreenState extends ConsumerState<FilterOptionsScreen> {
   Widget build(BuildContext context) {
     final selectedFilters = ref.watch(heroesFilterProvider);
     final filtersNotifier = ref.read(heroesFilterProvider.notifier);
+    final fileringType = ref.watch(heroesFilteringTypeProvider.notifier);
 
-    Widget getApplyButton() => ElevatedButton(
-          onPressed: () => Navigator.pop(context),
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(knighhoodTitleColor),
-            foregroundColor: MaterialStateProperty.all<Color>(appBarTextColor),
-          ),
-          child: Text(
-            'Apply Filters',
-            style: commonTextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
+    List<bool> isSelected = [fileringType.isExclusive, fileringType.isInclusive];
+
+    Widget getApplyRow() => Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () => Navigator.pop(context),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(knighhoodTitleColor),
+                foregroundColor: MaterialStateProperty.all<Color>(appBarTextColor),
+              ),
+              child: Text(
+                'Apply Filters',
+                style: commonTextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(width: 10),
+            ToggleButtons(
+              renderBorder: false,
+              isSelected: isSelected,
+              onPressed: (index) {
+                setState(() {});
+                fileringType.setFilteringType(index == 0);
+              },
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  child: TextRoundedWithBackground(
+                    'Exclusive',
+                    backgroundColor: fileringType.isExclusive ? Colors.black : Colors.grey,
+                    textColor: fileringType.isExclusive ? Colors.white : Colors.black,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  child: TextRoundedWithBackground(
+                    'Inclusive',
+                    backgroundColor: fileringType.isInclusive ? Colors.black : Colors.grey,
+                    textColor: fileringType.isInclusive ? Colors.white : Colors.black,
+                  ),
+                ),
+              ],
+            ),
+          ],
         );
 
     return Scaffold(
@@ -71,7 +106,7 @@ class _FilterOptionsScreenState extends ConsumerState<FilterOptionsScreen> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-                  getApplyButton(),
+                  getApplyRow(),
                   EnumDropdown<EEnemyType>(
                     'Strong against:',
                     selectedValue: selectedFilters.enemyType,
@@ -124,7 +159,7 @@ class _FilterOptionsScreenState extends ConsumerState<FilterOptionsScreen> {
                   const SizedBox(height: 5),
                   const TextRoundedWithBackground.header('Rage skill options:', fontSize: 25),
                   const SkillOptions(isBaseSkill: false),
-                  getApplyButton(),
+                  getApplyRow(),
                 ]),
               ),
             ),

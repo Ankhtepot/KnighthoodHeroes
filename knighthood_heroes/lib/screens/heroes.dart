@@ -7,6 +7,7 @@ import 'package:knighthood_heroes/general/text_rounded_with_background.dart';
 import 'package:knighthood_heroes/helpers/images_helper.dart';
 import 'package:knighthood_heroes/helpers/navigation.dart';
 import 'package:knighthood_heroes/models/heroes_filter_options.dart';
+import 'package:knighthood_heroes/models/knighthood_hero.dart';
 import 'package:knighthood_heroes/providers/filtered_heroes_provider.dart';
 import 'package:knighthood_heroes/providers/hero_filters_provider.dart';
 import 'package:knighthood_heroes/providers/heroes_provider.dart';
@@ -33,6 +34,11 @@ class _HeroesState extends ConsumerState<Heroes> {
   Widget build(BuildContext context) {
     final HeroesFilterOptions filterOptions = ref.watch(heroesFilterProvider);
     final heroes = ref.watch(heroesProvider);
+    // final filterType = ref.watch(heroesFilteringTypeProvider.notifier);
+
+    List<KnighthoodHero> getFilteredHeroes() => ref.read(heroesFilteringTypeProvider.notifier).isExclusive
+        ? ref.read(filteredHeroesProvider).exclusive
+        : ref.read(filteredHeroesProvider).inclusive;
 
     void sortHeroes(ESortType? newSortType) {
       setState(() {
@@ -66,7 +72,7 @@ class _HeroesState extends ConsumerState<Heroes> {
               title: Row(
                 children: [
                   TextRoundedWithBackground.header(
-                    'Heroes (${heroes.length})',
+                    'Heroes (${getFilteredHeroes().length})',
                     horizontalPadding: 15,
                   ),
                 ],
@@ -129,7 +135,7 @@ class _HeroesState extends ConsumerState<Heroes> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SortOptions(sortHeroes, sortType: currentSortType),
-              Expanded(child: HeroesList(ref.read(filteredHeroesProvider).exclusive)),
+              Expanded(child: HeroesList(getFilteredHeroes())),
             ],
           ),
         ),
