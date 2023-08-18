@@ -58,7 +58,7 @@ class _FilterOptionsScreenState extends ConsumerState<FilterOptionsScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: TextRoundedWithBackground(
-                    'Exclusive',
+                    'Have All',
                     backgroundColor: fileringType.isExclusive ? Colors.black : Colors.grey,
                     textColor: fileringType.isExclusive ? Colors.white : Colors.black,
                   ),
@@ -66,7 +66,7 @@ class _FilterOptionsScreenState extends ConsumerState<FilterOptionsScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: TextRoundedWithBackground(
-                    'Inclusive',
+                    'Have Any',
                     backgroundColor: fileringType.isInclusive ? Colors.black : Colors.grey,
                     textColor: fileringType.isInclusive ? Colors.white : Colors.black,
                   ),
