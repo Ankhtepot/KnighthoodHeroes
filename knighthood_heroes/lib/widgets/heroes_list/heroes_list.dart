@@ -46,6 +46,7 @@ class _HeroesListState extends State<HeroesList> {
           return InkWell(
             onTap: () {
               expandedStates[index] = !isExpanded;
+              setState(() {});
             },
             child: isExpanded ? HeroCardDetailed(filteredHeroes[index]) : HeroCard(filteredHeroes[index]),
           );

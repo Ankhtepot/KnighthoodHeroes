@@ -14,8 +14,7 @@ class HeroCard extends StatelessWidget {
   final KnighthoodHero hero;
 
   @override
-  Widget build(BuildContext context) {
-    return Card(
+  Widget build(BuildContext context) => Card(
       color: const Color.fromARGB(255, 207, 253, 255),
       elevation: 5,
       child: Padding(
@@ -73,5 +72,4 @@ class HeroCard extends StatelessWidget {
         ),
       ),
     );
-  }
 }
